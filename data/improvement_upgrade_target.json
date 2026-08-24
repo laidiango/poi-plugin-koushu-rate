@@ -1,0 +1,2082 @@
+[
+  {
+    "id": "1|293|all",
+    "equipment_id": 1,
+    "upgrade_id": 293,
+    "route_kind": null,
+    "consume_development_min": 2,
+    "consume_development_max": 4,
+    "consume_improvement_min": 2,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "2|63|all",
+    "equipment_id": 2,
+    "upgrade_id": 63,
+    "route_kind": null,
+    "consume_development_min": 2,
+    "consume_development_max": 3,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "3|122|kind1",
+    "equipment_id": 3,
+    "upgrade_id": 122,
+    "route_kind": "kind1",
+    "consume_development_min": 8,
+    "consume_development_max": 12,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "3|553|kind2",
+    "equipment_id": 3,
+    "upgrade_id": 553,
+    "route_kind": "kind2",
+    "consume_development_min": 7,
+    "consume_development_max": 9,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "4|119|all",
+    "equipment_id": 4,
+    "upgrade_id": 119,
+    "route_kind": null,
+    "consume_development_min": 3,
+    "consume_development_max": 4,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "5|235|all",
+    "equipment_id": 5,
+    "upgrade_id": 235,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 12,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "6|90|all",
+    "equipment_id": 6,
+    "upgrade_id": 90,
+    "route_kind": null,
+    "consume_development_min": 2,
+    "consume_development_max": 5,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "7|103|all",
+    "equipment_id": 7,
+    "upgrade_id": 103,
+    "route_kind": null,
+    "consume_development_min": 6,
+    "consume_development_max": 12,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 12
+  },
+  {
+    "id": "8|105|all",
+    "equipment_id": 8,
+    "upgrade_id": 105,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 20,
+    "consume_improvement_min": 10,
+    "consume_improvement_max": 15
+  },
+  {
+    "id": "9|276|all",
+    "equipment_id": 9,
+    "upgrade_id": 276,
+    "route_kind": null,
+    "consume_development_min": 18,
+    "consume_development_max": 36,
+    "consume_improvement_min": 12,
+    "consume_improvement_max": 16
+  },
+  {
+    "id": "10|91|all",
+    "equipment_id": 10,
+    "upgrade_id": 91,
+    "route_kind": null,
+    "consume_development_min": 5,
+    "consume_development_max": 6,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 4
+  },
+  {
+    "id": "11|65|all",
+    "equipment_id": 11,
+    "upgrade_id": 65,
+    "route_kind": null,
+    "consume_development_min": 3,
+    "consume_development_max": 4,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 4
+  },
+  {
+    "id": "12|234|all",
+    "equipment_id": 12,
+    "upgrade_id": 234,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 12,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "13|125|all",
+    "equipment_id": 13,
+    "upgrade_id": 125,
+    "route_kind": null,
+    "consume_development_min": 3,
+    "consume_development_max": 5,
+    "consume_improvement_min": 2,
+    "consume_improvement_max": 4
+  },
+  {
+    "id": "14|15|all",
+    "equipment_id": 14,
+    "upgrade_id": 15,
+    "route_kind": null,
+    "consume_development_min": 3,
+    "consume_development_max": 5,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "15|58|all",
+    "equipment_id": 15,
+    "upgrade_id": 58,
+    "route_kind": null,
+    "consume_development_min": 5,
+    "consume_development_max": 10,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 11
+  },
+  {
+    "id": "16|82|kind2",
+    "equipment_id": 16,
+    "upgrade_id": 82,
+    "route_kind": "kind2",
+    "consume_development_min": 20,
+    "consume_development_max": 36,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "16|98|kind1",
+    "equipment_id": 16,
+    "upgrade_id": 98,
+    "route_kind": "kind1",
+    "consume_development_min": 3,
+    "consume_development_max": 6,
+    "consume_improvement_min": 2,
+    "consume_improvement_max": 4
+  },
+  {
+    "id": "17|372|all",
+    "equipment_id": 17,
+    "upgrade_id": 372,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 20,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "18|52|all",
+    "equipment_id": 18,
+    "upgrade_id": 52,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 10,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 5
+  },
+  {
+    "id": "19|228|all",
+    "equipment_id": 19,
+    "upgrade_id": 228,
+    "route_kind": null,
+    "consume_development_min": 3,
+    "consume_development_max": 6,
+    "consume_improvement_min": 2,
+    "consume_improvement_max": 4
+  },
+  {
+    "id": "20|181|all",
+    "equipment_id": 20,
+    "upgrade_id": 181,
+    "route_kind": null,
+    "consume_development_min": 4,
+    "consume_development_max": 7,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 5
+  },
+  {
+    "id": "21|60|kind2",
+    "equipment_id": 21,
+    "upgrade_id": 60,
+    "route_kind": "kind2",
+    "consume_development_min": 5,
+    "consume_development_max": 8,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 5
+  },
+  {
+    "id": "22|53|all",
+    "equipment_id": 22,
+    "upgrade_id": 53,
+    "route_kind": null,
+    "consume_development_min": 15,
+    "consume_development_max": 25,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "23|391|all",
+    "equipment_id": 23,
+    "upgrade_id": 391,
+    "route_kind": null,
+    "consume_development_min": 4,
+    "consume_development_max": 7,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 5
+  },
+  {
+    "id": "24|57|all",
+    "equipment_id": 24,
+    "upgrade_id": 57,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 9,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "25|59|kind2",
+    "equipment_id": 25,
+    "upgrade_id": 59,
+    "route_kind": "kind2",
+    "consume_development_min": 11,
+    "consume_development_max": 15,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "25|165|kind1",
+    "equipment_id": 25,
+    "upgrade_id": 165,
+    "route_kind": "kind1",
+    "consume_development_min": 9,
+    "consume_development_max": 15,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "26|79|kind1",
+    "equipment_id": 26,
+    "upgrade_id": 79,
+    "route_kind": "kind1",
+    "consume_development_min": 16,
+    "consume_development_max": 24,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "26|80|kind2",
+    "equipment_id": 26,
+    "upgrade_id": 80,
+    "route_kind": "kind2",
+    "consume_development_min": 14,
+    "consume_development_max": 18,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "27|106|all",
+    "equipment_id": 27,
+    "upgrade_id": 106,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 15,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 12
+  },
+  {
+    "id": "28|88|all",
+    "equipment_id": 28,
+    "upgrade_id": 88,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 20,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 14
+  },
+  {
+    "id": "30|89|kind1",
+    "equipment_id": 30,
+    "upgrade_id": 89,
+    "route_kind": "kind1",
+    "consume_development_min": 12,
+    "consume_development_max": 16,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 13
+  },
+  {
+    "id": "30|410|kind2",
+    "equipment_id": 30,
+    "upgrade_id": 410,
+    "route_kind": "kind2",
+    "consume_development_min": 20,
+    "consume_development_max": 28,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 15
+  },
+  {
+    "id": "31|141|all",
+    "equipment_id": 31,
+    "upgrade_id": 141,
+    "route_kind": null,
+    "consume_development_min": 15,
+    "consume_development_max": 22,
+    "consume_improvement_min": 10,
+    "consume_improvement_max": 15
+  },
+  {
+    "id": "34|87|all",
+    "equipment_id": 34,
+    "upgrade_id": 87,
+    "route_kind": null,
+    "consume_development_min": 20,
+    "consume_development_max": 40,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 12
+  },
+  {
+    "id": "35|317|all",
+    "equipment_id": 35,
+    "upgrade_id": 317,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 16,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "36|116|all",
+    "equipment_id": 36,
+    "upgrade_id": 116,
+    "route_kind": null,
+    "consume_development_min": 6,
+    "consume_development_max": 9,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "37|38|all",
+    "equipment_id": 37,
+    "upgrade_id": 38,
+    "route_kind": null,
+    "consume_development_min": 1,
+    "consume_development_max": 2,
+    "consume_improvement_min": 1,
+    "consume_improvement_max": 2
+  },
+  {
+    "id": "39|40|all",
+    "equipment_id": 39,
+    "upgrade_id": 40,
+    "route_kind": null,
+    "consume_development_min": 2,
+    "consume_development_max": 3,
+    "consume_improvement_min": 1,
+    "consume_improvement_max": 2
+  },
+  {
+    "id": "40|131|kind2",
+    "equipment_id": 40,
+    "upgrade_id": 131,
+    "route_kind": "kind2",
+    "consume_development_min": 5,
+    "consume_development_max": 9,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "41|309|all",
+    "equipment_id": 41,
+    "upgrade_id": 309,
+    "route_kind": null,
+    "consume_development_min": 9,
+    "consume_development_max": 18,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "44|45|all",
+    "equipment_id": 44,
+    "upgrade_id": 45,
+    "route_kind": null,
+    "consume_development_min": 3,
+    "consume_development_max": 6,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "46|47|kind1",
+    "equipment_id": 46,
+    "upgrade_id": 47,
+    "route_kind": "kind1",
+    "consume_development_min": 6,
+    "consume_development_max": 9,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 5
+  },
+  {
+    "id": "46|149|kind2",
+    "equipment_id": 46,
+    "upgrade_id": 149,
+    "route_kind": "kind2",
+    "consume_development_min": 10,
+    "consume_development_max": 20,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 12
+  },
+  {
+    "id": "47|438|kind2",
+    "equipment_id": 47,
+    "upgrade_id": 438,
+    "route_kind": "kind2",
+    "consume_development_min": 40,
+    "consume_development_max": 48,
+    "consume_improvement_min": 18,
+    "consume_improvement_max": 25
+  },
+  {
+    "id": "49|39|all",
+    "equipment_id": 49,
+    "upgrade_id": 39,
+    "route_kind": null,
+    "consume_development_min": 2,
+    "consume_development_max": 3,
+    "consume_improvement_min": 1,
+    "consume_improvement_max": 2
+  },
+  {
+    "id": "50|520|all",
+    "equipment_id": 50,
+    "upgrade_id": 520,
+    "route_kind": null,
+    "consume_development_min": 5,
+    "consume_development_max": 10,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 14
+  },
+  {
+    "id": "51|274|all",
+    "equipment_id": 51,
+    "upgrade_id": 274,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 30,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "52|466|all",
+    "equipment_id": 52,
+    "upgrade_id": 466,
+    "route_kind": null,
+    "consume_development_min": 9,
+    "consume_development_max": 12,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "55|271|all",
+    "equipment_id": 55,
+    "upgrade_id": 271,
+    "route_kind": null,
+    "consume_development_min": 13,
+    "consume_development_max": 20,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "57|320|all",
+    "equipment_id": 57,
+    "upgrade_id": 320,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 16,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 12
+  },
+  {
+    "id": "60|219|kind2",
+    "equipment_id": 60,
+    "upgrade_id": 219,
+    "route_kind": "kind2",
+    "consume_development_min": 16,
+    "consume_development_max": 22,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "63|266|all",
+    "equipment_id": 63,
+    "upgrade_id": 266,
+    "route_kind": null,
+    "consume_development_min": 4,
+    "consume_development_max": 8,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "64|559|all",
+    "equipment_id": 64,
+    "upgrade_id": 559,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 18,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 15
+  },
+  {
+    "id": "65|139|all",
+    "equipment_id": 65,
+    "upgrade_id": 139,
+    "route_kind": null,
+    "consume_development_min": 5,
+    "consume_development_max": 8,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "66|220|all",
+    "equipment_id": 66,
+    "upgrade_id": 220,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 12,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "68|166|kind1",
+    "equipment_id": 68,
+    "upgrade_id": 166,
+    "route_kind": "kind1",
+    "consume_development_min": 4,
+    "consume_development_max": 8,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "68|193|kind2",
+    "equipment_id": 68,
+    "upgrade_id": 193,
+    "route_kind": "kind2",
+    "consume_development_min": 8,
+    "consume_development_max": 16,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 12
+  },
+  {
+    "id": "68|409|kind3",
+    "equipment_id": 68,
+    "upgrade_id": 409,
+    "route_kind": "kind3",
+    "consume_development_min": 6,
+    "consume_development_max": 9,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "69|324|all",
+    "equipment_id": 69,
+    "upgrade_id": 324,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 20,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "70|451|all",
+    "equipment_id": 70,
+    "upgrade_id": 451,
+    "route_kind": null,
+    "consume_development_min": 7,
+    "consume_development_max": 9,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "71|275|all",
+    "equipment_id": 71,
+    "upgrade_id": 275,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 18,
+    "consume_improvement_min": 10,
+    "consume_improvement_max": 13
+  },
+  {
+    "id": "72|203|all",
+    "equipment_id": 72,
+    "upgrade_id": 203,
+    "route_kind": null,
+    "consume_development_min": 28,
+    "consume_development_max": 35,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 12
+  },
+  {
+    "id": "73|136|kind2",
+    "equipment_id": 73,
+    "upgrade_id": 136,
+    "route_kind": "kind2",
+    "consume_development_min": 40,
+    "consume_development_max": 50,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 11
+  },
+  {
+    "id": "73|204|kind1",
+    "equipment_id": 73,
+    "upgrade_id": 204,
+    "route_kind": "kind1",
+    "consume_development_min": 32,
+    "consume_development_max": 48,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 12
+  },
+  {
+    "id": "74|140|all",
+    "equipment_id": 74,
+    "upgrade_id": 140,
+    "route_kind": null,
+    "consume_development_min": 5,
+    "consume_development_max": 10,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "76|114|all",
+    "equipment_id": 76,
+    "upgrade_id": 114,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 20,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 13
+  },
+  {
+    "id": "79|81|all",
+    "equipment_id": 79,
+    "upgrade_id": 81,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 18,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "80|81|all",
+    "equipment_id": 80,
+    "upgrade_id": 81,
+    "route_kind": null,
+    "consume_development_min": 11,
+    "consume_development_max": 15,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "81|237|all",
+    "equipment_id": 81,
+    "upgrade_id": 237,
+    "route_kind": null,
+    "consume_development_min": 18,
+    "consume_development_max": 28,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 11
+  },
+  {
+    "id": "82|344|all",
+    "equipment_id": 82,
+    "upgrade_id": 344,
+    "route_kind": null,
+    "consume_development_min": 15,
+    "consume_development_max": 30,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 13
+  },
+  {
+    "id": "90|50|all",
+    "equipment_id": 90,
+    "upgrade_id": 50,
+    "route_kind": null,
+    "consume_development_min": 4,
+    "consume_development_max": 8,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 11
+  },
+  {
+    "id": "91|380|all",
+    "equipment_id": 91,
+    "upgrade_id": 380,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 20,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "92|191|all",
+    "equipment_id": 92,
+    "upgrade_id": 191,
+    "route_kind": null,
+    "consume_development_min": 4,
+    "consume_development_max": 8,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "93|94|all",
+    "equipment_id": 93,
+    "upgrade_id": 94,
+    "route_kind": null,
+    "consume_development_min": 18,
+    "consume_development_max": 24,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 14
+  },
+  {
+    "id": "94|570|kind2",
+    "equipment_id": 94,
+    "upgrade_id": 570,
+    "route_kind": "kind2",
+    "consume_development_min": 50,
+    "consume_development_max": 60,
+    "consume_improvement_min": 18,
+    "consume_improvement_max": 27
+  },
+  {
+    "id": "95|383|all",
+    "equipment_id": 95,
+    "upgrade_id": 383,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 12,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "96|182|all",
+    "equipment_id": 96,
+    "upgrade_id": 182,
+    "route_kind": null,
+    "consume_development_min": 4,
+    "consume_development_max": 7,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 5
+  },
+  {
+    "id": "98|345|all",
+    "equipment_id": 98,
+    "upgrade_id": 345,
+    "route_kind": null,
+    "consume_development_min": 9,
+    "consume_development_max": 15,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "99|100|all",
+    "equipment_id": 99,
+    "upgrade_id": 100,
+    "route_kind": null,
+    "consume_development_min": 16,
+    "consume_development_max": 28,
+    "consume_improvement_min": 10,
+    "consume_improvement_max": 20
+  },
+  {
+    "id": "103|289|kind3",
+    "equipment_id": 103,
+    "upgrade_id": 289,
+    "route_kind": "kind3",
+    "consume_development_min": 7,
+    "consume_development_max": 10,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "103|328|kind2",
+    "equipment_id": 103,
+    "upgrade_id": 328,
+    "route_kind": "kind2",
+    "consume_development_min": 35,
+    "consume_development_max": 40,
+    "consume_improvement_min": 12,
+    "consume_improvement_max": 15
+  },
+  {
+    "id": "104|289|all",
+    "equipment_id": 104,
+    "upgrade_id": 289,
+    "route_kind": null,
+    "consume_development_min": 9,
+    "consume_development_max": 17,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 13
+  },
+  {
+    "id": "105|236|all",
+    "equipment_id": 105,
+    "upgrade_id": 236,
+    "route_kind": null,
+    "consume_development_min": 15,
+    "consume_development_max": 30,
+    "consume_improvement_min": 12,
+    "consume_improvement_max": 16
+  },
+  {
+    "id": "106|450|kind2",
+    "equipment_id": 106,
+    "upgrade_id": 450,
+    "route_kind": "kind2",
+    "consume_development_min": 9,
+    "consume_development_max": 13,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "116|365|all",
+    "equipment_id": 116,
+    "upgrade_id": 365,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 30,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 15
+  },
+  {
+    "id": "117|9|all",
+    "equipment_id": 117,
+    "upgrade_id": 9,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 18,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 14
+  },
+  {
+    "id": "119|310|all",
+    "equipment_id": 119,
+    "upgrade_id": 310,
+    "route_kind": null,
+    "consume_development_min": 14,
+    "consume_development_max": 48,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 14
+  },
+  {
+    "id": "120|121|all",
+    "equipment_id": 120,
+    "upgrade_id": 121,
+    "route_kind": null,
+    "consume_development_min": 4,
+    "consume_development_max": 9,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "121|122|all",
+    "equipment_id": 121,
+    "upgrade_id": 122,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 10,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "122|533|kind2",
+    "equipment_id": 122,
+    "upgrade_id": 533,
+    "route_kind": "kind2",
+    "consume_development_min": 10,
+    "consume_development_max": 16,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "125|285|all",
+    "equipment_id": 125,
+    "upgrade_id": 285,
+    "route_kind": null,
+    "consume_development_min": 9,
+    "consume_development_max": 16,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "128|281|kind2",
+    "equipment_id": 128,
+    "upgrade_id": 281,
+    "route_kind": "kind2",
+    "consume_development_min": 26,
+    "consume_development_max": 51,
+    "consume_improvement_min": 15,
+    "consume_improvement_max": 18
+  },
+  {
+    "id": "133|137|all",
+    "equipment_id": 133,
+    "upgrade_id": 137,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 22,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 14
+  },
+  {
+    "id": "139|407|kind2",
+    "equipment_id": 139,
+    "upgrade_id": 407,
+    "route_kind": "kind2",
+    "consume_development_min": 8,
+    "consume_development_max": 10,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "142|460|all",
+    "equipment_id": 142,
+    "upgrade_id": 460,
+    "route_kind": null,
+    "consume_development_min": 30,
+    "consume_development_max": 45,
+    "consume_improvement_min": 9,
+    "consume_improvement_max": 13
+  },
+  {
+    "id": "145|241|all",
+    "equipment_id": 145,
+    "upgrade_id": 241,
+    "route_kind": null,
+    "consume_development_min": 1,
+    "consume_development_max": 3,
+    "consume_improvement_min": 0,
+    "consume_improvement_max": 1
+  },
+  {
+    "id": "147|393|all",
+    "equipment_id": 147,
+    "upgrade_id": 393,
+    "route_kind": null,
+    "consume_development_min": 6,
+    "consume_development_max": 8,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "151|199|all",
+    "equipment_id": 151,
+    "upgrade_id": 199,
+    "route_kind": null,
+    "consume_development_min": 20,
+    "consume_development_max": 30,
+    "consume_improvement_min": 10,
+    "consume_improvement_max": 13
+  },
+  {
+    "id": "158|560|all",
+    "equipment_id": 158,
+    "upgrade_id": 560,
+    "route_kind": null,
+    "consume_development_min": 15,
+    "consume_development_max": 22,
+    "consume_improvement_min": 10,
+    "consume_improvement_max": 18
+  },
+  {
+    "id": "161|183|all",
+    "equipment_id": 161,
+    "upgrade_id": 183,
+    "route_kind": null,
+    "consume_development_min": 20,
+    "consume_development_max": 28,
+    "consume_improvement_min": 12,
+    "consume_improvement_max": 20
+  },
+  {
+    "id": "163|164|all",
+    "equipment_id": 163,
+    "upgrade_id": 164,
+    "route_kind": null,
+    "consume_development_min": 5,
+    "consume_development_max": 10,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 5
+  },
+  {
+    "id": "164|215|all",
+    "equipment_id": 164,
+    "upgrade_id": 215,
+    "route_kind": null,
+    "consume_development_min": 24,
+    "consume_development_max": 40,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 12
+  },
+  {
+    "id": "165|217|all",
+    "equipment_id": 165,
+    "upgrade_id": 217,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 12,
+    "consume_improvement_min": 9,
+    "consume_improvement_max": 16
+  },
+  {
+    "id": "166|167|all",
+    "equipment_id": 166,
+    "upgrade_id": 167,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 18,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "167|525|kind2",
+    "equipment_id": 167,
+    "upgrade_id": 525,
+    "route_kind": "kind2",
+    "consume_development_min": 41,
+    "consume_development_max": 68,
+    "consume_improvement_min": 9,
+    "consume_improvement_max": 17
+  },
+  {
+    "id": "168|169|all",
+    "equipment_id": 168,
+    "upgrade_id": 169,
+    "route_kind": null,
+    "consume_development_min": 6,
+    "consume_development_max": 9,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 5
+  },
+  {
+    "id": "169|180|all",
+    "equipment_id": 169,
+    "upgrade_id": 180,
+    "route_kind": null,
+    "consume_development_min": 9,
+    "consume_development_max": 10,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "176|185|all",
+    "equipment_id": 176,
+    "upgrade_id": 185,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 20,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "180|186|all",
+    "equipment_id": 180,
+    "upgrade_id": 186,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 14,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "181|21|all",
+    "equipment_id": 181,
+    "upgrade_id": 21,
+    "route_kind": null,
+    "consume_development_min": 5,
+    "consume_development_max": 8,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "182|152|all",
+    "equipment_id": 182,
+    "upgrade_id": 152,
+    "route_kind": null,
+    "consume_development_min": 5,
+    "consume_development_max": 8,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "184|316|all",
+    "equipment_id": 184,
+    "upgrade_id": 316,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 15,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "185|177|all",
+    "equipment_id": 185,
+    "upgrade_id": 177,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 18,
+    "consume_improvement_min": 9,
+    "consume_improvement_max": 16
+  },
+  {
+    "id": "187|504|all",
+    "equipment_id": 187,
+    "upgrade_id": 504,
+    "route_kind": null,
+    "consume_development_min": 18,
+    "consume_development_max": 32,
+    "consume_improvement_min": 11,
+    "consume_improvement_max": 17
+  },
+  {
+    "id": "190|192|all",
+    "equipment_id": 190,
+    "upgrade_id": 192,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 15,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 12
+  },
+  {
+    "id": "195|419|all",
+    "equipment_id": 195,
+    "upgrade_id": 419,
+    "route_kind": null,
+    "consume_development_min": 5,
+    "consume_development_max": 8,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "196|256|all",
+    "equipment_id": 196,
+    "upgrade_id": 256,
+    "route_kind": null,
+    "consume_development_min": 6,
+    "consume_development_max": 12,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "197|198|all",
+    "equipment_id": 197,
+    "upgrade_id": 198,
+    "route_kind": null,
+    "consume_development_min": 4,
+    "consume_development_max": 8,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 5
+  },
+  {
+    "id": "198|205|all",
+    "equipment_id": 198,
+    "upgrade_id": 205,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 16,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "201|202|all",
+    "equipment_id": 201,
+    "upgrade_id": 202,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 18,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 12
+  },
+  {
+    "id": "202|263|all",
+    "equipment_id": 202,
+    "upgrade_id": 263,
+    "route_kind": null,
+    "consume_development_min": 28,
+    "consume_development_max": 34,
+    "consume_improvement_min": 13,
+    "consume_improvement_max": 17
+  },
+  {
+    "id": "205|206|all",
+    "equipment_id": 205,
+    "upgrade_id": 206,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 18,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 16
+  },
+  {
+    "id": "210|211|all",
+    "equipment_id": 210,
+    "upgrade_id": 211,
+    "route_kind": null,
+    "consume_development_min": 48,
+    "consume_development_max": 60,
+    "consume_improvement_min": 10,
+    "consume_improvement_max": 15
+  },
+  {
+    "id": "221|222|all",
+    "equipment_id": 221,
+    "upgrade_id": 222,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 15,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "226|227|all",
+    "equipment_id": 226,
+    "upgrade_id": 227,
+    "route_kind": null,
+    "consume_development_min": 5,
+    "consume_development_max": 9,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "229|379|all",
+    "equipment_id": 229,
+    "upgrade_id": 379,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 17,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "231|232|all",
+    "equipment_id": 231,
+    "upgrade_id": 232,
+    "route_kind": null,
+    "consume_development_min": 9,
+    "consume_development_max": 10,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "233|473|all",
+    "equipment_id": 233,
+    "upgrade_id": 473,
+    "route_kind": null,
+    "consume_development_min": 16,
+    "consume_development_max": 24,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 16
+  },
+  {
+    "id": "234|235|kind1",
+    "equipment_id": 234,
+    "upgrade_id": 235,
+    "route_kind": "kind1",
+    "consume_development_min": 9,
+    "consume_development_max": 10,
+    "consume_improvement_min": 2,
+    "consume_improvement_max": 3
+  },
+  {
+    "id": "234|463|kind2",
+    "equipment_id": 234,
+    "upgrade_id": 463,
+    "route_kind": "kind2",
+    "consume_development_min": 10,
+    "consume_development_max": 15,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "235|234|all",
+    "equipment_id": 235,
+    "upgrade_id": 234,
+    "route_kind": null,
+    "consume_development_min": 9,
+    "consume_development_max": 10,
+    "consume_improvement_min": 2,
+    "consume_improvement_max": 3
+  },
+  {
+    "id": "236|290|kind1",
+    "equipment_id": 236,
+    "upgrade_id": 290,
+    "route_kind": "kind1",
+    "consume_development_min": 30,
+    "consume_development_max": 48,
+    "consume_improvement_min": 14,
+    "consume_improvement_max": 20
+  },
+  {
+    "id": "236|318|kind2",
+    "equipment_id": 236,
+    "upgrade_id": 318,
+    "route_kind": "kind2",
+    "consume_development_min": 28,
+    "consume_development_max": 42,
+    "consume_improvement_min": 13,
+    "consume_improvement_max": 19
+  },
+  {
+    "id": "237|322|kind2",
+    "equipment_id": 237,
+    "upgrade_id": 322,
+    "route_kind": "kind2",
+    "consume_development_min": 24,
+    "consume_development_max": 40,
+    "consume_improvement_min": 9,
+    "consume_improvement_max": 16
+  },
+  {
+    "id": "242|243|all",
+    "equipment_id": 242,
+    "upgrade_id": 243,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 18,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "245|246|all",
+    "equipment_id": 245,
+    "upgrade_id": 246,
+    "route_kind": null,
+    "consume_development_min": 20,
+    "consume_development_max": 40,
+    "consume_improvement_min": 13,
+    "consume_improvement_max": 17
+  },
+  {
+    "id": "246|468|all",
+    "equipment_id": 246,
+    "upgrade_id": 468,
+    "route_kind": null,
+    "consume_development_min": 38,
+    "consume_development_max": 60,
+    "consume_improvement_min": 16,
+    "consume_improvement_max": 21
+  },
+  {
+    "id": "249|423|all",
+    "equipment_id": 249,
+    "upgrade_id": 423,
+    "route_kind": null,
+    "consume_development_min": 7,
+    "consume_development_max": 9,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "250|251|all",
+    "equipment_id": 250,
+    "upgrade_id": 251,
+    "route_kind": null,
+    "consume_development_min": 9,
+    "consume_development_max": 16,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "251|252|kind2",
+    "equipment_id": 251,
+    "upgrade_id": 252,
+    "route_kind": "kind2",
+    "consume_development_min": 12,
+    "consume_development_max": 24,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "260|261|all",
+    "equipment_id": 260,
+    "upgrade_id": 261,
+    "route_kind": null,
+    "consume_development_min": 14,
+    "consume_development_max": 19,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "266|267|kind1",
+    "equipment_id": 266,
+    "upgrade_id": 267,
+    "route_kind": "kind1",
+    "consume_development_min": 6,
+    "consume_development_max": 10,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "266|470|kind2",
+    "equipment_id": 266,
+    "upgrade_id": 470,
+    "route_kind": "kind2",
+    "consume_development_min": 5,
+    "consume_development_max": 13,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "276|128|kind2",
+    "equipment_id": 276,
+    "upgrade_id": 128,
+    "route_kind": "kind2",
+    "consume_development_min": 26,
+    "consume_development_max": 51,
+    "consume_improvement_min": 13,
+    "consume_improvement_max": 17
+  },
+  {
+    "id": "277|233|all",
+    "equipment_id": 277,
+    "upgrade_id": 233,
+    "route_kind": null,
+    "consume_development_min": 14,
+    "consume_development_max": 20,
+    "consume_improvement_min": 10,
+    "consume_improvement_max": 17
+  },
+  {
+    "id": "278|279|all",
+    "equipment_id": 278,
+    "upgrade_id": 279,
+    "route_kind": null,
+    "consume_development_min": 50,
+    "consume_development_max": 100,
+    "consume_improvement_min": 18,
+    "consume_improvement_max": 30
+  },
+  {
+    "id": "284|313|all",
+    "equipment_id": 284,
+    "upgrade_id": 313,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 18,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "289|502|all",
+    "equipment_id": 289,
+    "upgrade_id": 502,
+    "route_kind": null,
+    "consume_development_min": 36,
+    "consume_development_max": 48,
+    "consume_improvement_min": 12,
+    "consume_improvement_max": 16
+  },
+  {
+    "id": "294|295|kind3",
+    "equipment_id": 294,
+    "upgrade_id": 295,
+    "route_kind": "kind3",
+    "consume_development_min": 11,
+    "consume_development_max": 18,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 11
+  },
+  {
+    "id": "294|455|kind2",
+    "equipment_id": 294,
+    "upgrade_id": 455,
+    "route_kind": "kind2",
+    "consume_development_min": 9,
+    "consume_development_max": 17,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "297|294|kind1",
+    "equipment_id": 297,
+    "upgrade_id": 294,
+    "route_kind": "kind1",
+    "consume_development_min": 5,
+    "consume_development_max": 6,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 5
+  },
+  {
+    "id": "297|294|kind2",
+    "equipment_id": 297,
+    "upgrade_id": 294,
+    "route_kind": "kind2",
+    "consume_development_min": 4,
+    "consume_development_max": 8,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "298|299|all",
+    "equipment_id": 298,
+    "upgrade_id": 299,
+    "route_kind": null,
+    "consume_development_min": 16,
+    "consume_development_max": 24,
+    "consume_improvement_min": 12,
+    "consume_improvement_max": 16
+  },
+  {
+    "id": "299|300|all",
+    "equipment_id": 299,
+    "upgrade_id": 300,
+    "route_kind": null,
+    "consume_development_min": 18,
+    "consume_development_max": 30,
+    "consume_improvement_min": 14,
+    "consume_improvement_max": 18
+  },
+  {
+    "id": "304|368|all",
+    "equipment_id": 304,
+    "upgrade_id": 368,
+    "route_kind": null,
+    "consume_development_min": 30,
+    "consume_development_max": 49,
+    "consume_improvement_min": 9,
+    "consume_improvement_max": 17
+  },
+  {
+    "id": "310|518|all",
+    "equipment_id": 310,
+    "upgrade_id": 518,
+    "route_kind": null,
+    "consume_development_min": 24,
+    "consume_development_max": 48,
+    "consume_improvement_min": 9,
+    "consume_improvement_max": 16
+  },
+  {
+    "id": "313|308|all",
+    "equipment_id": 313,
+    "upgrade_id": 308,
+    "route_kind": null,
+    "consume_development_min": 28,
+    "consume_development_max": 39,
+    "consume_improvement_min": 13,
+    "consume_improvement_max": 18
+  },
+  {
+    "id": "314|376|all",
+    "equipment_id": 314,
+    "upgrade_id": 376,
+    "route_kind": null,
+    "consume_development_min": 15,
+    "consume_development_max": 20,
+    "consume_improvement_min": 9,
+    "consume_improvement_max": 15
+  },
+  {
+    "id": "315|456|kind2",
+    "equipment_id": 315,
+    "upgrade_id": 456,
+    "route_kind": "kind2",
+    "consume_development_min": 32,
+    "consume_development_max": 39,
+    "consume_improvement_min": 9,
+    "consume_improvement_max": 13
+  },
+  {
+    "id": "316|189|all",
+    "equipment_id": 316,
+    "upgrade_id": 189,
+    "route_kind": null,
+    "consume_development_min": 30,
+    "consume_development_max": 50,
+    "consume_improvement_min": 9,
+    "consume_improvement_max": 17
+  },
+  {
+    "id": "322|490|kind2",
+    "equipment_id": 322,
+    "upgrade_id": 490,
+    "route_kind": "kind2",
+    "consume_development_min": 32,
+    "consume_development_max": 48,
+    "consume_improvement_min": 10,
+    "consume_improvement_max": 17
+  },
+  {
+    "id": "324|325|all",
+    "equipment_id": 324,
+    "upgrade_id": 325,
+    "route_kind": null,
+    "consume_development_min": 16,
+    "consume_development_max": 30,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 14
+  },
+  {
+    "id": "325|326|all",
+    "equipment_id": 325,
+    "upgrade_id": 326,
+    "route_kind": null,
+    "consume_development_min": 50,
+    "consume_development_max": 80,
+    "consume_improvement_min": 10,
+    "consume_improvement_max": 20
+  },
+  {
+    "id": "326|327|all",
+    "equipment_id": 326,
+    "upgrade_id": 327,
+    "route_kind": null,
+    "consume_development_min": 50,
+    "consume_development_max": 80,
+    "consume_improvement_min": 10,
+    "consume_improvement_max": 20
+  },
+  {
+    "id": "328|329|all",
+    "equipment_id": 328,
+    "upgrade_id": 329,
+    "route_kind": null,
+    "consume_development_min": 30,
+    "consume_development_max": 36,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "330|331|all",
+    "equipment_id": 330,
+    "upgrade_id": 331,
+    "route_kind": null,
+    "consume_development_min": 16,
+    "consume_development_max": 24,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "331|332|all",
+    "equipment_id": 331,
+    "upgrade_id": 332,
+    "route_kind": null,
+    "consume_development_min": 17,
+    "consume_development_max": 27,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 13
+  },
+  {
+    "id": "340|341|all",
+    "equipment_id": 340,
+    "upgrade_id": 341,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 12,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "344|373|all",
+    "equipment_id": 344,
+    "upgrade_id": 373,
+    "route_kind": null,
+    "consume_development_min": 40,
+    "consume_development_max": 80,
+    "consume_improvement_min": 11,
+    "consume_improvement_max": 22
+  },
+  {
+    "id": "346|347|all",
+    "equipment_id": 346,
+    "upgrade_id": 347,
+    "route_kind": null,
+    "consume_development_min": 18,
+    "consume_development_max": 30,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "348|349|all",
+    "equipment_id": 348,
+    "upgrade_id": 349,
+    "route_kind": null,
+    "consume_development_min": 20,
+    "consume_development_max": 36,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 13
+  },
+  {
+    "id": "356|357|all",
+    "equipment_id": 356,
+    "upgrade_id": 357,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 22,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "367|370|kind2",
+    "equipment_id": 367,
+    "upgrade_id": 370,
+    "route_kind": "kind2",
+    "consume_development_min": 12,
+    "consume_development_max": 18,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 12
+  },
+  {
+    "id": "379|572|all",
+    "equipment_id": 379,
+    "upgrade_id": 572,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 24,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 14
+  },
+  {
+    "id": "381|385|all",
+    "equipment_id": 381,
+    "upgrade_id": 385,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 18,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 13
+  },
+  {
+    "id": "382|509|all",
+    "equipment_id": 382,
+    "upgrade_id": 509,
+    "route_kind": null,
+    "consume_development_min": 4,
+    "consume_development_max": 6,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 5
+  },
+  {
+    "id": "386|387|all",
+    "equipment_id": 386,
+    "upgrade_id": 387,
+    "route_kind": null,
+    "consume_development_min": 16,
+    "consume_development_max": 28,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "391|392|all",
+    "equipment_id": 391,
+    "upgrade_id": 392,
+    "route_kind": null,
+    "consume_development_min": 5,
+    "consume_development_max": 9,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "393|394|all",
+    "equipment_id": 393,
+    "upgrade_id": 394,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 18,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "401|405|all",
+    "equipment_id": 401,
+    "upgrade_id": 405,
+    "route_kind": null,
+    "consume_development_min": 60,
+    "consume_development_max": 110,
+    "consume_improvement_min": 11,
+    "consume_improvement_max": 19
+  },
+  {
+    "id": "403|404|all",
+    "equipment_id": 403,
+    "upgrade_id": 404,
+    "route_kind": null,
+    "consume_development_min": 28,
+    "consume_development_max": 35,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 12
+  },
+  {
+    "id": "414|415|kind1",
+    "equipment_id": 414,
+    "upgrade_id": 415,
+    "route_kind": "kind1",
+    "consume_development_min": 10,
+    "consume_development_max": 18,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 11
+  },
+  {
+    "id": "414|539|kind2",
+    "equipment_id": 414,
+    "upgrade_id": 539,
+    "route_kind": "kind2",
+    "consume_development_min": 9,
+    "consume_development_max": 16,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 12
+  },
+  {
+    "id": "419|420|all",
+    "equipment_id": 419,
+    "upgrade_id": 420,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 19,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "420|421|all",
+    "equipment_id": 420,
+    "upgrade_id": 421,
+    "route_kind": null,
+    "consume_development_min": 13,
+    "consume_development_max": 20,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 14
+  },
+  {
+    "id": "424|425|all",
+    "equipment_id": 424,
+    "upgrade_id": 425,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 24,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "426|428|all",
+    "equipment_id": 426,
+    "upgrade_id": 428,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 18,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 9
+  },
+  {
+    "id": "427|429|all",
+    "equipment_id": 427,
+    "upgrade_id": 429,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 20,
+    "consume_improvement_min": 8,
+    "consume_improvement_max": 11
+  },
+  {
+    "id": "431|432|all",
+    "equipment_id": 431,
+    "upgrade_id": 432,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 11,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 5
+  },
+  {
+    "id": "440|441|all",
+    "equipment_id": 440,
+    "upgrade_id": 441,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 12,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "442|443|all",
+    "equipment_id": 442,
+    "upgrade_id": 443,
+    "route_kind": null,
+    "consume_development_min": 9,
+    "consume_development_max": 13,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "445|446|all",
+    "equipment_id": 445,
+    "upgrade_id": 446,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 12,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "446|452|all",
+    "equipment_id": 446,
+    "upgrade_id": 452,
+    "route_kind": null,
+    "consume_development_min": 11,
+    "consume_development_max": 15,
+    "consume_improvement_min": 5,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "452|453|all",
+    "equipment_id": 452,
+    "upgrade_id": 453,
+    "route_kind": null,
+    "consume_development_min": 16,
+    "consume_development_max": 22,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "470|529|all",
+    "equipment_id": 470,
+    "upgrade_id": 529,
+    "route_kind": null,
+    "consume_development_min": 12,
+    "consume_development_max": 17,
+    "consume_improvement_min": 9,
+    "consume_improvement_max": 15
+  },
+  {
+    "id": "473|474|all",
+    "equipment_id": 473,
+    "upgrade_id": 474,
+    "route_kind": null,
+    "consume_development_min": 24,
+    "consume_development_max": 40,
+    "consume_improvement_min": 9,
+    "consume_improvement_max": 18
+  },
+  {
+    "id": "486|487|all",
+    "equipment_id": 486,
+    "upgrade_id": 487,
+    "route_kind": null,
+    "consume_development_min": 14,
+    "consume_development_max": 18,
+    "consume_improvement_min": 9,
+    "consume_improvement_max": 14
+  },
+  {
+    "id": "511|512|all",
+    "equipment_id": 511,
+    "upgrade_id": 512,
+    "route_kind": null,
+    "consume_development_min": 5,
+    "consume_development_max": 10,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 5
+  },
+  {
+    "id": "522|523|all",
+    "equipment_id": 522,
+    "upgrade_id": 523,
+    "route_kind": null,
+    "consume_development_min": 8,
+    "consume_development_max": 11,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "534|535|all",
+    "equipment_id": 534,
+    "upgrade_id": 535,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 18,
+    "consume_improvement_min": 6,
+    "consume_improvement_max": 8
+  },
+  {
+    "id": "536|537|all",
+    "equipment_id": 536,
+    "upgrade_id": 537,
+    "route_kind": null,
+    "consume_development_min": 18,
+    "consume_development_max": 26,
+    "consume_improvement_min": 7,
+    "consume_improvement_max": 10
+  },
+  {
+    "id": "541|544|all",
+    "equipment_id": 541,
+    "upgrade_id": 544,
+    "route_kind": null,
+    "consume_development_min": 5,
+    "consume_development_max": 7,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 5
+  },
+  {
+    "id": "550|551|all",
+    "equipment_id": 550,
+    "upgrade_id": 551,
+    "route_kind": null,
+    "consume_development_min": 6,
+    "consume_development_max": 10,
+    "consume_improvement_min": 3,
+    "consume_improvement_max": 6
+  },
+  {
+    "id": "551|552|all",
+    "equipment_id": 551,
+    "upgrade_id": 552,
+    "route_kind": null,
+    "consume_development_min": 10,
+    "consume_development_max": 18,
+    "consume_improvement_min": 4,
+    "consume_improvement_max": 7
+  },
+  {
+    "id": "553|533|all",
+    "equipment_id": 553,
+    "upgrade_id": 533,
+    "route_kind": null,
+    "consume_development_min": 14,
+    "consume_development_max": 20,
+    "consume_improvement_min": 14,
+    "consume_improvement_max": 18
+  },
+  {
+    "id": "573|574|all",
+    "equipment_id": 573,
+    "upgrade_id": 574,
+    "route_kind": null,
+    "consume_development_min": 23,
+    "consume_development_max": 38,
+    "consume_improvement_min": 13,
+    "consume_improvement_max": 18
+  }
+]

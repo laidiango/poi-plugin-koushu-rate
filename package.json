@@ -1,0 +1,39 @@
+{
+  "name": "poi-plugin-koushu-rate",
+  "version": "2.0.15",
+  "description": "全装备改修资材计算与推荐",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "data/**",
+    "README.md",
+    "LICENSE"
+  ],
+  "author": "xh255",
+  "license": "MIT",
+  "poiPlugin": {
+    "title": "螺丝计算器",
+    "description": "列出所有可改修装备，支持收藏，自动计算不确保期望与确保消耗对比",
+    "icon": "fa/calculator",
+    "priority": 50,
+    "windowMode": true,
+    "windowOptions": {
+      "width": 960,
+      "height": 720,
+      "minWidth": 640,
+      "minHeight": 420
+    }
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "jsdom": "^30.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "scripts": {
+    "standalone": "node standalone/build.js",
+    "build:standalone": "node standalone/build.js",
+    "standalone:serve": "node standalone/build.js && node standalone/serve.js",
+    "test:standalone": "node standalone/smoke.js"
+  }
+}

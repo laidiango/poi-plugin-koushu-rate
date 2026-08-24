@@ -1,0 +1,2606 @@
+[
+  {
+    "id": 1,
+    "consume_fuel": 10,
+    "consume_ammo": 20,
+    "consume_steel": 40,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 2,
+    "consume_fuel": 10,
+    "consume_ammo": 30,
+    "consume_steel": 60,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 3,
+    "consume_fuel": 0,
+    "consume_ammo": 0,
+    "consume_steel": 80,
+    "consume_bauxite": 70
+  },
+  {
+    "id": 4,
+    "consume_fuel": 10,
+    "consume_ammo": 50,
+    "consume_steel": 80,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 5,
+    "consume_fuel": 10,
+    "consume_ammo": 90,
+    "consume_steel": 120,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 6,
+    "consume_fuel": 10,
+    "consume_ammo": 90,
+    "consume_steel": 120,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 7,
+    "consume_fuel": 20,
+    "consume_ammo": 240,
+    "consume_steel": 300,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 8,
+    "consume_fuel": 30,
+    "consume_ammo": 350,
+    "consume_steel": 480,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 9,
+    "consume_fuel": 50,
+    "consume_ammo": 480,
+    "consume_steel": 800,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 10,
+    "consume_fuel": 10,
+    "consume_ammo": 40,
+    "consume_steel": 70,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 11,
+    "consume_fuel": 10,
+    "consume_ammo": 60,
+    "consume_steel": 90,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 12,
+    "consume_fuel": 10,
+    "consume_ammo": 90,
+    "consume_steel": 120,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 13,
+    "consume_fuel": 50,
+    "consume_ammo": 70,
+    "consume_steel": 60,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 14,
+    "consume_fuel": 70,
+    "consume_ammo": 100,
+    "consume_steel": 70,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 15,
+    "consume_fuel": 80,
+    "consume_ammo": 120,
+    "consume_steel": 80,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 16,
+    "consume_fuel": 200,
+    "consume_ammo": 300,
+    "consume_steel": 0,
+    "consume_bauxite": 360
+  },
+  {
+    "id": 17,
+    "consume_fuel": 280,
+    "consume_ammo": 360,
+    "consume_steel": 0,
+    "consume_bauxite": 430
+  },
+  {
+    "id": 18,
+    "consume_fuel": 300,
+    "consume_ammo": 380,
+    "consume_steel": 0,
+    "consume_bauxite": 470
+  },
+  {
+    "id": 19,
+    "consume_fuel": 70,
+    "consume_ammo": 50,
+    "consume_steel": 0,
+    "consume_bauxite": 170
+  },
+  {
+    "id": 20,
+    "consume_fuel": 100,
+    "consume_ammo": 80,
+    "consume_steel": 0,
+    "consume_bauxite": 250
+  },
+  {
+    "id": 21,
+    "consume_fuel": 120,
+    "consume_ammo": 120,
+    "consume_steel": 0,
+    "consume_bauxite": 280
+  },
+  {
+    "id": 22,
+    "consume_fuel": 160,
+    "consume_ammo": 180,
+    "consume_steel": 0,
+    "consume_bauxite": 400
+  },
+  {
+    "id": 23,
+    "consume_fuel": 190,
+    "consume_ammo": 190,
+    "consume_steel": 0,
+    "consume_bauxite": 290
+  },
+  {
+    "id": 24,
+    "consume_fuel": 120,
+    "consume_ammo": 120,
+    "consume_steel": 0,
+    "consume_bauxite": 280
+  },
+  {
+    "id": 25,
+    "consume_fuel": 90,
+    "consume_ammo": 20,
+    "consume_steel": 0,
+    "consume_bauxite": 300
+  },
+  {
+    "id": 26,
+    "consume_fuel": 160,
+    "consume_ammo": 160,
+    "consume_steel": 0,
+    "consume_bauxite": 360
+  },
+  {
+    "id": 27,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 20,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 28,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 30,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 29,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 40,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 30,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 40,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 31,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 60,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 32,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 140,
+    "consume_bauxite": 120
+  },
+  {
+    "id": 34,
+    "consume_fuel": 240,
+    "consume_ammo": 0,
+    "consume_steel": 600,
+    "consume_bauxite": 80
+  },
+  {
+    "id": 35,
+    "consume_fuel": 50,
+    "consume_ammo": 120,
+    "consume_steel": 210,
+    "consume_bauxite": 170
+  },
+  {
+    "id": 36,
+    "consume_fuel": 30,
+    "consume_ammo": 150,
+    "consume_steel": 310,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 37,
+    "consume_fuel": 0,
+    "consume_ammo": 10,
+    "consume_steel": 10,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 38,
+    "consume_fuel": 0,
+    "consume_ammo": 15,
+    "consume_steel": 10,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 39,
+    "consume_fuel": 0,
+    "consume_ammo": 20,
+    "consume_steel": 10,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 40,
+    "consume_fuel": 0,
+    "consume_ammo": 30,
+    "consume_steel": 20,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 41,
+    "consume_fuel": 30,
+    "consume_ammo": 50,
+    "consume_steel": 40,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 44,
+    "consume_fuel": 10,
+    "consume_ammo": 60,
+    "consume_steel": 20,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 45,
+    "consume_fuel": 10,
+    "consume_ammo": 80,
+    "consume_steel": 20,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 46,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 30,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 47,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 30,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 49,
+    "consume_fuel": 10,
+    "consume_ammo": 10,
+    "consume_steel": 10,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 50,
+    "consume_fuel": 10,
+    "consume_ammo": 110,
+    "consume_steel": 140,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 51,
+    "consume_fuel": 90,
+    "consume_ammo": 270,
+    "consume_steel": 50,
+    "consume_bauxite": 180
+  },
+  {
+    "id": 52,
+    "consume_fuel": 320,
+    "consume_ammo": 390,
+    "consume_steel": 0,
+    "consume_bauxite": 490
+  },
+  {
+    "id": 53,
+    "consume_fuel": 200,
+    "consume_ammo": 220,
+    "consume_steel": 0,
+    "consume_bauxite": 440
+  },
+  {
+    "id": 55,
+    "consume_fuel": 110,
+    "consume_ammo": 160,
+    "consume_steel": 0,
+    "consume_bauxite": 330
+  },
+  {
+    "id": 57,
+    "consume_fuel": 140,
+    "consume_ammo": 150,
+    "consume_steel": 0,
+    "consume_bauxite": 300
+  },
+  {
+    "id": 58,
+    "consume_fuel": 100,
+    "consume_ammo": 150,
+    "consume_steel": 90,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 59,
+    "consume_fuel": 90,
+    "consume_ammo": 40,
+    "consume_steel": 0,
+    "consume_bauxite": 270
+  },
+  {
+    "id": 60,
+    "consume_fuel": 120,
+    "consume_ammo": 120,
+    "consume_steel": 0,
+    "consume_bauxite": 280
+  },
+  {
+    "id": 61,
+    "consume_fuel": 120,
+    "consume_ammo": 40,
+    "consume_steel": 20,
+    "consume_bauxite": 300
+  },
+  {
+    "id": 63,
+    "consume_fuel": 10,
+    "consume_ammo": 40,
+    "consume_steel": 70,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 64,
+    "consume_fuel": 190,
+    "consume_ammo": 280,
+    "consume_steel": 0,
+    "consume_bauxite": 290
+  },
+  {
+    "id": 65,
+    "consume_fuel": 10,
+    "consume_ammo": 70,
+    "consume_steel": 100,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 66,
+    "consume_fuel": 10,
+    "consume_ammo": 40,
+    "consume_steel": 80,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 68,
+    "consume_fuel": 50,
+    "consume_ammo": 30,
+    "consume_steel": 30,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 69,
+    "consume_fuel": 50,
+    "consume_ammo": 20,
+    "consume_steel": 30,
+    "consume_bauxite": 150
+  },
+  {
+    "id": 70,
+    "consume_fuel": 60,
+    "consume_ammo": 30,
+    "consume_steel": 10,
+    "consume_bauxite": 170
+  },
+  {
+    "id": 71,
+    "consume_fuel": 10,
+    "consume_ammo": 40,
+    "consume_steel": 80,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 72,
+    "consume_fuel": 70,
+    "consume_ammo": 0,
+    "consume_steel": 770,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 73,
+    "consume_fuel": 80,
+    "consume_ammo": 0,
+    "consume_steel": 880,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 74,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 30,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 76,
+    "consume_fuel": 20,
+    "consume_ammo": 380,
+    "consume_steel": 450,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 78,
+    "consume_fuel": 10,
+    "consume_ammo": 20,
+    "consume_steel": 70,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 79,
+    "consume_fuel": 180,
+    "consume_ammo": 180,
+    "consume_steel": 0,
+    "consume_bauxite": 480
+  },
+  {
+    "id": 80,
+    "consume_fuel": 180,
+    "consume_ammo": 180,
+    "consume_steel": 0,
+    "consume_bauxite": 480
+  },
+  {
+    "id": 81,
+    "consume_fuel": 190,
+    "consume_ammo": 190,
+    "consume_steel": 0,
+    "consume_bauxite": 430
+  },
+  {
+    "id": 82,
+    "consume_fuel": 220,
+    "consume_ammo": 360,
+    "consume_steel": 0,
+    "consume_bauxite": 390
+  },
+  {
+    "id": 84,
+    "consume_fuel": 0,
+    "consume_ammo": 40,
+    "consume_steel": 80,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 87,
+    "consume_fuel": 300,
+    "consume_ammo": 0,
+    "consume_steel": 750,
+    "consume_bauxite": 100
+  },
+  {
+    "id": 88,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 40,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 89,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 60,
+    "consume_bauxite": 70
+  },
+  {
+    "id": 90,
+    "consume_fuel": 10,
+    "consume_ammo": 100,
+    "consume_steel": 130,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 91,
+    "consume_fuel": 10,
+    "consume_ammo": 50,
+    "consume_steel": 80,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 92,
+    "consume_fuel": 0,
+    "consume_ammo": 40,
+    "consume_steel": 20,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 93,
+    "consume_fuel": 220,
+    "consume_ammo": 330,
+    "consume_steel": 0,
+    "consume_bauxite": 360
+  },
+  {
+    "id": 94,
+    "consume_fuel": 350,
+    "consume_ammo": 440,
+    "consume_steel": 0,
+    "consume_bauxite": 490
+  },
+  {
+    "id": 95,
+    "consume_fuel": 80,
+    "consume_ammo": 150,
+    "consume_steel": 80,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 96,
+    "consume_fuel": 100,
+    "consume_ammo": 80,
+    "consume_steel": 0,
+    "consume_bauxite": 250
+  },
+  {
+    "id": 98,
+    "consume_fuel": 240,
+    "consume_ammo": 360,
+    "consume_steel": 0,
+    "consume_bauxite": 360
+  },
+  {
+    "id": 99,
+    "consume_fuel": 300,
+    "consume_ammo": 300,
+    "consume_steel": 0,
+    "consume_bauxite": 390
+  },
+  {
+    "id": 102,
+    "consume_fuel": 100,
+    "consume_ammo": 30,
+    "consume_steel": 0,
+    "consume_bauxite": 480
+  },
+  {
+    "id": 103,
+    "consume_fuel": 30,
+    "consume_ammo": 330,
+    "consume_steel": 390,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 104,
+    "consume_fuel": 30,
+    "consume_ammo": 250,
+    "consume_steel": 300,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 105,
+    "consume_fuel": 40,
+    "consume_ammo": 440,
+    "consume_steel": 620,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 106,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 30,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 109,
+    "consume_fuel": 120,
+    "consume_ammo": 120,
+    "consume_steel": 0,
+    "consume_bauxite": 280
+  },
+  {
+    "id": 110,
+    "consume_fuel": 180,
+    "consume_ammo": 200,
+    "consume_steel": 0,
+    "consume_bauxite": 440
+  },
+  {
+    "id": 114,
+    "consume_fuel": 30,
+    "consume_ammo": 390,
+    "consume_steel": 470,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 115,
+    "consume_fuel": 80,
+    "consume_ammo": 30,
+    "consume_steel": 0,
+    "consume_bauxite": 240
+  },
+  {
+    "id": 116,
+    "consume_fuel": 30,
+    "consume_ammo": 170,
+    "consume_steel": 330,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 117,
+    "consume_fuel": 40,
+    "consume_ammo": 420,
+    "consume_steel": 650,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 118,
+    "consume_fuel": 170,
+    "consume_ammo": 20,
+    "consume_steel": 0,
+    "consume_bauxite": 390
+  },
+  {
+    "id": 119,
+    "consume_fuel": 10,
+    "consume_ammo": 60,
+    "consume_steel": 100,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 120,
+    "consume_fuel": 0,
+    "consume_ammo": 0,
+    "consume_steel": 60,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 121,
+    "consume_fuel": 0,
+    "consume_ammo": 0,
+    "consume_steel": 80,
+    "consume_bauxite": 70
+  },
+  {
+    "id": 122,
+    "consume_fuel": 10,
+    "consume_ammo": 60,
+    "consume_steel": 150,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 123,
+    "consume_fuel": 20,
+    "consume_ammo": 120,
+    "consume_steel": 160,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 124,
+    "consume_fuel": 10,
+    "consume_ammo": 10,
+    "consume_steel": 200,
+    "consume_bauxite": 240
+  },
+  {
+    "id": 125,
+    "consume_fuel": 60,
+    "consume_ammo": 90,
+    "consume_steel": 60,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 128,
+    "consume_fuel": 50,
+    "consume_ammo": 550,
+    "consume_steel": 950,
+    "consume_bauxite": 80
+  },
+  {
+    "id": 129,
+    "consume_fuel": 20,
+    "consume_ammo": 20,
+    "consume_steel": 20,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 130,
+    "consume_fuel": 10,
+    "consume_ammo": 50,
+    "consume_steel": 120,
+    "consume_bauxite": 70
+  },
+  {
+    "id": 131,
+    "consume_fuel": 0,
+    "consume_ammo": 90,
+    "consume_steel": 90,
+    "consume_bauxite": 150
+  },
+  {
+    "id": 132,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 170,
+    "consume_bauxite": 130
+  },
+  {
+    "id": 133,
+    "consume_fuel": 30,
+    "consume_ammo": 400,
+    "consume_steel": 480,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 134,
+    "consume_fuel": 10,
+    "consume_ammo": 90,
+    "consume_steel": 120,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 135,
+    "consume_fuel": 10,
+    "consume_ammo": 20,
+    "consume_steel": 70,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 136,
+    "consume_fuel": 60,
+    "consume_ammo": 0,
+    "consume_steel": 900,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 137,
+    "consume_fuel": 40,
+    "consume_ammo": 440,
+    "consume_steel": 500,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 139,
+    "consume_fuel": 20,
+    "consume_ammo": 80,
+    "consume_steel": 100,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 140,
+    "consume_fuel": 20,
+    "consume_ammo": 0,
+    "consume_steel": 70,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 141,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 100,
+    "consume_bauxite": 80
+  },
+  {
+    "id": 142,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 200,
+    "consume_bauxite": 150
+  },
+  {
+    "id": 145,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 0,
+    "consume_bauxite": 5
+  },
+  {
+    "id": 147,
+    "consume_fuel": 10,
+    "consume_ammo": 60,
+    "consume_steel": 80,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 149,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 50,
+    "consume_bauxite": 60
+  },
+  {
+    "id": 151,
+    "consume_fuel": 250,
+    "consume_ammo": 100,
+    "consume_steel": 700,
+    "consume_bauxite": 650
+  },
+  {
+    "id": 152,
+    "consume_fuel": 120,
+    "consume_ammo": 120,
+    "consume_steel": 0,
+    "consume_bauxite": 280
+  },
+  {
+    "id": 153,
+    "consume_fuel": 120,
+    "consume_ammo": 120,
+    "consume_steel": 0,
+    "consume_bauxite": 280
+  },
+  {
+    "id": 154,
+    "consume_fuel": 120,
+    "consume_ammo": 120,
+    "consume_steel": 0,
+    "consume_bauxite": 280
+  },
+  {
+    "id": 156,
+    "consume_fuel": 120,
+    "consume_ammo": 120,
+    "consume_steel": 0,
+    "consume_bauxite": 280
+  },
+  {
+    "id": 157,
+    "consume_fuel": 120,
+    "consume_ammo": 120,
+    "consume_steel": 0,
+    "consume_bauxite": 280
+  },
+  {
+    "id": 158,
+    "consume_fuel": 110,
+    "consume_ammo": 160,
+    "consume_steel": 0,
+    "consume_bauxite": 330
+  },
+  {
+    "id": 161,
+    "consume_fuel": 45,
+    "consume_ammo": 450,
+    "consume_steel": 750,
+    "consume_bauxite": 100
+  },
+  {
+    "id": 162,
+    "consume_fuel": 10,
+    "consume_ammo": 180,
+    "consume_steel": 190,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 163,
+    "consume_fuel": 60,
+    "consume_ammo": 30,
+    "consume_steel": 0,
+    "consume_bauxite": 180
+  },
+  {
+    "id": 164,
+    "consume_fuel": 70,
+    "consume_ammo": 50,
+    "consume_steel": 0,
+    "consume_bauxite": 220
+  },
+  {
+    "id": 165,
+    "consume_fuel": 110,
+    "consume_ammo": 80,
+    "consume_steel": 0,
+    "consume_bauxite": 360
+  },
+  {
+    "id": 166,
+    "consume_fuel": 70,
+    "consume_ammo": 80,
+    "consume_steel": 120,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 167,
+    "consume_fuel": 80,
+    "consume_ammo": 90,
+    "consume_steel": 100,
+    "consume_bauxite": 70
+  },
+  {
+    "id": 168,
+    "consume_fuel": 330,
+    "consume_ammo": 370,
+    "consume_steel": 0,
+    "consume_bauxite": 440
+  },
+  {
+    "id": 169,
+    "consume_fuel": 380,
+    "consume_ammo": 400,
+    "consume_steel": 0,
+    "consume_bauxite": 480
+  },
+  {
+    "id": 170,
+    "consume_fuel": 490,
+    "consume_ammo": 530,
+    "consume_steel": 0,
+    "consume_bauxite": 590
+  },
+  {
+    "id": 171,
+    "consume_fuel": 80,
+    "consume_ammo": 30,
+    "consume_steel": 0,
+    "consume_bauxite": 320
+  },
+  {
+    "id": 172,
+    "consume_fuel": 45,
+    "consume_ammo": 450,
+    "consume_steel": 750,
+    "consume_bauxite": 100
+  },
+  {
+    "id": 174,
+    "consume_fuel": 40,
+    "consume_ammo": 60,
+    "consume_steel": 40,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 175,
+    "consume_fuel": 110,
+    "consume_ammo": 150,
+    "consume_steel": 0,
+    "consume_bauxite": 360
+  },
+  {
+    "id": 176,
+    "consume_fuel": 100,
+    "consume_ammo": 150,
+    "consume_steel": 0,
+    "consume_bauxite": 330
+  },
+  {
+    "id": 179,
+    "consume_fuel": 120,
+    "consume_ammo": 180,
+    "consume_steel": 120,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 180,
+    "consume_fuel": 430,
+    "consume_ammo": 420,
+    "consume_steel": 0,
+    "consume_bauxite": 540
+  },
+  {
+    "id": 181,
+    "consume_fuel": 90,
+    "consume_ammo": 100,
+    "consume_steel": 0,
+    "consume_bauxite": 260
+  },
+  {
+    "id": 182,
+    "consume_fuel": 90,
+    "consume_ammo": 100,
+    "consume_steel": 0,
+    "consume_bauxite": 260
+  },
+  {
+    "id": 183,
+    "consume_fuel": 45,
+    "consume_ammo": 500,
+    "consume_steel": 770,
+    "consume_bauxite": 500
+  },
+  {
+    "id": 184,
+    "consume_fuel": 100,
+    "consume_ammo": 140,
+    "consume_steel": 10,
+    "consume_bauxite": 350
+  },
+  {
+    "id": 185,
+    "consume_fuel": 140,
+    "consume_ammo": 250,
+    "consume_steel": 0,
+    "consume_bauxite": 380
+  },
+  {
+    "id": 186,
+    "consume_fuel": 480,
+    "consume_ammo": 490,
+    "consume_steel": 0,
+    "consume_bauxite": 580
+  },
+  {
+    "id": 187,
+    "consume_fuel": 480,
+    "consume_ammo": 480,
+    "consume_steel": 0,
+    "consume_bauxite": 600
+  },
+  {
+    "id": 189,
+    "consume_fuel": 200,
+    "consume_ammo": 190,
+    "consume_steel": 20,
+    "consume_bauxite": 490
+  },
+  {
+    "id": 190,
+    "consume_fuel": 24,
+    "consume_ammo": 280,
+    "consume_steel": 380,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 192,
+    "consume_fuel": 28,
+    "consume_ammo": 320,
+    "consume_steel": 420,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 193,
+    "consume_fuel": 70,
+    "consume_ammo": 80,
+    "consume_steel": 120,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 194,
+    "consume_fuel": 110,
+    "consume_ammo": 290,
+    "consume_steel": 0,
+    "consume_bauxite": 250
+  },
+  {
+    "id": 195,
+    "consume_fuel": 180,
+    "consume_ammo": 250,
+    "consume_steel": 0,
+    "consume_bauxite": 330
+  },
+  {
+    "id": 196,
+    "consume_fuel": 220,
+    "consume_ammo": 360,
+    "consume_steel": 20,
+    "consume_bauxite": 400
+  },
+  {
+    "id": 197,
+    "consume_fuel": 90,
+    "consume_ammo": 90,
+    "consume_steel": 0,
+    "consume_bauxite": 270
+  },
+  {
+    "id": 198,
+    "consume_fuel": 100,
+    "consume_ammo": 120,
+    "consume_steel": 0,
+    "consume_bauxite": 300
+  },
+  {
+    "id": 201,
+    "consume_fuel": 160,
+    "consume_ammo": 180,
+    "consume_steel": 0,
+    "consume_bauxite": 360
+  },
+  {
+    "id": 202,
+    "consume_fuel": 150,
+    "consume_ammo": 160,
+    "consume_steel": 0,
+    "consume_bauxite": 330
+  },
+  {
+    "id": 203,
+    "consume_fuel": 170,
+    "consume_ammo": 0,
+    "consume_steel": 870,
+    "consume_bauxite": 70
+  },
+  {
+    "id": 204,
+    "consume_fuel": 180,
+    "consume_ammo": 0,
+    "consume_steel": 980,
+    "consume_bauxite": 80
+  },
+  {
+    "id": 205,
+    "consume_fuel": 160,
+    "consume_ammo": 180,
+    "consume_steel": 0,
+    "consume_bauxite": 380
+  },
+  {
+    "id": 206,
+    "consume_fuel": 200,
+    "consume_ammo": 250,
+    "consume_steel": 0,
+    "consume_bauxite": 450
+  },
+  {
+    "id": 210,
+    "consume_fuel": 80,
+    "consume_ammo": 90,
+    "consume_steel": 100,
+    "consume_bauxite": 70
+  },
+  {
+    "id": 211,
+    "consume_fuel": 90,
+    "consume_ammo": 100,
+    "consume_steel": 120,
+    "consume_bauxite": 190
+  },
+  {
+    "id": 213,
+    "consume_fuel": 90,
+    "consume_ammo": 180,
+    "consume_steel": 60,
+    "consume_bauxite": 60
+  },
+  {
+    "id": 215,
+    "consume_fuel": 80,
+    "consume_ammo": 60,
+    "consume_steel": 0,
+    "consume_bauxite": 280
+  },
+  {
+    "id": 216,
+    "consume_fuel": 110,
+    "consume_ammo": 100,
+    "consume_steel": 0,
+    "consume_bauxite": 390
+  },
+  {
+    "id": 217,
+    "consume_fuel": 130,
+    "consume_ammo": 80,
+    "consume_steel": 0,
+    "consume_bauxite": 300
+  },
+  {
+    "id": 219,
+    "consume_fuel": 130,
+    "consume_ammo": 140,
+    "consume_steel": 0,
+    "consume_bauxite": 290
+  },
+  {
+    "id": 220,
+    "consume_fuel": 10,
+    "consume_ammo": 70,
+    "consume_steel": 100,
+    "consume_bauxite": 80
+  },
+  {
+    "id": 221,
+    "consume_fuel": 90,
+    "consume_ammo": 120,
+    "consume_steel": 10,
+    "consume_bauxite": 270
+  },
+  {
+    "id": 222,
+    "consume_fuel": 130,
+    "consume_ammo": 200,
+    "consume_steel": 20,
+    "consume_bauxite": 330
+  },
+  {
+    "id": 224,
+    "consume_fuel": 140,
+    "consume_ammo": 240,
+    "consume_steel": 20,
+    "consume_bauxite": 350
+  },
+  {
+    "id": 226,
+    "consume_fuel": 10,
+    "consume_ammo": 90,
+    "consume_steel": 10,
+    "consume_bauxite": 60
+  },
+  {
+    "id": 227,
+    "consume_fuel": 10,
+    "consume_ammo": 110,
+    "consume_steel": 10,
+    "consume_bauxite": 80
+  },
+  {
+    "id": 228,
+    "consume_fuel": 80,
+    "consume_ammo": 70,
+    "consume_steel": 0,
+    "consume_bauxite": 190
+  },
+  {
+    "id": 229,
+    "consume_fuel": 10,
+    "consume_ammo": 50,
+    "consume_steel": 80,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 231,
+    "consume_fuel": 20,
+    "consume_ammo": 230,
+    "consume_steel": 330,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 232,
+    "consume_fuel": 20,
+    "consume_ammo": 300,
+    "consume_steel": 390,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 233,
+    "consume_fuel": 160,
+    "consume_ammo": 180,
+    "consume_steel": 0,
+    "consume_bauxite": 380
+  },
+  {
+    "id": 234,
+    "consume_fuel": 15,
+    "consume_ammo": 120,
+    "consume_steel": 150,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 235,
+    "consume_fuel": 15,
+    "consume_ammo": 120,
+    "consume_steel": 150,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 236,
+    "consume_fuel": 45,
+    "consume_ammo": 450,
+    "consume_steel": 700,
+    "consume_bauxite": 45
+  },
+  {
+    "id": 237,
+    "consume_fuel": 190,
+    "consume_ammo": 190,
+    "consume_steel": 0,
+    "consume_bauxite": 490
+  },
+  {
+    "id": 238,
+    "consume_fuel": 140,
+    "consume_ammo": 110,
+    "consume_steel": 0,
+    "consume_bauxite": 330
+  },
+  {
+    "id": 240,
+    "consume_fuel": 20,
+    "consume_ammo": 0,
+    "consume_steel": 60,
+    "consume_bauxite": 80
+  },
+  {
+    "id": 242,
+    "consume_fuel": 90,
+    "consume_ammo": 280,
+    "consume_steel": 0,
+    "consume_bauxite": 210
+  },
+  {
+    "id": 243,
+    "consume_fuel": 120,
+    "consume_ammo": 290,
+    "consume_steel": 0,
+    "consume_bauxite": 250
+  },
+  {
+    "id": 245,
+    "consume_fuel": 100,
+    "consume_ammo": 420,
+    "consume_steel": 660,
+    "consume_bauxite": 100
+  },
+  {
+    "id": 246,
+    "consume_fuel": 180,
+    "consume_ammo": 480,
+    "consume_steel": 800,
+    "consume_bauxite": 180
+  },
+  {
+    "id": 247,
+    "consume_fuel": 15,
+    "consume_ammo": 150,
+    "consume_steel": 150,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 248,
+    "consume_fuel": 90,
+    "consume_ammo": 70,
+    "consume_steel": 0,
+    "consume_bauxite": 220
+  },
+  {
+    "id": 249,
+    "consume_fuel": 120,
+    "consume_ammo": 80,
+    "consume_steel": 0,
+    "consume_bauxite": 260
+  },
+  {
+    "id": 250,
+    "consume_fuel": 90,
+    "consume_ammo": 130,
+    "consume_steel": 0,
+    "consume_bauxite": 360
+  },
+  {
+    "id": 251,
+    "consume_fuel": 120,
+    "consume_ammo": 160,
+    "consume_steel": 0,
+    "consume_bauxite": 380
+  },
+  {
+    "id": 252,
+    "consume_fuel": 170,
+    "consume_ammo": 190,
+    "consume_steel": 0,
+    "consume_bauxite": 390
+  },
+  {
+    "id": 256,
+    "consume_fuel": 220,
+    "consume_ammo": 360,
+    "consume_steel": 20,
+    "consume_bauxite": 400
+  },
+  {
+    "id": 260,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 50,
+    "consume_bauxite": 110
+  },
+  {
+    "id": 261,
+    "consume_fuel": 30,
+    "consume_ammo": 0,
+    "consume_steel": 90,
+    "consume_bauxite": 190
+  },
+  {
+    "id": 266,
+    "consume_fuel": 10,
+    "consume_ammo": 50,
+    "consume_steel": 80,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 267,
+    "consume_fuel": 20,
+    "consume_ammo": 70,
+    "consume_steel": 90,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 271,
+    "consume_fuel": 130,
+    "consume_ammo": 180,
+    "consume_steel": 0,
+    "consume_bauxite": 370
+  },
+  {
+    "id": 274,
+    "consume_fuel": 90,
+    "consume_ammo": 300,
+    "consume_steel": 90,
+    "consume_bauxite": 190
+  },
+  {
+    "id": 275,
+    "consume_fuel": 10,
+    "consume_ammo": 90,
+    "consume_steel": 170,
+    "consume_bauxite": 80
+  },
+  {
+    "id": 276,
+    "consume_fuel": 50,
+    "consume_ammo": 490,
+    "consume_steel": 860,
+    "consume_bauxite": 80
+  },
+  {
+    "id": 277,
+    "consume_fuel": 110,
+    "consume_ammo": 140,
+    "consume_steel": 0,
+    "consume_bauxite": 290
+  },
+  {
+    "id": 278,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 270,
+    "consume_bauxite": 200
+  },
+  {
+    "id": 279,
+    "consume_fuel": 20,
+    "consume_ammo": 0,
+    "consume_steel": 330,
+    "consume_bauxite": 380
+  },
+  {
+    "id": 280,
+    "consume_fuel": 20,
+    "consume_ammo": 60,
+    "consume_steel": 80,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 281,
+    "consume_fuel": 100,
+    "consume_ammo": 700,
+    "consume_steel": 950,
+    "consume_bauxite": 200
+  },
+  {
+    "id": 282,
+    "consume_fuel": 40,
+    "consume_ammo": 90,
+    "consume_steel": 190,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 283,
+    "consume_fuel": 60,
+    "consume_ammo": 90,
+    "consume_steel": 70,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 284,
+    "consume_fuel": 30,
+    "consume_ammo": 80,
+    "consume_steel": 180,
+    "consume_bauxite": 160
+  },
+  {
+    "id": 285,
+    "consume_fuel": 120,
+    "consume_ammo": 180,
+    "consume_steel": 90,
+    "consume_bauxite": 60
+  },
+  {
+    "id": 286,
+    "consume_fuel": 160,
+    "consume_ammo": 240,
+    "consume_steel": 120,
+    "consume_bauxite": 80
+  },
+  {
+    "id": 287,
+    "consume_fuel": 20,
+    "consume_ammo": 200,
+    "consume_steel": 40,
+    "consume_bauxite": 60
+  },
+  {
+    "id": 288,
+    "consume_fuel": 20,
+    "consume_ammo": 200,
+    "consume_steel": 40,
+    "consume_bauxite": 60
+  },
+  {
+    "id": 289,
+    "consume_fuel": 50,
+    "consume_ammo": 350,
+    "consume_steel": 390,
+    "consume_bauxite": 90
+  },
+  {
+    "id": 290,
+    "consume_fuel": 45,
+    "consume_ammo": 460,
+    "consume_steel": 720,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 293,
+    "consume_fuel": 10,
+    "consume_ammo": 30,
+    "consume_steel": 50,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 294,
+    "consume_fuel": 10,
+    "consume_ammo": 40,
+    "consume_steel": 70,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 295,
+    "consume_fuel": 10,
+    "consume_ammo": 70,
+    "consume_steel": 160,
+    "consume_bauxite": 70
+  },
+  {
+    "id": 296,
+    "consume_fuel": 30,
+    "consume_ammo": 90,
+    "consume_steel": 130,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 297,
+    "consume_fuel": 10,
+    "consume_ammo": 30,
+    "consume_steel": 50,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 298,
+    "consume_fuel": 80,
+    "consume_ammo": 390,
+    "consume_steel": 490,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 299,
+    "consume_fuel": 90,
+    "consume_ammo": 400,
+    "consume_steel": 510,
+    "consume_bauxite": 60
+  },
+  {
+    "id": 300,
+    "consume_fuel": 100,
+    "consume_ammo": 480,
+    "consume_steel": 550,
+    "consume_bauxite": 180
+  },
+  {
+    "id": 303,
+    "consume_fuel": 20,
+    "consume_ammo": 300,
+    "consume_steel": 150,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 304,
+    "consume_fuel": 100,
+    "consume_ammo": 30,
+    "consume_steel": 0,
+    "consume_bauxite": 220
+  },
+  {
+    "id": 309,
+    "consume_fuel": 40,
+    "consume_ammo": 60,
+    "consume_steel": 60,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 310,
+    "consume_fuel": 20,
+    "consume_ammo": 90,
+    "consume_steel": 140,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 313,
+    "consume_fuel": 30,
+    "consume_ammo": 90,
+    "consume_steel": 190,
+    "consume_bauxite": 180
+  },
+  {
+    "id": 314,
+    "consume_fuel": 150,
+    "consume_ammo": 150,
+    "consume_steel": 100,
+    "consume_bauxite": 100
+  },
+  {
+    "id": 315,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 110,
+    "consume_bauxite": 220
+  },
+  {
+    "id": 316,
+    "consume_fuel": 170,
+    "consume_ammo": 220,
+    "consume_steel": 10,
+    "consume_bauxite": 380
+  },
+  {
+    "id": 317,
+    "consume_fuel": 80,
+    "consume_ammo": 200,
+    "consume_steel": 220,
+    "consume_bauxite": 240
+  },
+  {
+    "id": 318,
+    "consume_fuel": 40,
+    "consume_ammo": 410,
+    "consume_steel": 650,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 322,
+    "consume_fuel": 240,
+    "consume_ammo": 280,
+    "consume_steel": 0,
+    "consume_bauxite": 630
+  },
+  {
+    "id": 324,
+    "consume_fuel": 60,
+    "consume_ammo": 60,
+    "consume_steel": 30,
+    "consume_bauxite": 160
+  },
+  {
+    "id": 325,
+    "consume_fuel": 200,
+    "consume_ammo": 80,
+    "consume_steel": 120,
+    "consume_bauxite": 390
+  },
+  {
+    "id": 326,
+    "consume_fuel": 200,
+    "consume_ammo": 80,
+    "consume_steel": 120,
+    "consume_bauxite": 390
+  },
+  {
+    "id": 327,
+    "consume_fuel": 240,
+    "consume_ammo": 100,
+    "consume_steel": 120,
+    "consume_bauxite": 390
+  },
+  {
+    "id": 328,
+    "consume_fuel": 36,
+    "consume_ammo": 360,
+    "consume_steel": 500,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 329,
+    "consume_fuel": 40,
+    "consume_ammo": 390,
+    "consume_steel": 560,
+    "consume_bauxite": 80
+  },
+  {
+    "id": 330,
+    "consume_fuel": 30,
+    "consume_ammo": 350,
+    "consume_steel": 480,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 331,
+    "consume_fuel": 30,
+    "consume_ammo": 350,
+    "consume_steel": 480,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 332,
+    "consume_fuel": 40,
+    "consume_ammo": 380,
+    "consume_steel": 560,
+    "consume_bauxite": 160
+  },
+  {
+    "id": 340,
+    "consume_fuel": 10,
+    "consume_ammo": 90,
+    "consume_steel": 130,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 341,
+    "consume_fuel": 20,
+    "consume_ammo": 110,
+    "consume_steel": 150,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 344,
+    "consume_fuel": 270,
+    "consume_ammo": 390,
+    "consume_steel": 0,
+    "consume_bauxite": 470
+  },
+  {
+    "id": 346,
+    "consume_fuel": 20,
+    "consume_ammo": 120,
+    "consume_steel": 30,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 348,
+    "consume_fuel": 20,
+    "consume_ammo": 120,
+    "consume_steel": 30,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 356,
+    "consume_fuel": 20,
+    "consume_ammo": 120,
+    "consume_steel": 160,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 357,
+    "consume_fuel": 30,
+    "consume_ammo": 160,
+    "consume_steel": 190,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 365,
+    "consume_fuel": 50,
+    "consume_ammo": 200,
+    "consume_steel": 390,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 367,
+    "consume_fuel": 90,
+    "consume_ammo": 280,
+    "consume_steel": 0,
+    "consume_bauxite": 240
+  },
+  {
+    "id": 368,
+    "consume_fuel": 120,
+    "consume_ammo": 350,
+    "consume_steel": 0,
+    "consume_bauxite": 350
+  },
+  {
+    "id": 370,
+    "consume_fuel": 110,
+    "consume_ammo": 30,
+    "consume_steel": 0,
+    "consume_bauxite": 290
+  },
+  {
+    "id": 371,
+    "consume_fuel": 130,
+    "consume_ammo": 70,
+    "consume_steel": 0,
+    "consume_bauxite": 340
+  },
+  {
+    "id": 372,
+    "consume_fuel": 320,
+    "consume_ammo": 400,
+    "consume_steel": 0,
+    "consume_bauxite": 490
+  },
+  {
+    "id": 379,
+    "consume_fuel": 10,
+    "consume_ammo": 30,
+    "consume_steel": 50,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 381,
+    "consume_fuel": 40,
+    "consume_ammo": 420,
+    "consume_steel": 600,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 382,
+    "consume_fuel": 10,
+    "consume_ammo": 20,
+    "consume_steel": 40,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 383,
+    "consume_fuel": 120,
+    "consume_ammo": 160,
+    "consume_steel": 80,
+    "consume_bauxite": 60
+  },
+  {
+    "id": 385,
+    "consume_fuel": 40,
+    "consume_ammo": 430,
+    "consume_steel": 650,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 386,
+    "consume_fuel": 20,
+    "consume_ammo": 120,
+    "consume_steel": 150,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 387,
+    "consume_fuel": 20,
+    "consume_ammo": 140,
+    "consume_steel": 180,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 391,
+    "consume_fuel": 200,
+    "consume_ammo": 190,
+    "consume_steel": 0,
+    "consume_bauxite": 300
+  },
+  {
+    "id": 392,
+    "consume_fuel": 290,
+    "consume_ammo": 290,
+    "consume_steel": 0,
+    "consume_bauxite": 330
+  },
+  {
+    "id": 393,
+    "consume_fuel": 20,
+    "consume_ammo": 90,
+    "consume_steel": 80,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 394,
+    "consume_fuel": 20,
+    "consume_ammo": 90,
+    "consume_steel": 80,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 395,
+    "consume_fuel": 640,
+    "consume_ammo": 600,
+    "consume_steel": 0,
+    "consume_bauxite": 780
+  },
+  {
+    "id": 397,
+    "consume_fuel": 0,
+    "consume_ammo": 40,
+    "consume_steel": 80,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 398,
+    "consume_fuel": 0,
+    "consume_ammo": 30,
+    "consume_steel": 90,
+    "consume_bauxite": 60
+  },
+  {
+    "id": 399,
+    "consume_fuel": 10,
+    "consume_ammo": 110,
+    "consume_steel": 130,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 400,
+    "consume_fuel": 100,
+    "consume_ammo": 120,
+    "consume_steel": 80,
+    "consume_bauxite": 70
+  },
+  {
+    "id": 401,
+    "consume_fuel": 280,
+    "consume_ammo": 400,
+    "consume_steel": 10,
+    "consume_bauxite": 480
+  },
+  {
+    "id": 403,
+    "consume_fuel": 400,
+    "consume_ammo": 440,
+    "consume_steel": 20,
+    "consume_bauxite": 540
+  },
+  {
+    "id": 407,
+    "consume_fuel": 30,
+    "consume_ammo": 100,
+    "consume_steel": 110,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 408,
+    "consume_fuel": 80,
+    "consume_ammo": 60,
+    "consume_steel": 100,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 409,
+    "consume_fuel": 60,
+    "consume_ammo": 80,
+    "consume_steel": 10,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 410,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 40,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 411,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 180,
+    "consume_bauxite": 140
+  },
+  {
+    "id": 414,
+    "consume_fuel": 80,
+    "consume_ammo": 30,
+    "consume_steel": 0,
+    "consume_bauxite": 340
+  },
+  {
+    "id": 419,
+    "consume_fuel": 200,
+    "consume_ammo": 270,
+    "consume_steel": 0,
+    "consume_bauxite": 350
+  },
+  {
+    "id": 420,
+    "consume_fuel": 250,
+    "consume_ammo": 360,
+    "consume_steel": 0,
+    "consume_bauxite": 470
+  },
+  {
+    "id": 421,
+    "consume_fuel": 270,
+    "consume_ammo": 390,
+    "consume_steel": 0,
+    "consume_bauxite": 490
+  },
+  {
+    "id": 422,
+    "consume_fuel": 200,
+    "consume_ammo": 200,
+    "consume_steel": 360,
+    "consume_bauxite": 500
+  },
+  {
+    "id": 423,
+    "consume_fuel": 150,
+    "consume_ammo": 80,
+    "consume_steel": 0,
+    "consume_bauxite": 270
+  },
+  {
+    "id": 424,
+    "consume_fuel": 300,
+    "consume_ammo": 420,
+    "consume_steel": 40,
+    "consume_bauxite": 420
+  },
+  {
+    "id": 425,
+    "consume_fuel": 320,
+    "consume_ammo": 440,
+    "consume_steel": 40,
+    "consume_bauxite": 440
+  },
+  {
+    "id": 426,
+    "consume_fuel": 130,
+    "consume_ammo": 220,
+    "consume_steel": 310,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 427,
+    "consume_fuel": 30,
+    "consume_ammo": 300,
+    "consume_steel": 420,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 428,
+    "consume_fuel": 30,
+    "consume_ammo": 260,
+    "consume_steel": 320,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 429,
+    "consume_fuel": 40,
+    "consume_ammo": 320,
+    "consume_steel": 320,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 431,
+    "consume_fuel": 290,
+    "consume_ammo": 380,
+    "consume_steel": 0,
+    "consume_bauxite": 450
+  },
+  {
+    "id": 432,
+    "consume_fuel": 300,
+    "consume_ammo": 400,
+    "consume_steel": 0,
+    "consume_bauxite": 470
+  },
+  {
+    "id": 438,
+    "consume_fuel": 20,
+    "consume_ammo": 0,
+    "consume_steel": 70,
+    "consume_bauxite": 60
+  },
+  {
+    "id": 440,
+    "consume_fuel": 80,
+    "consume_ammo": 140,
+    "consume_steel": 60,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 441,
+    "consume_fuel": 120,
+    "consume_ammo": 160,
+    "consume_steel": 80,
+    "consume_bauxite": 60
+  },
+  {
+    "id": 442,
+    "consume_fuel": 60,
+    "consume_ammo": 120,
+    "consume_steel": 60,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 445,
+    "consume_fuel": 140,
+    "consume_ammo": 180,
+    "consume_steel": 0,
+    "consume_bauxite": 370
+  },
+  {
+    "id": 446,
+    "consume_fuel": 150,
+    "consume_ammo": 220,
+    "consume_steel": 0,
+    "consume_bauxite": 390
+  },
+  {
+    "id": 447,
+    "consume_fuel": 160,
+    "consume_ammo": 160,
+    "consume_steel": 0,
+    "consume_bauxite": 320
+  },
+  {
+    "id": 450,
+    "consume_fuel": 10,
+    "consume_ammo": 0,
+    "consume_steel": 30,
+    "consume_bauxite": 60
+  },
+  {
+    "id": 451,
+    "consume_fuel": 80,
+    "consume_ammo": 60,
+    "consume_steel": 10,
+    "consume_bauxite": 180
+  },
+  {
+    "id": 452,
+    "consume_fuel": 140,
+    "consume_ammo": 180,
+    "consume_steel": 0,
+    "consume_bauxite": 370
+  },
+  {
+    "id": 455,
+    "consume_fuel": 10,
+    "consume_ammo": 70,
+    "consume_steel": 100,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 457,
+    "consume_fuel": 80,
+    "consume_ammo": 120,
+    "consume_steel": 40,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 464,
+    "consume_fuel": 10,
+    "consume_ammo": 180,
+    "consume_steel": 330,
+    "consume_bauxite": 270
+  },
+  {
+    "id": 468,
+    "consume_fuel": 200,
+    "consume_ammo": 550,
+    "consume_steel": 880,
+    "consume_bauxite": 200
+  },
+  {
+    "id": 470,
+    "consume_fuel": 20,
+    "consume_ammo": 60,
+    "consume_steel": 90,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 471,
+    "consume_fuel": 100,
+    "consume_ammo": 40,
+    "consume_steel": 0,
+    "consume_bauxite": 500
+  },
+  {
+    "id": 473,
+    "consume_fuel": 190,
+    "consume_ammo": 160,
+    "consume_steel": 0,
+    "consume_bauxite": 390
+  },
+  {
+    "id": 474,
+    "consume_fuel": 240,
+    "consume_ammo": 340,
+    "consume_steel": 0,
+    "consume_bauxite": 440
+  },
+  {
+    "id": 478,
+    "consume_fuel": 30,
+    "consume_ammo": 30,
+    "consume_steel": 30,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 483,
+    "consume_fuel": 100,
+    "consume_ammo": 240,
+    "consume_steel": 220,
+    "consume_bauxite": 280
+  },
+  {
+    "id": 485,
+    "consume_fuel": 150,
+    "consume_ammo": 130,
+    "consume_steel": 0,
+    "consume_bauxite": 340
+  },
+  {
+    "id": 486,
+    "consume_fuel": 140,
+    "consume_ammo": 160,
+    "consume_steel": 0,
+    "consume_bauxite": 320
+  },
+  {
+    "id": 487,
+    "consume_fuel": 160,
+    "consume_ammo": 220,
+    "consume_steel": 0,
+    "consume_bauxite": 330
+  },
+  {
+    "id": 488,
+    "consume_fuel": 20,
+    "consume_ammo": 140,
+    "consume_steel": 10,
+    "consume_bauxite": 90
+  },
+  {
+    "id": 489,
+    "consume_fuel": 120,
+    "consume_ammo": 240,
+    "consume_steel": 20,
+    "consume_bauxite": 310
+  },
+  {
+    "id": 492,
+    "consume_fuel": 120,
+    "consume_ammo": 120,
+    "consume_steel": 0,
+    "consume_bauxite": 280
+  },
+  {
+    "id": 493,
+    "consume_fuel": 440,
+    "consume_ammo": 440,
+    "consume_steel": 0,
+    "consume_bauxite": 480
+  },
+  {
+    "id": 496,
+    "consume_fuel": 10,
+    "consume_ammo": 20,
+    "consume_steel": 10,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 500,
+    "consume_fuel": 60,
+    "consume_ammo": 0,
+    "consume_steel": 20,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 502,
+    "consume_fuel": 70,
+    "consume_ammo": 380,
+    "consume_steel": 530,
+    "consume_bauxite": 190
+  },
+  {
+    "id": 507,
+    "consume_fuel": 20,
+    "consume_ammo": 240,
+    "consume_steel": 320,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 508,
+    "consume_fuel": 30,
+    "consume_ammo": 320,
+    "consume_steel": 480,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 509,
+    "consume_fuel": 10,
+    "consume_ammo": 40,
+    "consume_steel": 60,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 511,
+    "consume_fuel": 60,
+    "consume_ammo": 120,
+    "consume_steel": 50,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 512,
+    "consume_fuel": 70,
+    "consume_ammo": 130,
+    "consume_steel": 60,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 517,
+    "consume_fuel": 20,
+    "consume_ammo": 0,
+    "consume_steel": 90,
+    "consume_bauxite": 150
+  },
+  {
+    "id": 518,
+    "consume_fuel": 20,
+    "consume_ammo": 90,
+    "consume_steel": 140,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 519,
+    "consume_fuel": 30,
+    "consume_ammo": 30,
+    "consume_steel": 100,
+    "consume_bauxite": 250
+  },
+  {
+    "id": 520,
+    "consume_fuel": 20,
+    "consume_ammo": 140,
+    "consume_steel": 190,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 522,
+    "consume_fuel": 60,
+    "consume_ammo": 10,
+    "consume_steel": 0,
+    "consume_bauxite": 210
+  },
+  {
+    "id": 523,
+    "consume_fuel": 80,
+    "consume_ammo": 20,
+    "consume_steel": 0,
+    "consume_bauxite": 220
+  },
+  {
+    "id": 524,
+    "consume_fuel": 0,
+    "consume_ammo": 50,
+    "consume_steel": 30,
+    "consume_bauxite": 40
+  },
+  {
+    "id": 529,
+    "consume_fuel": 30,
+    "consume_ammo": 90,
+    "consume_steel": 130,
+    "consume_bauxite": 70
+  },
+  {
+    "id": 530,
+    "consume_fuel": 50,
+    "consume_ammo": 420,
+    "consume_steel": 600,
+    "consume_bauxite": 160
+  },
+  {
+    "id": 531,
+    "consume_fuel": 0,
+    "consume_ammo": 0,
+    "consume_steel": 30,
+    "consume_bauxite": 50
+  },
+  {
+    "id": 533,
+    "consume_fuel": 20,
+    "consume_ammo": 90,
+    "consume_steel": 190,
+    "consume_bauxite": 80
+  },
+  {
+    "id": 534,
+    "consume_fuel": 10,
+    "consume_ammo": 80,
+    "consume_steel": 130,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 535,
+    "consume_fuel": 20,
+    "consume_ammo": 90,
+    "consume_steel": 160,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 536,
+    "consume_fuel": 10,
+    "consume_ammo": 110,
+    "consume_steel": 130,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 537,
+    "consume_fuel": 20,
+    "consume_ammo": 130,
+    "consume_steel": 140,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 539,
+    "consume_fuel": 160,
+    "consume_ammo": 60,
+    "consume_steel": 0,
+    "consume_bauxite": 390
+  },
+  {
+    "id": 541,
+    "consume_fuel": 180,
+    "consume_ammo": 250,
+    "consume_steel": 0,
+    "consume_bauxite": 330
+  },
+  {
+    "id": 542,
+    "consume_fuel": 140,
+    "consume_ammo": 240,
+    "consume_steel": 0,
+    "consume_bauxite": 300
+  },
+  {
+    "id": 543,
+    "consume_fuel": 240,
+    "consume_ammo": 230,
+    "consume_steel": 0,
+    "consume_bauxite": 360
+  },
+  {
+    "id": 544,
+    "consume_fuel": 200,
+    "consume_ammo": 270,
+    "consume_steel": 0,
+    "consume_bauxite": 350
+  },
+  {
+    "id": 546,
+    "consume_fuel": 220,
+    "consume_ammo": 270,
+    "consume_steel": 0,
+    "consume_bauxite": 470
+  },
+  {
+    "id": 547,
+    "consume_fuel": 240,
+    "consume_ammo": 270,
+    "consume_steel": 0,
+    "consume_bauxite": 480
+  },
+  {
+    "id": 549,
+    "consume_fuel": 80,
+    "consume_ammo": 60,
+    "consume_steel": 10,
+    "consume_bauxite": 190
+  },
+  {
+    "id": 550,
+    "consume_fuel": 180,
+    "consume_ammo": 180,
+    "consume_steel": 0,
+    "consume_bauxite": 70
+  },
+  {
+    "id": 551,
+    "consume_fuel": 190,
+    "consume_ammo": 190,
+    "consume_steel": 0,
+    "consume_bauxite": 100
+  },
+  {
+    "id": 552,
+    "consume_fuel": 220,
+    "consume_ammo": 200,
+    "consume_steel": 0,
+    "consume_bauxite": 170
+  },
+  {
+    "id": 553,
+    "consume_fuel": 0,
+    "consume_ammo": 30,
+    "consume_steel": 100,
+    "consume_bauxite": 70
+  },
+  {
+    "id": 555,
+    "consume_fuel": 100,
+    "consume_ammo": 120,
+    "consume_steel": 80,
+    "consume_bauxite": 70
+  },
+  {
+    "id": 564,
+    "consume_fuel": 10,
+    "consume_ammo": 60,
+    "consume_steel": 90,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 565,
+    "consume_fuel": 10,
+    "consume_ammo": 40,
+    "consume_steel": 70,
+    "consume_bauxite": 0
+  },
+  {
+    "id": 570,
+    "consume_fuel": 440,
+    "consume_ammo": 480,
+    "consume_steel": 0,
+    "consume_bauxite": 500
+  },
+  {
+    "id": 572,
+    "consume_fuel": 10,
+    "consume_ammo": 30,
+    "consume_steel": 50,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 573,
+    "consume_fuel": 10,
+    "consume_ammo": 10,
+    "consume_steel": 100,
+    "consume_bauxite": 230
+  },
+  {
+    "id": 574,
+    "consume_fuel": 20,
+    "consume_ammo": 20,
+    "consume_steel": 170,
+    "consume_bauxite": 280
+  },
+  {
+    "id": 575,
+    "consume_fuel": 10,
+    "consume_ammo": 40,
+    "consume_steel": 30,
+    "consume_bauxite": 20
+  }
+]

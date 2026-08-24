@@ -1,0 +1,721 @@
+{
+  "source": "梦美改修推荐.xlsx (2026-08-20)",
+  "byEquip": {
+    "1": {
+      "priority": 1,
+      "activity": 0
+    },
+    "9": {
+      "priority": 2,
+      "activity": 2
+    },
+    "15": {
+      "priority": 4,
+      "activity": 1.5
+    },
+    "17": {
+      "priority": 2,
+      "activity": 0
+    },
+    "19": {
+      "priority": 0,
+      "activity": 0
+    },
+    "20": {
+      "priority": 5,
+      "activity": 0
+    },
+    "23": {
+      "priority": 4,
+      "activity": 0
+    },
+    "25": {
+      "priority": 5,
+      "activity": 0
+    },
+    "35": {
+      "priority": 2,
+      "activity": 0
+    },
+    "36": {
+      "priority": 5,
+      "activity": 0
+    },
+    "47": {
+      "priority": 1,
+      "activity": 0
+    },
+    "50": {
+      "priority": 1,
+      "activity": 3.5
+    },
+    "51": {
+      "priority": 4,
+      "activity": 0
+    },
+    "53": {
+      "priority": 3,
+      "activity": 2.5
+    },
+    "57": {
+      "priority": 1,
+      "activity": 0
+    },
+    "58": {
+      "priority": 4,
+      "activity": 3.5
+    },
+    "63": {
+      "priority": 0,
+      "activity": 0
+    },
+    "68": {
+      "priority": 5,
+      "activity": 0
+    },
+    "72": {
+      "priority": 1,
+      "activity": 0
+    },
+    "74": {
+      "priority": 2,
+      "activity": 2.5
+    },
+    "79": {
+      "priority": 2,
+      "activity": 0
+    },
+    "80": {
+      "priority": 2,
+      "activity": 0
+    },
+    "81": {
+      "priority": 2,
+      "activity": 1
+    },
+    "87": {
+      "priority": 1,
+      "activity": 4.5
+    },
+    "88": {
+      "priority": 1,
+      "activity": 0
+    },
+    "93": {
+      "priority": 5,
+      "activity": 0
+    },
+    "94": {
+      "priority": 5,
+      "activity": 3.5
+    },
+    "95": {
+      "priority": 1,
+      "activity": 0
+    },
+    "96": {
+      "priority": 2,
+      "activity": 1.5
+    },
+    "99": {
+      "priority": 4,
+      "activity": 0
+    },
+    "100": {
+      "priority": 4,
+      "activity": 4.5
+    },
+    "102": {
+      "priority": 3,
+      "activity": 0
+    },
+    "105": {
+      "priority": 5,
+      "activity": 0
+    },
+    "109": {
+      "priority": 2,
+      "activity": 0
+    },
+    "110": {
+      "priority": 2,
+      "activity": 2.5
+    },
+    "116": {
+      "priority": 5,
+      "activity": 4.5
+    },
+    "117": {
+      "priority": 2,
+      "activity": 0
+    },
+    "118": {
+      "priority": 1,
+      "activity": 4.5
+    },
+    "120": {
+      "priority": 1,
+      "activity": 0.5
+    },
+    "122": {
+      "priority": 2,
+      "activity": 2
+    },
+    "124": {
+      "priority": 3,
+      "activity": 4.5
+    },
+    "125": {
+      "priority": 3,
+      "activity": 0
+    },
+    "128": {
+      "priority": 3,
+      "activity": 0
+    },
+    "129": {
+      "priority": 1,
+      "activity": 1.5
+    },
+    "132": {
+      "priority": 0,
+      "activity": 0.5
+    },
+    "140": {
+      "priority": 1,
+      "activity": 3.5
+    },
+    "142": {
+      "priority": 1,
+      "activity": 0
+    },
+    "145": {
+      "priority": 0,
+      "activity": 0
+    },
+    "149": {
+      "priority": 1,
+      "activity": 2.5
+    },
+    "151": {
+      "priority": 1,
+      "activity": 0
+    },
+    "152": {
+      "priority": 5,
+      "activity": 2.5
+    },
+    "155": {
+      "priority": 5,
+      "activity": 3.5
+    },
+    "161": {
+      "priority": 4,
+      "activity": 0
+    },
+    "162": {
+      "priority": 0,
+      "activity": 2.5
+    },
+    "163": {
+      "priority": 4,
+      "activity": 0
+    },
+    "164": {
+      "priority": 4,
+      "activity": 3
+    },
+    "165": {
+      "priority": 5,
+      "activity": 3
+    },
+    "166": {
+      "priority": 5,
+      "activity": 3.5
+    },
+    "170": {
+      "priority": 2,
+      "activity": 3.5
+    },
+    "179": {
+      "priority": 3,
+      "activity": 4.5
+    },
+    "180": {
+      "priority": 2,
+      "activity": 0
+    },
+    "183": {
+      "priority": 4,
+      "activity": 5
+    },
+    "187": {
+      "priority": 2,
+      "activity": 2.5
+    },
+    "193": {
+      "priority": 1,
+      "activity": 1
+    },
+    "199": {
+      "priority": 1,
+      "activity": 4
+    },
+    "203": {
+      "priority": 1,
+      "activity": 2.5
+    },
+    "204": {
+      "priority": 1,
+      "activity": 2.5
+    },
+    "205": {
+      "priority": 2,
+      "activity": 0
+    },
+    "206": {
+      "priority": 1,
+      "activity": 0
+    },
+    "213": {
+      "priority": 1,
+      "activity": 0
+    },
+    "214": {
+      "priority": 1,
+      "activity": 1
+    },
+    "216": {
+      "priority": 3,
+      "activity": 3.5
+    },
+    "217": {
+      "priority": 2,
+      "activity": 3.5
+    },
+    "220": {
+      "priority": 2,
+      "activity": 3.5
+    },
+    "221": {
+      "priority": 2,
+      "activity": 0
+    },
+    "222": {
+      "priority": 2,
+      "activity": 1.5
+    },
+    "224": {
+      "priority": 2,
+      "activity": 4.5
+    },
+    "233": {
+      "priority": 2,
+      "activity": 0
+    },
+    "237": {
+      "priority": 2,
+      "activity": 2.5
+    },
+    "238": {
+      "priority": 0,
+      "activity": 3
+    },
+    "239": {
+      "priority": 3,
+      "activity": 5
+    },
+    "240": {
+      "priority": 1,
+      "activity": 3
+    },
+    "242": {
+      "priority": 1,
+      "activity": 0
+    },
+    "243": {
+      "priority": 1,
+      "activity": 1.5
+    },
+    "246": {
+      "priority": 1,
+      "activity": 0
+    },
+    "250": {
+      "priority": 1,
+      "activity": 0
+    },
+    "251": {
+      "priority": 1,
+      "activity": 1.5
+    },
+    "254": {
+      "priority": 2,
+      "activity": 1
+    },
+    "255": {
+      "priority": 1,
+      "activity": 2
+    },
+    "261": {
+      "priority": 0,
+      "activity": 2.5
+    },
+    "266": {
+      "priority": 2,
+      "activity": 0
+    },
+    "267": {
+      "priority": 3,
+      "activity": 3.5
+    },
+    "274": {
+      "priority": 2,
+      "activity": 0
+    },
+    "276": {
+      "priority": 3,
+      "activity": 0
+    },
+    "281": {
+      "priority": 3,
+      "activity": 2
+    },
+    "282": {
+      "priority": 1,
+      "activity": 0
+    },
+    "285": {
+      "priority": 1,
+      "activity": 1.5
+    },
+    "286": {
+      "priority": 3,
+      "activity": 4.5
+    },
+    "287": {
+      "priority": 1,
+      "activity": 0
+    },
+    "288": {
+      "priority": 1,
+      "activity": 2
+    },
+    "290": {
+      "priority": 5,
+      "activity": 3
+    },
+    "294": {
+      "priority": 3,
+      "activity": 0
+    },
+    "295": {
+      "priority": 3,
+      "activity": 1
+    },
+    "296": {
+      "priority": 0,
+      "activity": 1
+    },
+    "299": {
+      "priority": 3,
+      "activity": 0
+    },
+    "300": {
+      "priority": 3,
+      "activity": 5
+    },
+    "308": {
+      "priority": 1,
+      "activity": 3
+    },
+    "309": {
+      "priority": 2,
+      "activity": 4.5
+    },
+    "310": {
+      "priority": 1,
+      "activity": 0
+    },
+    "313": {
+      "priority": 1,
+      "activity": 0
+    },
+    "314": {
+      "priority": 2,
+      "activity": 0
+    },
+    "315": {
+      "priority": 1,
+      "activity": 0
+    },
+    "317": {
+      "priority": 2,
+      "activity": 3.5
+    },
+    "318": {
+      "priority": 4,
+      "activity": 2
+    },
+    "320": {
+      "priority": 1,
+      "activity": 3
+    },
+    "322": {
+      "priority": 2,
+      "activity": 3.5
+    },
+    "323": {
+      "priority": 1,
+      "activity": 4
+    },
+    "326": {
+      "priority": 0,
+      "activity": 0
+    },
+    "327": {
+      "priority": 0,
+      "activity": 1
+    },
+    "329": {
+      "priority": 2,
+      "activity": 0
+    },
+    "356": {
+      "priority": 1,
+      "activity": 0
+    },
+    "357": {
+      "priority": 1,
+      "activity": 2.5
+    },
+    "365": {
+      "priority": 1,
+      "activity": 0
+    },
+    "366": {
+      "priority": 3,
+      "activity": 5
+    },
+    "372": {
+      "priority": 2,
+      "activity": 0
+    },
+    "376": {
+      "priority": 2,
+      "activity": 4
+    },
+    "383": {
+      "priority": 1,
+      "activity": 1
+    },
+    "385": {
+      "priority": 4,
+      "activity": 2
+    },
+    "391": {
+      "priority": 4,
+      "activity": 0
+    },
+    "400": {
+      "priority": 2,
+      "activity": 2.5
+    },
+    "401": {
+      "priority": 1,
+      "activity": 0
+    },
+    "403": {
+      "priority": 1,
+      "activity": 2.5
+    },
+    "405": {
+      "priority": 1,
+      "activity": 2
+    },
+    "407": {
+      "priority": 2,
+      "activity": 3.5
+    },
+    "408": {
+      "priority": 2,
+      "activity": 2.5
+    },
+    "409": {
+      "priority": 1,
+      "activity": 1.5
+    },
+    "411": {
+      "priority": 1,
+      "activity": 3.5
+    },
+    "422": {
+      "priority": 3,
+      "activity": 2.5
+    },
+    "438": {
+      "priority": 2,
+      "activity": 3.5
+    },
+    "445": {
+      "priority": 0,
+      "activity": 0
+    },
+    "446": {
+      "priority": 0,
+      "activity": 1
+    },
+    "450": {
+      "priority": 1,
+      "activity": 2.5
+    },
+    "455": {
+      "priority": 1,
+      "activity": 1.5
+    },
+    "456": {
+      "priority": 1,
+      "activity": 5
+    },
+    "460": {
+      "priority": 1,
+      "activity": 5
+    },
+    "464": {
+      "priority": 1,
+      "activity": 1.5
+    },
+    "466": {
+      "priority": 3,
+      "activity": 0
+    },
+    "468": {
+      "priority": 1,
+      "activity": 2.5
+    },
+    "469": {
+      "priority": 3,
+      "activity": 4
+    },
+    "470": {
+      "priority": 2,
+      "activity": 1.5
+    },
+    "473": {
+      "priority": 2,
+      "activity": 3.5
+    },
+    "478": {
+      "priority": 3,
+      "activity": 5
+    },
+    "483": {
+      "priority": 2,
+      "activity": 4.5
+    },
+    "485": {
+      "priority": 1,
+      "activity": 4.5
+    },
+    "486": {
+      "priority": 2,
+      "activity": 0
+    },
+    "487": {
+      "priority": 2,
+      "activity": 2.5
+    },
+    "488": {
+      "priority": 1,
+      "activity": 1.5
+    },
+    "490": {
+      "priority": 4,
+      "activity": 4
+    },
+    "493": {
+      "priority": 2,
+      "activity": 1.5
+    },
+    "496": {
+      "priority": 1,
+      "activity": 4
+    },
+    "500": {
+      "priority": 3,
+      "activity": 3.5
+    },
+    "502": {
+      "priority": 1,
+      "activity": 3.5
+    },
+    "503": {
+      "priority": 2,
+      "activity": 4
+    },
+    "517": {
+      "priority": 1,
+      "activity": 3.5
+    },
+    "518": {
+      "priority": 1,
+      "activity": 2.5
+    },
+    "519": {
+      "priority": 1,
+      "activity": 2.5
+    },
+    "520": {
+      "priority": 3,
+      "activity": 4.5
+    },
+    "522": {
+      "priority": 0,
+      "activity": 0
+    },
+    "530": {
+      "priority": 1,
+      "activity": 3.5
+    },
+    "531": {
+      "priority": 1,
+      "activity": 2.5
+    },
+    "533": {
+      "priority": 4,
+      "activity": 5
+    },
+    "535": {
+      "priority": 2,
+      "activity": 1
+    },
+    "540": {
+      "priority": 3,
+      "activity": 5
+    },
+    "546": {
+      "priority": 3,
+      "activity": 0
+    },
+    "547": {
+      "priority": 3,
+      "activity": 5
+    },
+    "550": {
+      "priority": 0,
+      "activity": 0
+    },
+    "551": {
+      "priority": 0,
+      "activity": 1
+    },
+    "553": {
+      "priority": 4,
+      "activity": 0
+    },
+    "570": {
+      "priority": 3,
+      "activity": 4.5
+    }
+  }
+}

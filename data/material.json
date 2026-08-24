@@ -1,0 +1,54 @@
+[
+  {
+    "key": "ActionReport",
+    "name": "戦闘詳報"
+  },
+  {
+    "key": "emergency-repair-material",
+    "name": "緊急修理資材"
+  },
+  {
+    "key": "fast-build",
+    "name": "高速建造材"
+  },
+  {
+    "key": "kaigai-skill",
+    "name": "海外艦最新技術"
+  },
+  {
+    "key": "kousyo-sigen",
+    "name": "工廠資源"
+  },
+  {
+    "key": "MedalL",
+    "name": "勲章"
+  },
+  {
+    "key": "NeEngine",
+    "name": "ネ式エンジン"
+  },
+  {
+    "key": "new_gun_material",
+    "name": "新型砲熕兵装資材"
+  },
+  {
+    "key": "new_model_material",
+    "name": "新型兵装資材"
+  },
+  {
+    "key": "new_plane_material",
+    "name": "新型航空兵装資材"
+  },
+  {
+    "key": "new-funsiki-material",
+    "name": "新型噴進装備開発資材"
+  },
+  {
+    "key": "sensui-hokyu",
+    "name": "潜水艦補給物資"
+  },
+  {
+    "key": "skilled_crew",
+    "name": "熟練搭乗員"
+  }
+]
