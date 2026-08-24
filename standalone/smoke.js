@@ -200,6 +200,8 @@ function clickFavorite(namePart) {
 
   clickFavorite(nameById[multiId]);
   await sleep(200);
+  clickFavorite("12.7cm連装砲D型改二");
+  await sleep(200);
   clickNav("素材计算");
   await sleep(300);
   const planTable = window.document.querySelector(".kr2-plan-table");
@@ -214,6 +216,31 @@ function clickFavorite(namePart) {
   if (!planTable.querySelector(".kr2-plan-target-btn")) {
     throw new Error("plan target buttons missing");
   }
+  const dTypeRow = Array.from(planTable.querySelectorAll("tbody tr")).find((el) => el.textContent.includes("12.7cm連装砲D型改二"));
+  if (!dTypeRow) throw new Error("plan row not found:12.7cm連装砲D型改二");
+  const dTypeDevCell = dTypeRow.querySelectorAll("td")[5];
+  const dTypeLevel = Number((dTypeRow.querySelectorAll("td")[2].textContent.match(/\d+/) || [])[0] || 0);
+  const dTypeSteps = {};
+  for (const s of require(path.join(root, "data/improvement_consume_step.json"))) {
+    if (Number(s.equipment_id) === 267) dTypeSteps[String(s.step_id)] = s;
+  }
+  const dTypePlanLevels = [
+    { from: 0, p: 1, phase: "0" }, { from: 1, p: 1, phase: "0" }, { from: 2, p: 1, phase: "0" },
+    { from: 3, p: 1, phase: "0" }, { from: 4, p: 1, phase: "0" }, { from: 5, p: 0.95, phase: "0" },
+    { from: 6, p: 0.9, phase: "1" }, { from: 7, p: 0.82, phase: "1" },
+    { from: 8, p: 0.77, phase: "1" }, { from: 9, p: 0.67, phase: "1" },
+  ];
+  let dTypeDev = 0;
+  for (const lv of dTypePlanLevels) {
+    if (lv.from < dTypeLevel) continue;
+    const step = dTypeSteps[lv.phase];
+    dTypeDev += Number(step.consume_development_min) * (1 / lv.p);
+  }
+  const dTypeExpected = Math.ceil(dTypeDev - 1e-9);
+  if (!dTypeDevCell || Number(dTypeDevCell.textContent.replace(/,/g, "")) !== dTypeExpected) {
+    throw new Error("D型改二 dev expected " + dTypeExpected + ", got " + (dTypeDevCell && dTypeDevCell.textContent));
+  }
+  const devBeforeEvo = Number(planRow.querySelectorAll("td")[5].textContent.replace(/,/g, ""));
   const evoBtn = planRow.querySelector(".kr2-plan-evo-btn");
   if (!evoBtn) throw new Error("plan evolution button missing");
   evoBtn.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
@@ -237,6 +264,14 @@ function clickFavorite(namePart) {
     throw new Error("evolution button is not lit after selection");
   }
   const planRowAfter = Array.from(window.document.querySelector(".kr2-plan-table").querySelectorAll("tbody tr")).find((el) => el.textContent.includes(nameById[multiId]));
+  const devAfterEvo = Number(planRowAfter.querySelectorAll("td")[5].textContent.replace(/,/g, ""));
+  const upg0 = byEquip[multiId][0];
+  const expScrew0 = Number(upg0.consume_improvement_min) / 0.62;
+  const ensure0 = Number(upg0.consume_improvement_max) - expScrew0 < -0.005;
+  const expectedEvoDelta = ensure0 ? Number(upg0.consume_development_max) : Number(upg0.consume_development_min) / 0.62;
+  if (Math.abs((devAfterEvo - devBeforeEvo) - expectedEvoDelta) > 0.5) {
+    throw new Error("evolution dev delta wrong: before=" + devBeforeEvo + " after=" + devAfterEvo + " expectedDelta=" + expectedEvoDelta);
+  }
   const evoLabel = planRowAfter && planRowAfter.querySelector(".kr2-plan-evo-btn");
   if (!evoLabel || evoLabel.textContent !== "进化") {
     throw new Error("evolution button text should stay 进化");

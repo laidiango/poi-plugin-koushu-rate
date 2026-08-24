@@ -2533,7 +2533,7 @@ function planCopyCosts(row, target, current, upgradeId) {
     const ensure = rec.tone === "ensure"
     const expected = Number.isFinite(rec.expected) ? rec.expected : step.consume_improvement_min / lv.p
     const screws = ensure ? step.consume_improvement_max : expected
-    const attempts = ensure ? 1 : expected
+    const attempts = ensure ? 1 : 1 / lv.p
     const dev = ensure ? step.consume_development_max : step.consume_development_min * attempts
     out.screws += screws
     out.dev += dev
@@ -2553,7 +2553,7 @@ function planCopyCosts(row, target, current, upgradeId) {
       const ensure = rec.tone === "ensure"
       const expected = Number.isFinite(rec.expected) ? rec.expected : upg.consume_improvement_min / 0.62
       const screws = ensure ? upg.consume_improvement_max : expected
-      const attempts = ensure ? 1 : expected
+      const attempts = ensure ? 1 : 1 / 0.62
       const dev = ensure ? upg.consume_development_max : upg.consume_development_min * attempts
       out.screws += screws
       out.dev += dev
