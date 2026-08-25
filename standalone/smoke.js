@@ -99,11 +99,29 @@ function clickFavorite(namePart) {
   if (!expandedHtml.includes("改修未开放")) {
     throw new Error("non-improveable date column missing");
   }
-  clickRow("試製35.6cm三連装砲");
+  clickRow("46cm三連装砲");
   await sleep(300);
   if (!window.document.querySelector(".kr2-rare-warning")) {
     throw new Error("rare material warning missing");
   }
+  const zeroRateRows = Array.from(window.document.querySelectorAll(".kr2-rate-row")).filter((tr) => /^★[0-4]→/.test(tr.children[0].textContent));
+  if (zeroRateRows.some((tr) => tr.querySelector(".kr2-rare-warning, .kr2-rare-warning-secondary"))) {
+    throw new Error("0-5 phase should not show rare warning");
+  }
+  const secondaryCandidates = ["8cm高角砲", "彗星一二型甲", "10cm連装高角砲(砲架)", "毘式40mm連装機銃", "紫雲", "TBF"];
+  const secondaryRowName = secondaryCandidates.find((name) => Array.from(window.document.querySelectorAll(".kr2-name")).some((el) => el.textContent === name));
+  if (!secondaryRowName) throw new Error("no secondary candidate row found");
+  clickRow(secondaryRowName);
+  await sleep(300);
+  if (!window.document.querySelector(".kr2-rare-warning")) {
+    throw new Error("merged rare material warning missing");
+  }
+  const zeroRateRows2 = Array.from(window.document.querySelectorAll(".kr2-rate-row")).filter((tr) => /^★[0-4]→/.test(tr.children[0].textContent));
+  if (zeroRateRows2.some((tr) => tr.querySelector(".kr2-rare-warning, .kr2-rare-warning-secondary"))) {
+    throw new Error("0-5 phase should not show secondary rare warning");
+  }
+  clickRow("46cm三連装砲");
+  await sleep(300);
   const favBtn = window.document.querySelector(".kr2-fav-btn");
   if (!favBtn) throw new Error("favorite button missing");
   favBtn.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
@@ -290,6 +308,27 @@ function clickFavorite(namePart) {
   if (!targetGroup || targetGroup.children.length !== 3) {
     throw new Error("target group should contain +6/max/evolution on same level");
   }
+  const mainTable = window.document.querySelector(".kr2-plan-table");
+  const devSortBtn = mainTable.querySelectorAll("thead th")[5].querySelector(".kr2-sort-btn");
+  if (!devSortBtn) throw new Error("plan dev sort button missing");
+  devSortBtn.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await sleep(100);
+  const devAsc = Array.from(mainTable.querySelectorAll("tbody tr")).map((tr) => Number(tr.querySelectorAll("td")[5].textContent.replace(/,/g, "")));
+  if (!devAsc.every((v, idx) => idx === 0 || v >= devAsc[idx - 1])) throw new Error("plan dev asc sort failed");
+  const devSortBtn2 = window.document.querySelector(".kr2-plan-table").querySelectorAll("thead th")[5].querySelector(".kr2-sort-btn");
+  devSortBtn2.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await sleep(100);
+  const devDesc = Array.from(window.document.querySelector(".kr2-plan-table").querySelectorAll("tbody tr")).map((tr) => Number(tr.querySelectorAll("td")[5].textContent.replace(/,/g, "")));
+  if (!devDesc.every((v, idx) => idx === 0 || v <= devDesc[idx - 1])) throw new Error("plan dev desc sort failed");
+  const summaryTable = window.document.querySelectorAll(".kr2-plan-table")[1];
+  if (!summaryTable) throw new Error("summary table missing");
+  for (const idx of [1, 2, 3]) {
+    if (!summaryTable.querySelectorAll("thead th")[idx].querySelector(".kr2-sort-btn")) throw new Error("summary sort button missing idx=" + idx);
+  }
+  summaryTable.querySelectorAll("thead th")[1].querySelector(".kr2-sort-btn").dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await sleep(100);
+  const reqVals = Array.from(summaryTable.querySelectorAll("tbody tr")).filter((tr) => tr.children.length === 5).map((tr) => Number(tr.children[1].textContent));
+  if (!reqVals.every((v, idx) => idx === 0 || v >= reqVals[idx - 1])) throw new Error("summary required asc sort failed");
   clickNav("改修列表");
   await sleep(200);
   clickFavorite(targetName);
@@ -317,6 +356,38 @@ function clickFavorite(namePart) {
   }
   const sharedSum = nameRows.reduce((sum, tr) => sum + Number(tr.querySelector(".kr2-strong-target").textContent), 0);
   if (sharedSum !== 2) throw new Error("shared target sum should equal 2, got " + sharedSum);
+  const strongRowsAll = Array.from(window.document.querySelectorAll(".kr2-strong-table tbody tr")).filter((tr) => tr.children.length === 5);
+  const clearIdx = strongRowsAll.findIndex((tr) => tr.classList.contains("kr2-strong-clear-row"));
+  const firstOther = strongRowsAll.findIndex((tr) => !tr.classList.contains("kr2-strong-clear-row"));
+  if (clearIdx !== -1 && firstOther !== -1 && clearIdx > firstOther) throw new Error("clear rows should be on top");
+  const parseStockLevel = (tr) => {
+    const m = tr.children[3].textContent.match(/(max|\+\d+)\s*$/)
+    if (!m) return -1
+    return m[1] === "max" ? 10 : Number(m[1].slice(1))
+  }
+  const clearRowsList = strongRowsAll.filter((tr) => tr.classList.contains("kr2-strong-clear-row"));
+  for (let idx = 1; idx < clearRowsList.length; idx += 1) {
+    const aQty = Number(clearRowsList[idx - 1].children[2].textContent)
+    const bQty = Number(clearRowsList[idx].children[2].textContent)
+    if (aQty === bQty && parseStockLevel(clearRowsList[idx - 1]) < parseStockLevel(clearRowsList[idx])) {
+      throw new Error("clear tie should sort by stock level desc");
+    }
+  }
+  const nonClearRows = strongRowsAll.filter((tr) => !tr.classList.contains("kr2-strong-clear-row"));
+  const ownedNums = nonClearRows.map((tr) => Number(tr.children[4].textContent === "--" ? -1 : tr.children[4].textContent));
+  if (!ownedNums.every((v, idx) => idx === 0 || v <= ownedNums[idx - 1])) throw new Error("strong non-clear rows should sort by completion desc");
+  for (let idx = 1; idx < nonClearRows.length; idx += 1) {
+    const aOwn = Number(nonClearRows[idx - 1].children[4].textContent === "--" ? -1 : nonClearRows[idx - 1].children[4].textContent);
+    const bOwn = Number(nonClearRows[idx].children[4].textContent === "--" ? -1 : nonClearRows[idx].children[4].textContent);
+    if (aOwn === bOwn) {
+      const aQty = Number(nonClearRows[idx - 1].children[2].textContent)
+      const bQty = Number(nonClearRows[idx].children[2].textContent)
+      if (aQty < bQty) throw new Error("strong tie should sort by target desc")
+      if (aQty === bQty && parseStockLevel(nonClearRows[idx - 1]) < parseStockLevel(nonClearRows[idx])) {
+        throw new Error("strong tie should sort by stock level desc");
+      }
+    }
+  }
   clickNav("素材计算");
   await sleep(300);
   const rowMax = Array.from(window.document.querySelector(".kr2-plan-table").querySelectorAll("tbody tr")).find((el) => el.textContent.includes(nameById[multiId]));

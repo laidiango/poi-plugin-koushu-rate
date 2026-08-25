@@ -53,6 +53,16 @@ const RARE_MATERIAL_KEYS = new Set([
   "潜水艦補給物資",
 ]);
 
+let RARE_EQUIP_NAMES = null
+let SECONDARY_EQUIP_NAMES = null
+function getRareEquipSets() {
+  if (RARE_EQUIP_NAMES) return { rare: RARE_EQUIP_NAMES, secondary: SECONDARY_EQUIP_NAMES }
+  const data = loadJson("equipment_rarity.json") || {}
+  RARE_EQUIP_NAMES = new Set(data.rare || [])
+  SECONDARY_EQUIP_NAMES = new Set(data.secondary || [])
+  return { rare: RARE_EQUIP_NAMES, secondary: SECONDARY_EQUIP_NAMES }
+}
+
 function japanWeekdayKey() {
   const japanNow = new Date(Date.now() + 9 * 60 * 60 * 1000)
   return ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"][japanNow.getUTCDay()]
@@ -1132,6 +1142,11 @@ const CSS = `
 }
 .kr2-rare-warning {
   color: #ff6b6b;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.kr2-rare-warning-secondary {
+  color: #ffb3b3;
   font-size: 11px;
   white-space: nowrap;
 }
@@ -2383,16 +2398,17 @@ function buildRecommendation(normal, certain, p) {
   return { expected, text: "相同", tone: "same" }
 }
 
-function hasRareMaterial(materials, kcDevData) {
-  return (materials || []).some((item) => {
-    if (!item) return false
-    if (RARE_MATERIAL_KEYS.has(String(item.item_material_key || item.item_name || ""))) return true
-    if (item.item_equipment_id != null && kcDevData) {
-      const recipes = kcDevRecipes(kcDevData, String(item.item_equipment_id))
-      return !recipes || recipes.length === 0
-    }
-    return false
-  })
+function classifyRareMaterial(materials, kcDevData) {
+  const sets = getRareEquipSets()
+  let hasSecondary = false
+  for (const item of materials || []) {
+    if (!item) continue
+    if (item.item_material_key != null && RARE_MATERIAL_KEYS.has(String(item.item_material_key))) return "rare"
+    const name = String(item.item_name || "")
+    if (sets.rare.has(name)) return "rare"
+    if (sets.secondary.has(name)) hasSecondary = true
+  }
+  return hasSecondary ? "secondary" : null
 }
 
 function MaterialDetail({ materials, onMaterialClick, inventoryByEquip, onInventoryClick, useItemCounts }) {
@@ -2724,6 +2740,8 @@ class EvolutionButton extends React.Component {
 }
 
 function PlanningPage({ rows, inventoryByEquip, useItemCounts, selection, onToggle, onTarget, onQty, onSelectAll, onMaterialClick, kcDevData, includeDevExpected, onToggleIncludeDevExpected, onEvo }) {
+  const [mainSort, setMainSort] = React.useState({ key: "", dir: "asc" })
+  const [matSort, setMatSort] = React.useState({ key: "", dir: "asc" })
   const planRows = rows.map((row) => {
     const sel = (selection || {})[row.id] || { selected: true, target: "max", qty: 1 }
     const evoUpgradeId = sel.evoUpgradeId || null
@@ -2736,6 +2754,16 @@ function PlanningPage({ rows, inventoryByEquip, useItemCounts, selection, onTogg
   const totals = { screws: 0, dev: 0, fuel: 0, ammo: 0, steel: 0, bauxite: 0 }
   const materialMap = {}
   const includeDev = !!includeDevExpected
+  const planDevTotal = (p) => p.costs.dev + (includeDev ? p.matDev : 0)
+  const numCompare = (va, vb, dir) => {
+    if (va === vb) return 0
+    return va < vb ? (dir === "asc" ? -1 : 1) : (dir === "asc" ? 1 : -1)
+  }
+  const toggleMainSort = (key) => setMainSort((prev) => prev.key !== key ? { key, dir: "asc" } : prev.dir === "asc" ? { key, dir: "desc" } : { key: "", dir: "asc" })
+  const toggleMatSort = (key) => setMatSort((prev) => prev.key !== key ? { key, dir: "asc" } : prev.dir === "asc" ? { key, dir: "desc" } : { key: "", dir: "asc" })
+  const planSortValue = (p, key) => key === "screws" ? p.costs.screws : planDevTotal(p)
+  const displayPlanRows = mainSort.key ? planRows.slice().sort((a, b) => numCompare(planSortValue(a, mainSort.key), planSortValue(b, mainSort.key), mainSort.dir) || String(a.row.name).localeCompare(String(b.row.name), "zh-Hans-CN")) : planRows
+  const renderSortButton = (label, key, sortState, onToggle) => React.createElement("th", null, React.createElement("span", null, label), React.createElement("button", { className: "kr2-sort-btn" + (sortState.key === key ? " kr2-sort-active" : ""), onClick: () => onToggle(key) }, React.createElement("span", { className: "kr2-sort-arrow" }, sortState.key !== key ? "↕" : sortState.dir === "asc" ? "▲" : "▼")))
   for (const p of selected) {
     totals.screws += p.costs.screws
     totals.dev += p.costs.dev + (includeDev ? p.matDev : 0)
@@ -2752,6 +2780,15 @@ function PlanningPage({ rows, inventoryByEquip, useItemCounts, selection, onTogg
     }
   }
   const materialList = Object.keys(materialMap).map((k) => materialMap[k]).sort((a, b) => a.name.localeCompare(b.name, "zh-Hans-CN"))
+  const materialSortValue = (m, key) => key === "required" ? m.required : key === "stock" ? m.stock : planDevExpectedValue(m.item, m.required, kcDevData)
+  const displayMaterialList = matSort.key ? materialList.slice().sort((a, b) => {
+    if (matSort.key === "stock") {
+      const an = a.stock == null
+      const bn = b.stock == null
+      if (an !== bn) return an ? 1 : -1
+    }
+    return numCompare(materialSortValue(a, matSort.key), materialSortValue(b, matSort.key), matSort.dir) || a.name.localeCompare(b.name, "zh-Hans-CN")
+  }) : materialList
   const stockClass = (stock, required) => stock == null ? "kr2-plan-stock-default" : stock < required ? "kr2-plan-stock-low" : "kr2-plan-stock-enough"
   const summaryItems = [
     { materialId: 8, title: "螺丝", value: totals.screws },
@@ -2807,15 +2844,15 @@ function PlanningPage({ rows, inventoryByEquip, useItemCounts, selection, onTogg
           React.createElement("th", null, "当前"),
           React.createElement("th", null, "目标"),
           React.createElement("th", null, "目标数量"),
-          React.createElement("th", null, "开发资材"),
-          React.createElement("th", null, "螺丝"),
+          renderSortButton("开发资材", "dev", mainSort, toggleMainSort),
+          renderSortButton("螺丝", "screws", mainSort, toggleMainSort),
           React.createElement("th", null, "素材")
         )
       ),
       React.createElement(
         "tbody",
         null,
-        planRows.map((p) => {
+        displayPlanRows.map((p) => {
           const matText = p.costs.materials.map((m) => String(m.item.item_name || m.item.item_material_key || ("装备 " + m.item.item_equipment_id)) + " ×" + String(m.count)).join(" / ") || "无"
           return React.createElement(
             "tr",
@@ -2862,14 +2899,14 @@ function PlanningPage({ rows, inventoryByEquip, useItemCounts, selection, onTogg
         React.createElement(
           "thead",
           null,
-          React.createElement("tr", null, React.createElement("th", { className: "kr2-plan-mat-th" }, "素材名称"), React.createElement("th", null, "需求"), React.createElement("th", null, "库存"), React.createElement("th", null, "紫菜开发期望"), React.createElement("th", { className: "kr2-plan-mat-th" }, "消耗于装备"))
+          React.createElement("tr", null, React.createElement("th", { className: "kr2-plan-mat-th" }, "素材名称"), renderSortButton("需求", "required", matSort, toggleMatSort), renderSortButton("库存", "stock", matSort, toggleMatSort), renderSortButton("紫菜开发期望", "devExpected", matSort, toggleMatSort), React.createElement("th", { className: "kr2-plan-mat-th" }, "消耗于装备"))
         ),
         React.createElement(
           "tbody",
           null,
           materialList.length === 0
             ? React.createElement("tr", null, React.createElement("td", { colSpan: 5 }, "暂无素材需求"))
-            : materialList.map((m) =>
+            : displayMaterialList.map((m) =>
                 React.createElement(
                   "tr",
                   { key: m.name },
@@ -2994,7 +3031,16 @@ class StrongPage extends React.Component {
       item.countShort = item.stock != null && item.qty > 0 && item.stock < item.qty
       item.countEnough = item.stock != null && item.stock >= item.qty
     }
-    entries.sort((a, b) => (b.clear ? 1 : 0) - (a.clear ? 1 : 0))
+    const levelRank = (item) => item.inventoryLevel == null ? -1 : item.inventoryLevel
+    entries.sort((a, b) => {
+      const ac = a.clear ? 1 : 0
+      const bc = b.clear ? 1 : 0
+      if (ac !== bc) return bc - ac
+      if (a.clear) return b.qty - a.qty || levelRank(b) - levelRank(a)
+      const sa = a.stock == null ? -1 : a.stock
+      const sb = b.stock == null ? -1 : b.stock
+      return sb - sa || b.qty - a.qty || levelRank(b) - levelRank(a)
+    })
     const categories = Array.from(new Set(entries.map((item) => item.row.category).filter(Boolean))).sort((a, b) => a.localeCompare(b, "zh-Hans-CN"))
     const selectedCategories = this.state.selectedCategories
     const visibleEntries = selectedCategories == null ? entries : entries.filter((item) => selectedCategories.indexOf(item.row.category) >= 0)
@@ -3087,7 +3133,7 @@ class LevelOneTable extends React.Component {
     const normal = phase.consume_improvement_min
     const materials = phase.materials || []
     const hasMaterials = materials.some((item) => item && (item.item_name || item.item_material_key || item.item_equipment_id != null))
-    const rareWarning = hasRareMaterial(materials, kcDevData) ? React.createElement("div", { className: "kr2-rare-warning" }, "稀有素材消耗注意！") : null
+    const rareWarning = null
     const rows = []
     LEVEL_ONE_ROWS.forEach((rate) => {
       const key = rate.range
@@ -3158,7 +3204,8 @@ class LevelTwoTable extends React.Component {
       const rec = buildRecommendation(normal, certain, p)
       const materials = step ? step.materials || [] : []
       const hasMaterials = materials.some((item) => item && (item.item_name || item.item_material_key || item.item_equipment_id != null))
-      const rareWarning = hasRareMaterial(materials, kcDevData) ? React.createElement("div", { className: "kr2-rare-warning" }, "稀有素材消耗注意！") : null
+      const rareTier = rec.tone === "save" ? classifyRareMaterial(materials, kcDevData) : null
+      const rareWarning = rareTier === "rare" ? React.createElement("div", { className: "kr2-rare-warning" }, "稀有素材消耗注意！") : rareTier === "secondary" ? React.createElement("div", { className: "kr2-rare-warning-secondary" }, "次级稀有素材消耗注意！") : null
       const rangeNode = maxBlue
         ? React.createElement("span", null, "★9→", React.createElement("span", { className: "kr2-level-max-blue" }, "max"))
         : range

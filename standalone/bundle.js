@@ -63896,6 +63896,150 @@
     }
   });
 
+  // data/equipment_rarity.json
+  var require_equipment_rarity = __commonJS({
+    "data/equipment_rarity.json"(exports, module) {
+      module.exports = {
+        source: "\u7528\u6237\u88C5\u5907\u62C6\u89E3\u6307\u5357 2026-08-25\uFF08\u5408\u5E76\u7A00\u6709/\u6B21\u7EA7\u7A00\u6709\uFF09",
+        rare: [
+          "10.5cm\u9023\u88C5\u7832",
+          "10cm\u9023\u88C5\u9AD8\u89D2\u7832(\u7832\u67B6)",
+          "12.7cm\u5358\u88C5\u9AD8\u89D2\u7832(\u5F8C\u671F\u578B)",
+          "12.7cm\u9023\u88C5\u9AD8\u89D2\u7832(\u5F8C\u671F\u578B)",
+          "12.7cm\u9023\u88C5\u7832C\u578B\u6539\u4E8C",
+          "12.7cm\u9023\u88C5\u7832D\u578B\u6539\u4E8C",
+          "12cm30\u9023\u88C5\u5674\u9032\u7832",
+          "12cm\u5358\u88C5\u9AD8\u89D2\u7832",
+          "12cm\u5358\u88C5\u9AD8\u89D2\u7832E\u578B",
+          "130mm B-13\u9023\u88C5\u7832",
+          "13\u53F7\u5BFE\u7A7A\u96FB\u63A2\u6539",
+          "14cm\u9023\u88C5\u7832\u6539",
+          "15.2cm\u4E09\u9023\u88C5\u7832",
+          "15cm\u9023\u88C5\u526F\u7832",
+          "16inch Mk.I\u9023\u88C5\u7832",
+          "16inch Mk.I\u4E09\u9023\u88C5\u7832",
+          "16inch Mk.V\u9023\u88C5\u7832",
+          "16inch\u4E09\u9023\u88C5\u7832 Mk.6",
+          "16inch\u4E09\u9023\u88C5\u7832 Mk.6 mod.2",
+          "16inch\u4E09\u9023\u88C5\u7832 Mk.7",
+          "20.3cm(3\u53F7)\u9023\u88C5\u7832",
+          "203mm/53 \u9023\u88C5\u7832",
+          "20\u9023\u88C57inch UP Rocket Launchers",
+          "22\u53F7\u5BFE\u6C34\u4E0A\u96FB\u63A2\u6539\u56DB",
+          "25mm\u4E09\u9023\u88C5\u6A5F\u9283",
+          "25mm\u4E09\u9023\u88C5\u6A5F\u9283 \u96C6\u4E2D\u914D\u5099",
+          "2cm \u56DB\u9023\u88C5FlaK 38",
+          "3.7cm FlaK M42",
+          "30.5cm\u4E09\u9023\u88C5\u7832\u6539",
+          "32\u53F7\u5BFE\u6C34\u4E0A\u96FB\u63A2",
+          "33\u53F7\u5BFE\u6C34\u4E0A\u96FB\u63A2",
+          "35.6cm\u9023\u88C5\u7832(\u30C0\u30BA\u30EB\u8FF7\u5F69)",
+          "35.6cm\u9023\u88C5\u7832\u6539",
+          "38.1cm Mk.I\u9023\u88C5\u7832",
+          "381mm/50 \u4E09\u9023\u88C5\u7832",
+          "381mm/50 \u4E09\u9023\u88C5\u7832\u6539",
+          "38cm\u9023\u88C5\u7832",
+          "38cm\u9023\u88C5\u7832\u6539",
+          "38cm\u56DB\u9023\u88C5\u7832",
+          "38cm\u56DB\u9023\u88C5\u7832\u6539",
+          "42\u53F7\u5BFE\u7A7A\u96FB\u63A2",
+          "46cm\u4E09\u9023\u88C5\u7832",
+          "533mm \u4E09\u9023\u88C5\u9B5A\u96F7",
+          "533mm\u4E94\u9023\u88C5\u9B5A\u96F7(\u521D\u671F\u578B)",
+          "53cm\u9023\u88C5\u9B5A\u96F7",
+          "5inch \u5358\u88C5\u9AD8\u89D2\u7832\u7FA4",
+          "5inch\u5358\u88C5\u7832 Mk.30",
+          "5inch\u9023\u88C5\u7832 Mk.28 mod.2",
+          "61cm\u4E09\u9023\u88C5(\u9178\u7D20)\u9B5A\u96F7",
+          "61cm\u4E94\u9023\u88C5(\u9178\u7D20)\u9B5A\u96F7",
+          "6inch Mk.XXIII\u4E09\u9023\u88C5\u7832",
+          "6inch\u4E09\u9023\u88C5\u901F\u5C04\u7832 Mk.16 mod.2",
+          "8cm\u9AD8\u89D2\u7832",
+          "8inch\u4E09\u9023\u88C5\u7832 Mk.9",
+          "90mm\u5358\u88C5\u9AD8\u89D2\u7832",
+          "94\u5F0F\u9AD8\u5C04\u88C5\u7F6E",
+          "\u5F69\u96F2",
+          "\u4E8C\u5F0F12cm\u8FEB\u6483\u7832\u6539",
+          "\u4E8C\u5F0F\u5927\u8247",
+          "\u4E8C\u5F0F\u8266\u4E0A\u5075\u5BDF\u6A5F",
+          "\u5F57\u661F(\u516D0\u4E00\u7A7A)",
+          "\u5F57\u661F\u4E00\u4E8C\u578B\u7532",
+          "\u8266\u8247\u4FEE\u7406\u65BD\u8A2D",
+          "\u8266\u8F09\u578B \u56DB\u5F0F20cm\u5BFE\u5730\u5674\u9032\u7832",
+          "\u4E5D\u516B\u5F0F\u6C34\u4E0A\u5075\u5BDF\u6A5F(\u591C\u5075)",
+          "\u4E5D\u4E5D\u5F0F\u8266\u7206(\u6C5F\u8349\u968A)",
+          "\u4E5D\u4E5D\u5F0F\u8266\u7206(\u719F\u7DF4)",
+          "\u4E5D\u4E5D\u5F0F\u8266\u7206\u4E8C\u4E8C\u578B",
+          "\u4E5D\u516D\u5F0F\u8266\u6226\u6539",
+          "\u4E5D\u516D\u5F0F\u9678\u653B",
+          "\u4E5D\u4E03\u5F0F\u8266\u653B(\u4E5D\u4E09\u4E00\u7A7A)",
+          "\u4E5D\u4E03\u5F0F\u8266\u653B(\u719F\u7DF4)",
+          "\u4E5D\u4E03\u5F0F\u8266\u653B(\u53CB\u6C38\u968A)",
+          "\u4E5D\u4E00\u5F0F\u5FB9\u7532\u5F3E",
+          "\u96F6\u5F0F\u8266\u622621\u578B(\u719F\u7DF4)",
+          "\u96F6\u5F0F\u8266\u622632\u578B(\u719F\u7DF4)",
+          "\u96F6\u5F0F\u8266\u622662\u578B(\u7206\u6226)",
+          "\u96F6\u5F0F\u6C34\u4E0A\u5075\u5BDF\u6A5F11\u578B\u4E59",
+          "\u96F6\u622652\u578B\u4E19(\u516D0\u4E00\u7A7A)",
+          "\u6D41\u661F",
+          "\u6D41\u661F(\u516D0\u4E00\u7A7A)",
+          "\u6D41\u661F\u6539",
+          "\u6BD8\u5F0F40mm\u9023\u88C5\u6A5F\u9283",
+          "\u79CB\u5200\u9B5A\u306E\u7F36\u8A70",
+          "\u745E\u96F212\u578B",
+          "\u4E09\u5F0F\u5F3E",
+          "\u8A66\u88FD35.6cm\u4E09\u9023\u88C5\u7832",
+          "\u8A66\u88FD41cm\u4E09\u9023\u88C5\u7832",
+          "\u8A66\u88FD51cm\u9023\u88C5\u7832",
+          "\u8A66\u88FD\u6674\u5D50",
+          "\u8A66\u88FDFaT\u4ED5\u69D8\u4E5D\u4E94\u5F0F\u9178\u7D20\u9B5A\u96F7\u6539",
+          "\u719F\u7DF4\u898B\u5F35\u54E1",
+          "\u5929\u5C71",
+          "\u5929\u5C71(\u516D0\u4E00\u7A7A)",
+          "\u65B0\u578B\u9AD8\u6E29\u9AD8\u5727\u7F36",
+          "\u6D0B\u4E0A\u88DC\u7D66",
+          "\u4E00\u5F0F\u9678\u653B",
+          "\u4E00\u5F0F\u9678\u653B \u4E8C\u4E8C\u578B\u7532",
+          "\u4E00\u5F0F\u6226 \u96BCII\u578B",
+          "\u6226\u95D8\u7CE7\u98DF",
+          "\u6226\u95D8\u7CE7\u98DF(\u7279\u5225\u306A\u304A\u306B\u304E\u308A)",
+          "\u7167\u660E\u5F3E",
+          "\u7D2B\u96FB\u4E00\u4E00\u578B",
+          "Ar196\u6539",
+          "Bf109T\u6539",
+          "Bofors 40mm\u56DB\u9023\u88C5\u6A5F\u95A2\u7832",
+          "Bofors15.2cm\u9023\u88C5\u7832 Model1930",
+          "F4F-4",
+          "F4U-1D",
+          "F6F-3",
+          "FM-2",
+          "FuMO25 \u30EC\u30FC\u30C0\u30FC",
+          "Fw190T\u6539",
+          "Ju87C\u6539",
+          "OS2U",
+          "OTO 152mm\u4E09\u9023\u88C5\u901F\u5C04\u7832",
+          "QF 2\u30DD\u30F3\u30C98\u9023\u88C5\u30DD\u30F3\u30DD\u30F3\u7832",
+          "QF 4.7inch\u7832 Mk.XII\u6539",
+          "Re.2001 G\u6539",
+          "Re.2001 OR\u6539",
+          "Ro.44\u6C34\u4E0A\u6226\u95D8\u6A5F",
+          "S9 Osprey",
+          "SBD",
+          "SG \u30EC\u30FC\u30C0\u30FC(\u521D\u671F\u578B)",
+          "SKC34 20.3cm\u9023\u88C5\u7832",
+          "Skua",
+          "SOC Seagull",
+          "TBD",
+          "TBF",
+          "Type124 ASDIC",
+          "Type144/147 ASDIC",
+          "\u30D7\u30EA\u30A8\u30FC\u30BC\u5F0F\u6C34\u4E2D\u9632\u5FA1\u9694\u58C1"
+        ],
+        secondary: []
+      };
+    }
+  });
+
   // standalone/data-map.js
   var require_data_map = __commonJS({
     "standalone/data-map.js"(exports, module) {
@@ -63906,7 +64050,8 @@
         "improvement_consume_step.json": require_improvement_consume_step(),
         "improvement_consume_item.json": require_improvement_consume_item(),
         "equip_base_cost.json": require_equip_base_cost(),
-        "equip_names.json": require_equip_names()
+        "equip_names.json": require_equip_names(),
+        "equipment_rarity.json": require_equipment_rarity()
       };
       module.exports = {
         get(name) {
@@ -63969,6 +64114,15 @@
         "\u65B0\u578B\u5674\u9032\u88C5\u5099\u958B\u767A\u8CC7\u6750",
         "\u6F5C\u6C34\u8266\u88DC\u7D66\u7269\u8CC7"
       ]);
+      var RARE_EQUIP_NAMES = null;
+      var SECONDARY_EQUIP_NAMES = null;
+      function getRareEquipSets() {
+        if (RARE_EQUIP_NAMES) return { rare: RARE_EQUIP_NAMES, secondary: SECONDARY_EQUIP_NAMES };
+        const data = loadJson("equipment_rarity.json") || {};
+        RARE_EQUIP_NAMES = new Set(data.rare || []);
+        SECONDARY_EQUIP_NAMES = new Set(data.secondary || []);
+        return { rare: RARE_EQUIP_NAMES, secondary: SECONDARY_EQUIP_NAMES };
+      }
       function japanWeekdayKey() {
         const japanNow = new Date(Date.now() + 9 * 60 * 60 * 1e3);
         return ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"][japanNow.getUTCDay()];
@@ -65076,6 +65230,11 @@
 }
 .kr2-rare-warning {
   color: #ff6b6b;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.kr2-rare-warning-secondary {
+  color: #ffb3b3;
   font-size: 11px;
   white-space: nowrap;
 }
@@ -66294,16 +66453,17 @@
         if (diff < -5e-3) return { expected, text: "\u786E\u4FDD\uFF08\u7701 " + (-diff).toFixed(2) + "\uFF09", tone: "ensure" };
         return { expected, text: "\u76F8\u540C", tone: "same" };
       }
-      function hasRareMaterial(materials, kcDevData) {
-        return (materials || []).some((item) => {
-          if (!item) return false;
-          if (RARE_MATERIAL_KEYS.has(String(item.item_material_key || item.item_name || ""))) return true;
-          if (item.item_equipment_id != null && kcDevData) {
-            const recipes = kcDevRecipes(kcDevData, String(item.item_equipment_id));
-            return !recipes || recipes.length === 0;
-          }
-          return false;
-        });
+      function classifyRareMaterial(materials, kcDevData) {
+        const sets = getRareEquipSets();
+        let hasSecondary = false;
+        for (const item of materials || []) {
+          if (!item) continue;
+          if (item.item_material_key != null && RARE_MATERIAL_KEYS.has(String(item.item_material_key))) return "rare";
+          const name = String(item.item_name || "");
+          if (sets.rare.has(name)) return "rare";
+          if (sets.secondary.has(name)) hasSecondary = true;
+        }
+        return hasSecondary ? "secondary" : null;
       }
       function MaterialDetail({ materials, onMaterialClick, inventoryByEquip, onInventoryClick, useItemCounts }) {
         const items = (materials || []).filter((item) => item && (item.item_name || item.item_material_key || item.item_equipment_id != null));
@@ -66607,6 +66767,8 @@
         }
       };
       function PlanningPage({ rows, inventoryByEquip, useItemCounts, selection, onToggle, onTarget, onQty, onSelectAll, onMaterialClick, kcDevData, includeDevExpected, onToggleIncludeDevExpected, onEvo }) {
+        const [mainSort, setMainSort] = React2.useState({ key: "", dir: "asc" });
+        const [matSort, setMatSort] = React2.useState({ key: "", dir: "asc" });
         const planRows = rows.map((row) => {
           const sel = (selection || {})[row.id] || { selected: true, target: "max", qty: 1 };
           const evoUpgradeId = sel.evoUpgradeId || null;
@@ -66619,6 +66781,16 @@
         const totals = { screws: 0, dev: 0, fuel: 0, ammo: 0, steel: 0, bauxite: 0 };
         const materialMap = {};
         const includeDev = !!includeDevExpected;
+        const planDevTotal = (p) => p.costs.dev + (includeDev ? p.matDev : 0);
+        const numCompare = (va, vb, dir) => {
+          if (va === vb) return 0;
+          return va < vb ? dir === "asc" ? -1 : 1 : dir === "asc" ? 1 : -1;
+        };
+        const toggleMainSort = (key) => setMainSort((prev) => prev.key !== key ? { key, dir: "asc" } : prev.dir === "asc" ? { key, dir: "desc" } : { key: "", dir: "asc" });
+        const toggleMatSort = (key) => setMatSort((prev) => prev.key !== key ? { key, dir: "asc" } : prev.dir === "asc" ? { key, dir: "desc" } : { key: "", dir: "asc" });
+        const planSortValue = (p, key) => key === "screws" ? p.costs.screws : planDevTotal(p);
+        const displayPlanRows = mainSort.key ? planRows.slice().sort((a, b) => numCompare(planSortValue(a, mainSort.key), planSortValue(b, mainSort.key), mainSort.dir) || String(a.row.name).localeCompare(String(b.row.name), "zh-Hans-CN")) : planRows;
+        const renderSortButton = (label, key, sortState, onToggle2) => React2.createElement("th", null, React2.createElement("span", null, label), React2.createElement("button", { className: "kr2-sort-btn" + (sortState.key === key ? " kr2-sort-active" : ""), onClick: () => onToggle2(key) }, React2.createElement("span", { className: "kr2-sort-arrow" }, sortState.key !== key ? "\u2195" : sortState.dir === "asc" ? "\u25B2" : "\u25BC")));
         for (const p of selected) {
           totals.screws += p.costs.screws;
           totals.dev += p.costs.dev + (includeDev ? p.matDev : 0);
@@ -66635,6 +66807,15 @@
           }
         }
         const materialList = Object.keys(materialMap).map((k) => materialMap[k]).sort((a, b) => a.name.localeCompare(b.name, "zh-Hans-CN"));
+        const materialSortValue = (m, key) => key === "required" ? m.required : key === "stock" ? m.stock : planDevExpectedValue(m.item, m.required, kcDevData);
+        const displayMaterialList = matSort.key ? materialList.slice().sort((a, b) => {
+          if (matSort.key === "stock") {
+            const an = a.stock == null;
+            const bn = b.stock == null;
+            if (an !== bn) return an ? 1 : -1;
+          }
+          return numCompare(materialSortValue(a, matSort.key), materialSortValue(b, matSort.key), matSort.dir) || a.name.localeCompare(b.name, "zh-Hans-CN");
+        }) : materialList;
         const stockClass = (stock, required) => stock == null ? "kr2-plan-stock-default" : stock < required ? "kr2-plan-stock-low" : "kr2-plan-stock-enough";
         const summaryItems = [
           { materialId: 8, title: "\u87BA\u4E1D", value: totals.screws },
@@ -66690,15 +66871,15 @@
                 React2.createElement("th", null, "\u5F53\u524D"),
                 React2.createElement("th", null, "\u76EE\u6807"),
                 React2.createElement("th", null, "\u76EE\u6807\u6570\u91CF"),
-                React2.createElement("th", null, "\u5F00\u53D1\u8D44\u6750"),
-                React2.createElement("th", null, "\u87BA\u4E1D"),
+                renderSortButton("\u5F00\u53D1\u8D44\u6750", "dev", mainSort, toggleMainSort),
+                renderSortButton("\u87BA\u4E1D", "screws", mainSort, toggleMainSort),
                 React2.createElement("th", null, "\u7D20\u6750")
               )
             ),
             React2.createElement(
               "tbody",
               null,
-              planRows.map((p) => {
+              displayPlanRows.map((p) => {
                 const matText = p.costs.materials.map((m) => String(m.item.item_name || m.item.item_material_key || "\u88C5\u5907 " + m.item.item_equipment_id) + " \xD7" + String(m.count)).join(" / ") || "\u65E0";
                 return React2.createElement(
                   "tr",
@@ -66745,12 +66926,12 @@
               React2.createElement(
                 "thead",
                 null,
-                React2.createElement("tr", null, React2.createElement("th", { className: "kr2-plan-mat-th" }, "\u7D20\u6750\u540D\u79F0"), React2.createElement("th", null, "\u9700\u6C42"), React2.createElement("th", null, "\u5E93\u5B58"), React2.createElement("th", null, "\u7D2B\u83DC\u5F00\u53D1\u671F\u671B"), React2.createElement("th", { className: "kr2-plan-mat-th" }, "\u6D88\u8017\u4E8E\u88C5\u5907"))
+                React2.createElement("tr", null, React2.createElement("th", { className: "kr2-plan-mat-th" }, "\u7D20\u6750\u540D\u79F0"), renderSortButton("\u9700\u6C42", "required", matSort, toggleMatSort), renderSortButton("\u5E93\u5B58", "stock", matSort, toggleMatSort), renderSortButton("\u7D2B\u83DC\u5F00\u53D1\u671F\u671B", "devExpected", matSort, toggleMatSort), React2.createElement("th", { className: "kr2-plan-mat-th" }, "\u6D88\u8017\u4E8E\u88C5\u5907"))
               ),
               React2.createElement(
                 "tbody",
                 null,
-                materialList.length === 0 ? React2.createElement("tr", null, React2.createElement("td", { colSpan: 5 }, "\u6682\u65E0\u7D20\u6750\u9700\u6C42")) : materialList.map(
+                materialList.length === 0 ? React2.createElement("tr", null, React2.createElement("td", { colSpan: 5 }, "\u6682\u65E0\u7D20\u6750\u9700\u6C42")) : displayMaterialList.map(
                   (m) => React2.createElement(
                     "tr",
                     { key: m.name },
@@ -66869,7 +67050,16 @@
             item.countShort = item.stock != null && item.qty > 0 && item.stock < item.qty;
             item.countEnough = item.stock != null && item.stock >= item.qty;
           }
-          entries.sort((a, b) => (b.clear ? 1 : 0) - (a.clear ? 1 : 0));
+          const levelRank = (item) => item.inventoryLevel == null ? -1 : item.inventoryLevel;
+          entries.sort((a, b) => {
+            const ac = a.clear ? 1 : 0;
+            const bc = b.clear ? 1 : 0;
+            if (ac !== bc) return bc - ac;
+            if (a.clear) return b.qty - a.qty || levelRank(b) - levelRank(a);
+            const sa = a.stock == null ? -1 : a.stock;
+            const sb = b.stock == null ? -1 : b.stock;
+            return sb - sa || b.qty - a.qty || levelRank(b) - levelRank(a);
+          });
           const categories = Array.from(new Set(entries.map((item) => item.row.category).filter(Boolean))).sort((a, b) => a.localeCompare(b, "zh-Hans-CN"));
           const selectedCategories = this.state.selectedCategories;
           const visibleEntries = selectedCategories == null ? entries : entries.filter((item) => selectedCategories.indexOf(item.row.category) >= 0);
@@ -66955,7 +67145,7 @@
           const normal = phase.consume_improvement_min;
           const materials = phase.materials || [];
           const hasMaterials = materials.some((item) => item && (item.item_name || item.item_material_key || item.item_equipment_id != null));
-          const rareWarning = hasRareMaterial(materials, kcDevData) ? React2.createElement("div", { className: "kr2-rare-warning" }, "\u7A00\u6709\u7D20\u6750\u6D88\u8017\u6CE8\u610F\uFF01") : null;
+          const rareWarning = null;
           const rows = [];
           LEVEL_ONE_ROWS.forEach((rate) => {
             const key = rate.range;
@@ -67018,7 +67208,8 @@
             const rec = buildRecommendation(normal, certain, p);
             const materials = step ? step.materials || [] : [];
             const hasMaterials = materials.some((item) => item && (item.item_name || item.item_material_key || item.item_equipment_id != null));
-            const rareWarning = hasRareMaterial(materials, kcDevData) ? React2.createElement("div", { className: "kr2-rare-warning" }, "\u7A00\u6709\u7D20\u6750\u6D88\u8017\u6CE8\u610F\uFF01") : null;
+            const rareTier = rec.tone === "save" ? classifyRareMaterial(materials, kcDevData) : null;
+            const rareWarning = rareTier === "rare" ? React2.createElement("div", { className: "kr2-rare-warning" }, "\u7A00\u6709\u7D20\u6750\u6D88\u8017\u6CE8\u610F\uFF01") : rareTier === "secondary" ? React2.createElement("div", { className: "kr2-rare-warning-secondary" }, "\u6B21\u7EA7\u7A00\u6709\u7D20\u6750\u6D88\u8017\u6CE8\u610F\uFF01") : null;
             const rangeNode = maxBlue ? React2.createElement("span", null, "\u26059\u2192", React2.createElement("span", { className: "kr2-level-max-blue" }, "max")) : range;
             rows.push(
               React2.createElement(

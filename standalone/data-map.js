@@ -6,6 +6,7 @@ const files = {
   "improvement_consume_item.json": require("../data/improvement_consume_item.json"),
   "equip_base_cost.json": require("../data/equip_base_cost.json"),
   "equip_names.json": require("../data/equip_names.json"),
+  "equipment_rarity.json": require("../data/equipment_rarity.json"),
 };
 module.exports = {
   get(name) {

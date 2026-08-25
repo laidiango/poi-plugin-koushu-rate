@@ -1,6 +1,6 @@
 {
   "name": "poi-plugin-koushu-rate",
-  "version": "2.0.16",
+  "version": "2.0.17",
   "description": "全装备改修资材计算与推荐",
   "main": "index.js",
   "files": [
