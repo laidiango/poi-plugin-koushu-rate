@@ -23673,7 +23673,7 @@
     "package.json"(exports, module) {
       module.exports = {
         name: "poi-plugin-koushu-rate",
-        version: "2.0.18",
+        version: "2.0.19",
         description: "\u5168\u88C5\u5907\u6539\u4FEE\u8D44\u6750\u8BA1\u7B97\u4E0E\u63A8\u8350",
         main: "index.js",
         files: [
@@ -64174,6 +64174,9 @@
           "\u4F18\u5316\u4E86\u88C5\u5907\u8FDB\u5316\u5728\u6211\u53D8\u5F3A\u4E86\u9875\u4E2D\u7684\u663E\u793A\u903B\u8F91\uFF0C\u73B0\u5728\u4F1A\u548C\u8FDB\u5316\u540E\u7684\u6539\u4FEE\u8BA1\u5212\u5206\u5F00\u7EDF\u8BA1\uFF0C\u4EE5\u65B9\u4FBF\u68C0\u67E5\u9636\u6BB5\u6027\u76EE\u6807\u7684\u5B8C\u6210\u60C5\u51B5\uFF1B",
           "\u4F18\u5316\u4E86\u6211\u53D8\u5F3A\u4E86\u9875\u4E2D\u7684\u76EE\u6807/\u5DF2\u6709\u88C5\u5907\u7684\u663E\u793A\uFF0C\u73B0\u5728\u4E0D\u4F1A\u81EA\u52A8\u62C6\u5206\u5DF2\u5B8C\u6210\u7684\u88C5\u5907\u5355\u72EC\u7F6E\u9876\u663E\u793A\u4E86\uFF1B",
           "\u5728\u6539\u4FEE\u5217\u8868\u9875\u65B0\u589E\u4E86\u6539\u4FEE\u8BA1\u5212\u7684\u663E\u793A\uFF08\u88C5\u5907\u540D\u79F0\u7684\u4E0B\u65B9\uFF09\u3002"
+        ],
+        "2.0.19": [
+          "\u201C\u6211\u53D8\u5F3A\u4E86\u201D\u9875\u4E2D\uFF0C\u5B8C\u6210\u6570\u4E0E\u76EE\u6807\u6570\u76F8\u7B49\u5E76\u7F6E\u9876\u65F6\uFF0C\u5B8C\u6210\u6570\u5217\u6539\u4E3A\u663E\u793A clear!\u3002"
         ]
       };
       var CURRENT_HELP_UPDATE_NOTES = HELP_UPDATE_NOTES[PLUGIN_VERSION] || ["\u672C\u6B21\u66F4\u65B0\u6682\u65E0\u8BE6\u7EC6\u8BF4\u660E\u3002"];
@@ -67442,7 +67445,7 @@
                       !group.evolved && group.row.improveable !== false ? React2.createElement("span", { className: "kr2-strong-level" }, group.targetLevel) : null
                     ),
                     React2.createElement("td", { className: "kr2-strong-stock" }, group.items.map((item) => React2.createElement("div", { key: item.key, className: "kr2-strong-stock-line " + stockClass(item), "data-level": item.inventoryLevel == null ? "" : String(item.inventoryLevel) }, stockText(item)))),
-                    React2.createElement("td", { className: "kr2-strong-owned " + groupOwnedClass(group), "data-completed": String(group.completed || 0), "data-stock": group.stockLoaded ? String(group.stock) : "", "data-level": String(group.maxInventoryLevel) }, group.items.map((item) => React2.createElement("div", { key: item.key, className: completionLineClass(item, group), "data-level": item.inventoryLevel == null ? "" : String(item.inventoryLevel) }, completionLineText(item, group)))),
+                    React2.createElement("td", { className: "kr2-strong-owned " + groupOwnedClass(group), "data-completed": String(group.completed || 0), "data-stock": group.stockLoaded ? String(group.stock) : "", "data-level": String(group.maxInventoryLevel) }, group.clear ? "clear!" : group.items.map((item) => React2.createElement("div", { key: item.key, className: completionLineClass(item, group), "data-level": item.inventoryLevel == null ? "" : String(item.inventoryLevel) }, completionLineText(item, group)))),
                     React2.createElement("td", { className: "kr2-strong-target", "data-target": String(group.qty) }, String(group.qty))
                   )
                 )

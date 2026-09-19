@@ -112,6 +112,11 @@ function clickFavorite(namePart) {
   helpBackdrop.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
   await sleep(120);
   if (window.document.querySelector(".kr2-help-modal")) throw new Error("help backdrop did not close modal");
+  const allDaysBtn = Array.from(window.document.querySelectorAll(".kr2-day")).find((btn) => btn.textContent.trim() === "全部");
+  if (allDaysBtn) {
+    allDaysBtn.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+    await sleep(120);
+  }
   const improveToggle = window.document.querySelectorAll(".kr2-collapse-toggle")[0];
   if (!improveToggle) throw new Error("improveable toggle missing");
   if (window.document.querySelectorAll(".kr2-improveable-group .kr2-row").length === 0) {
@@ -232,14 +237,19 @@ function clickFavorite(namePart) {
   if (targetSum !== 1) throw new Error("split target count sum must equal 1, got " + targetSum);
   if (targetNums.some((n) => n <= 0)) throw new Error("zero target rows should be hidden");
   const completionLines = Array.from(window.document.querySelectorAll(".kr2-strong-owned-line"));
-  if (completionCells.length === 0 || completionLines.length === 0 || !completionLines.every((line) => /^(--|\d+)$/.test(line.textContent.trim()))) {
+  if (completionCells.length === 0 || !completionLines.every((line) => /^(--|\d+)$/.test(line.textContent.trim()))) {
     throw new Error("strong completion column should show stacked completion counts");
   }
   for (const cell of completionCells) {
+    if (cell.classList.contains("kr2-strong-stock-clear")) {
+      if (cell.textContent.trim() !== "clear!") throw new Error("clear completion cell should show clear!")
+      continue
+    }
     const row = cell.closest("tr")
     const targetCell = row && row.querySelector(".kr2-strong-target")
     const target = targetCell ? Number(targetCell.textContent.trim()) : -1
     const lines = Array.from(cell.querySelectorAll(".kr2-strong-owned-line"))
+    if (lines.length === 0) throw new Error("non-clear completion cell should show stacked counts")
     const completedSum = lines.reduce((sum, line) => {
       const text = line.textContent.trim()
       return sum + (text === "--" ? 0 : Number(text))
@@ -443,9 +453,8 @@ function clickFavorite(namePart) {
     throw new Error("same-name max/evolution targets should share inventory rows");
   }
   const zeroRow = nameRows.find((tr) => tr.querySelector(".kr2-strong-equip").textContent.trim() === targetName + "（进化）");
-  const zeroTarget = zeroRow ? Number(zeroRow.querySelector(".kr2-strong-target").textContent.trim()) : -1
-  const zeroClearLine = zeroRow && Array.from(zeroRow.querySelectorAll(".kr2-strong-owned-line-clear")).find((line) => Number(line.textContent.trim()) === zeroTarget)
-  if (!zeroRow.classList.contains("kr2-strong-clear-row") || !zeroClearLine) {
+  const zeroCompletion = zeroRow && zeroRow.querySelector(".kr2-strong-owned")
+  if (!zeroRow.classList.contains("kr2-strong-clear-row") || !zeroCompletion || zeroCompletion.textContent.trim() !== "clear!" || window.getComputedStyle(zeroCompletion).color !== "rgb(79, 195, 247)") {
     throw new Error("higher inventory star should satisfy a lower target star");
   }
   const sharedSum = nameRows.reduce((sum, tr) => sum + Number(tr.querySelector(".kr2-strong-target").textContent.trim()), 0);
@@ -646,7 +655,7 @@ function clickFavorite(namePart) {
   await sleep(1500);
   const updateHelp = window.document.querySelector(".kr2-help-modal");
   const firstHelpSection = updateHelp && updateHelp.querySelector(".kr2-help-section-title");
-  if (!updateHelp || !firstHelpSection || firstHelpSection.textContent.trim() !== pluginVersion + "更新" || !updateHelp.textContent.includes("优化了装备进化在我变强了页中的显示逻辑")) {
+  if (!updateHelp || !firstHelpSection || firstHelpSection.textContent.trim() !== pluginVersion + "更新" || !updateHelp.textContent.includes("完成数与目标数相等并置顶时")) {
     throw new Error("plugin update help should show update notes first");
   }
 

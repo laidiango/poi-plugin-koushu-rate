@@ -29,6 +29,9 @@ const HELP_UPDATE_NOTES = {
     "优化了我变强了页中的目标/已有装备的显示，现在不会自动拆分已完成的装备单独置顶显示了；",
     "在改修列表页新增了改修计划的显示（装备名称的下方）。",
   ],
+  "2.0.19": [
+    "“我变强了”页中，完成数与目标数相等并置顶时，完成数列改为显示 clear!。",
+  ],
 }
 const CURRENT_HELP_UPDATE_NOTES = HELP_UPDATE_NOTES[PLUGIN_VERSION] || ["本次更新暂无详细说明。"]
 
@@ -3350,7 +3353,7 @@ class StrongPage extends React.Component {
                     !group.evolved && group.row.improveable !== false ? React.createElement("span", { className: "kr2-strong-level" }, group.targetLevel) : null
                   ),
                   React.createElement("td", { className: "kr2-strong-stock" }, group.items.map((item) => React.createElement("div", { key: item.key, className: "kr2-strong-stock-line " + stockClass(item), "data-level": item.inventoryLevel == null ? "" : String(item.inventoryLevel) }, stockText(item)))),
-                  React.createElement("td", { className: "kr2-strong-owned " + groupOwnedClass(group), "data-completed": String(group.completed || 0), "data-stock": group.stockLoaded ? String(group.stock) : "", "data-level": String(group.maxInventoryLevel) }, group.items.map((item) => React.createElement("div", { key: item.key, className: completionLineClass(item, group), "data-level": item.inventoryLevel == null ? "" : String(item.inventoryLevel) }, completionLineText(item, group)))),
+                  React.createElement("td", { className: "kr2-strong-owned " + groupOwnedClass(group), "data-completed": String(group.completed || 0), "data-stock": group.stockLoaded ? String(group.stock) : "", "data-level": String(group.maxInventoryLevel) }, group.clear ? "clear!" : group.items.map((item) => React.createElement("div", { key: item.key, className: completionLineClass(item, group), "data-level": item.inventoryLevel == null ? "" : String(item.inventoryLevel) }, completionLineText(item, group)))),
                   React.createElement("td", { className: "kr2-strong-target", "data-target": String(group.qty) }, String(group.qty))
                 )
               )
