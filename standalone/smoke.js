@@ -3,6 +3,7 @@ const path = require("path");
 const { JSDOM, VirtualConsole } = require("jsdom");
 
 const root = path.resolve(__dirname, "..");
+const pluginVersion = require(path.join(root, "package.json")).version;
 const targetsRaw = require(path.join(root, "data/improvement_upgrade_target.json"));
 const arrangement = require(path.join(root, "data/improvement_arrangement.json"));
 const stepEquips = Array.from(new Set(require(path.join(root, "data/improvement_consume_step.json")).map((r) => String(r.equipment_id))));
@@ -18,6 +19,7 @@ if (!noUpgradeId || !multiId) throw new Error("cannot pick test equipment");
 const virtualConsole = new VirtualConsole();
 virtualConsole.on("error", (...args) => console.error("VC error:", ...args));
 virtualConsole.on("jsdomError", (...args) => console.error("VC jsdomError:", ...args));
+const bundleSource = fs.readFileSync(path.join(__dirname, "bundle.js"), "utf8");
 const dom = new JSDOM('<!doctype html><html><body><div id="root"></div></body></html>', {
   url: "http://localhost/",
   pretendToBeVisual: true,
@@ -32,7 +34,7 @@ global.localStorage = window.localStorage;
 global.location = window.location;
 global.fetch = () => Promise.reject(new Error("offline"));
 try {
-  window.eval(fs.readFileSync(path.join(__dirname, "bundle.js"), "utf8"));
+  window.eval(bundleSource);
 } catch (err) {
   console.error("eval error:", err);
   process.exit(1);
@@ -76,6 +78,40 @@ function clickFavorite(namePart) {
   if (!isBefore(titleEl, navEl) || !isBefore(navEl, searchEl)) {
     throw new Error("layout order must be title -> nav -> search");
   }
+  const autoHelp = window.document.querySelector(".kr2-help-modal");
+  if (!autoHelp || !autoHelp.textContent.includes("使用说明")) throw new Error("help page should open automatically on first install");
+  const firstAutoHelpSection = autoHelp.querySelector(".kr2-help-section-title");
+  if (!autoHelp.textContent.includes(pluginVersion + "更新") || !firstAutoHelpSection || firstAutoHelpSection.textContent.trim() !== pluginVersion + "更新") {
+    throw new Error("latest update notes should be first in the help modal");
+  }
+  if (!autoHelp.textContent.includes("功能主页") || !autoHelp.textContent.includes("1.改修列表") || !autoHelp.textContent.includes("其他常规功能")) {
+    throw new Error("help guide content missing");
+  }
+  const firstUpdateSection = autoHelp.querySelector(".kr2-help-section");
+  const helpLead = autoHelp.querySelector(".kr2-help-lead");
+  if (!isBefore(firstUpdateSection, helpLead)) throw new Error("update notes should appear before the help guide");
+  const autoHelpClose = autoHelp.querySelector(".kr2-modal-close");
+  if (!autoHelpClose) throw new Error("help page close button missing");
+  autoHelpClose.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await sleep(150);
+  if (window.document.querySelector(".kr2-help-modal")) throw new Error("help page close button did not close modal");
+  const savedUiState = JSON.parse(window.localStorage.getItem("poi-plugin-koushu-rate:ui-state") || "{}");
+  if (!savedUiState.helpVersion) throw new Error("help version was not persisted after close");
+  if (!savedUiState.pluginVersion) throw new Error("plugin version was not persisted after close");
+  const helpBtn = window.document.querySelector(".kr2-help-btn");
+  if (!helpBtn || !isBefore(titleEl, helpBtn)) throw new Error("help button should be at the right of title");
+  helpBtn.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await sleep(120);
+  const reopenedHelp = window.document.querySelector(".kr2-help-modal");
+  if (!reopenedHelp) throw new Error("help button did not open modal");
+  const firstManualSection = reopenedHelp.querySelector(".kr2-help-section-title");
+  if (!reopenedHelp.textContent.includes(pluginVersion + "更新") || !firstManualSection || firstManualSection.textContent.trim() !== pluginVersion + "更新") {
+    throw new Error("manual help should also show latest update notes first");
+  }
+  const helpBackdrop = reopenedHelp.parentElement;
+  helpBackdrop.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await sleep(120);
+  if (window.document.querySelector(".kr2-help-modal")) throw new Error("help backdrop did not close modal");
   const improveToggle = window.document.querySelectorAll(".kr2-collapse-toggle")[0];
   if (!improveToggle) throw new Error("improveable toggle missing");
   if (window.document.querySelectorAll(".kr2-improveable-group .kr2-row").length === 0) {
@@ -140,8 +176,28 @@ function clickFavorite(namePart) {
   clickNav("我变强了！");
   await sleep(200);
   const strongHtml = window.document.body.innerHTML;
-  if (!strongHtml.includes("装备分类") || !strongHtml.includes("目标装备") || !strongHtml.includes("目标数") || !strongHtml.includes("库存") || !strongHtml.includes("完成数")) {
+  const strongHeaders = Array.from(window.document.querySelectorAll(".kr2-strong-table thead th")).map((th) => th.textContent.trim());
+  if (strongHeaders.length !== 5 || !strongHeaders[0].includes("装备分类") || strongHeaders[1] !== "目标装备" || strongHeaders[2] !== "库存装备" || strongHeaders[3] !== "完成数" || strongHeaders[4] !== "目标数") {
     throw new Error("strong page headers missing");
+  }
+  const stockHead = window.document.querySelector(".kr2-strong-stock-th");
+  const stockCell = window.document.querySelector(".kr2-strong-stock");
+  const targetCell = window.document.querySelector(".kr2-strong-equip");
+  if (!stockHead || !stockCell || !targetCell || window.getComputedStyle(stockHead).textAlign !== "center" || window.getComputedStyle(stockCell).textAlign !== "center" || window.getComputedStyle(targetCell).textAlign !== "center" || window.getComputedStyle(targetCell).fontWeight !== "700") {
+    throw new Error("strong table columns should be centered and target text should be bold");
+  }
+  const strongTable = window.document.querySelector(".kr2-strong-table");
+  const strongHeadCells = Array.from(strongTable.querySelectorAll("thead th"));
+  const firstStrongRow = strongTable.querySelector("tbody tr");
+  const firstColumnCells = firstStrongRow ? [strongHeadCells[0], firstStrongRow.children[0]] : [strongHeadCells[0]];
+  const completionCellsForWidth = firstStrongRow ? [strongHeadCells[3], firstStrongRow.children[3]] : [strongHeadCells[3]];
+  const targetCellsForWidth = firstStrongRow ? [strongHeadCells[4], firstStrongRow.children[4]] : [strongHeadCells[4]];
+  if (window.getComputedStyle(strongTable).tableLayout !== "fixed" || firstColumnCells.some((cell) => window.getComputedStyle(cell).width !== "100px") || completionCellsForWidth.some((cell) => window.getComputedStyle(cell).width !== "48px") || targetCellsForWidth.some((cell) => window.getComputedStyle(cell).width !== "64px")) {
+    throw new Error("strong table first and last columns should be wider");
+  }
+  const closeCells = completionCellsForWidth.concat(targetCellsForWidth);
+  if (closeCells.some((cell) => window.getComputedStyle(cell).paddingLeft !== "2px" || window.getComputedStyle(cell).paddingRight !== "2px")) {
+    throw new Error("completion and target columns should sit close together");
   }
   if (!strongHtml.includes("max") || !strongHtml.includes("+")) {
     throw new Error("strong page level format missing max/+n");
@@ -169,14 +225,43 @@ function clickFavorite(namePart) {
   if (window.document.querySelectorAll(".kr2-strong-stock-name").length === 0) {
     throw new Error("strong page stock name missing");
   }
-  const targetNums = Array.from(window.document.querySelectorAll(".kr2-strong-target")).map((td) => Number(td.textContent));
+  const completionCells = Array.from(window.document.querySelectorAll(".kr2-strong-owned"));
+  const targetCells = Array.from(window.document.querySelectorAll(".kr2-strong-target"));
+  const targetNums = targetCells.map((td) => Number(td.textContent.trim()));
   const targetSum = targetNums.reduce((a, b) => a + b, 0);
   if (targetSum !== 1) throw new Error("split target count sum must equal 1, got " + targetSum);
   if (targetNums.some((n) => n <= 0)) throw new Error("zero target rows should be hidden");
-  if (window.document.querySelectorAll(".kr2-strong-owned.kr2-strong-stock-clear").length === 0) {
-    throw new Error("owned count equal should be sky blue");
+  const completionLines = Array.from(window.document.querySelectorAll(".kr2-strong-owned-line"));
+  if (completionCells.length === 0 || completionLines.length === 0 || !completionLines.every((line) => /^(--|\d+)$/.test(line.textContent.trim()))) {
+    throw new Error("strong completion column should show stacked completion counts");
   }
-  if (window.document.querySelectorAll(".kr2-strong-owned").length === 0) {
+  for (const cell of completionCells) {
+    const row = cell.closest("tr")
+    const targetCell = row && row.querySelector(".kr2-strong-target")
+    const target = targetCell ? Number(targetCell.textContent.trim()) : -1
+    const lines = Array.from(cell.querySelectorAll(".kr2-strong-owned-line"))
+    const completedSum = lines.reduce((sum, line) => {
+      const text = line.textContent.trim()
+      return sum + (text === "--" ? 0 : Number(text))
+    }, 0)
+    if (!targetCell || completedSum !== Number(cell.getAttribute("data-completed")) || completedSum > target) {
+      throw new Error("completion counts should sum to the completed total and stay within the target")
+    }
+    const levels = lines.map((line) => line.getAttribute("data-level")).filter(Boolean).map(Number)
+    if (!levels.every((value, index) => index === 0 || value <= levels[index - 1])) {
+      throw new Error("completion lines should be sorted by inventory level descending")
+    }
+  }
+  for (const row of window.document.querySelectorAll(".kr2-strong-table tbody tr")) {
+    const levels = Array.from(row.querySelectorAll(".kr2-strong-stock-line")).map((line) => line.getAttribute("data-level")).filter(Boolean).map(Number)
+    if (!levels.every((value, index) => index === 0 || value <= levels[index - 1])) {
+      throw new Error("stock lines should be sorted by inventory level descending")
+    }
+  }
+  if (window.document.querySelectorAll(".kr2-strong-owned.kr2-strong-stock-clear").length !== 0) {
+    throw new Error("inventory below max target should not be marked clear");
+  }
+  if (completionCells.length === 0) {
     throw new Error("strong page owned column missing");
   }
   if (window.document.querySelectorAll(".kr2-strong-level").length === 0) {
@@ -339,54 +424,81 @@ function clickFavorite(namePart) {
   await sleep(300);
   const strongEvoCells = Array.from(window.document.querySelectorAll(".kr2-strong-equip"));
   const hasPreEvo = strongEvoCells.some((cell) => cell.textContent.startsWith(nameById[multiId] + " "));
-  const hasEvoTarget = strongEvoCells.some((cell) => cell.textContent.startsWith(targetName + " "));
+  const hasEvoTarget = strongEvoCells.some((cell) => cell.textContent.trim() === targetName + "（进化）");
   if (hasPreEvo || !hasEvoTarget) {
     throw new Error("strong page should show evolved equipment only");
   }
-  const evoStrongCell = strongEvoCells.find((cell) => cell.textContent.startsWith(targetName + " ") && cell.textContent.endsWith(" +0"));
+  const evoStrongCell = strongEvoCells.find((cell) => cell.textContent.trim() === targetName + "（进化）");
   if (!evoStrongCell) {
-    throw new Error("evolved target should default to +0");
+    throw new Error("evolved target should show the evolution-acquired marker");
   }
   const strongRows = Array.from(window.document.querySelectorAll(".kr2-strong-table tbody tr"));
-  const nameRows = strongRows.filter((tr) => tr.querySelector(".kr2-strong-equip").textContent.startsWith(targetName + " "));
+  const nameRows = strongRows.filter((tr) => {
+    const text = tr.querySelector(".kr2-strong-equip").textContent.trim();
+    return text.startsWith(targetName + " ") || text === targetName + "（进化）";
+  });
   const hasMaxRow = nameRows.some((tr) => tr.querySelector(".kr2-strong-equip").textContent.endsWith(" max"));
-  const hasZeroRow = nameRows.some((tr) => tr.querySelector(".kr2-strong-equip").textContent.endsWith(" +0"));
-  if (nameRows.length < 2 || !hasMaxRow || !hasZeroRow) {
-    throw new Error("same-name max/+0 targets should share inventory rows");
+  const hasEvolvedRow = nameRows.some((tr) => tr.querySelector(".kr2-strong-equip").textContent.trim() === targetName + "（进化）");
+  if (nameRows.length < 2 || !hasMaxRow || !hasEvolvedRow) {
+    throw new Error("same-name max/evolution targets should share inventory rows");
   }
-  const sharedSum = nameRows.reduce((sum, tr) => sum + Number(tr.querySelector(".kr2-strong-target").textContent), 0);
+  const zeroRow = nameRows.find((tr) => tr.querySelector(".kr2-strong-equip").textContent.trim() === targetName + "（进化）");
+  const zeroTarget = zeroRow ? Number(zeroRow.querySelector(".kr2-strong-target").textContent.trim()) : -1
+  const zeroClearLine = zeroRow && Array.from(zeroRow.querySelectorAll(".kr2-strong-owned-line-clear")).find((line) => Number(line.textContent.trim()) === zeroTarget)
+  if (!zeroRow.classList.contains("kr2-strong-clear-row") || !zeroClearLine) {
+    throw new Error("higher inventory star should satisfy a lower target star");
+  }
+  const sharedSum = nameRows.reduce((sum, tr) => sum + Number(tr.querySelector(".kr2-strong-target").textContent.trim()), 0);
   if (sharedSum !== 2) throw new Error("shared target sum should equal 2, got " + sharedSum);
   const strongRowsAll = Array.from(window.document.querySelectorAll(".kr2-strong-table tbody tr")).filter((tr) => tr.children.length === 5);
   const clearIdx = strongRowsAll.findIndex((tr) => tr.classList.contains("kr2-strong-clear-row"));
   const firstOther = strongRowsAll.findIndex((tr) => !tr.classList.contains("kr2-strong-clear-row"));
   if (clearIdx !== -1 && firstOther !== -1 && clearIdx > firstOther) throw new Error("clear rows should be on top");
   const parseStockLevel = (tr) => {
-    const m = tr.children[3].textContent.match(/(max|\+\d+)\s*$/)
-    if (!m) return -1
-    return m[1] === "max" ? 10 : Number(m[1].slice(1))
+    const value = tr.querySelector(".kr2-strong-owned").getAttribute("data-level")
+    return value == null ? -1 : Number(value)
+  }
+  const parseTargetQty = (tr) => Number(tr.querySelector(".kr2-strong-target").textContent.trim())
+  const parseAllocatedStock = (tr) => {
+    const value = tr.querySelector(".kr2-strong-owned").getAttribute("data-stock")
+    return value === "" ? -1 : Number(value)
   }
   const clearRowsList = strongRowsAll.filter((tr) => tr.classList.contains("kr2-strong-clear-row"));
   for (let idx = 1; idx < clearRowsList.length; idx += 1) {
-    const aQty = Number(clearRowsList[idx - 1].children[2].textContent)
-    const bQty = Number(clearRowsList[idx].children[2].textContent)
+    const aQty = parseTargetQty(clearRowsList[idx - 1])
+    const bQty = parseTargetQty(clearRowsList[idx])
     if (aQty === bQty && parseStockLevel(clearRowsList[idx - 1]) < parseStockLevel(clearRowsList[idx])) {
       throw new Error("clear tie should sort by stock level desc");
     }
   }
   const nonClearRows = strongRowsAll.filter((tr) => !tr.classList.contains("kr2-strong-clear-row"));
-  const ownedNums = nonClearRows.map((tr) => Number(tr.children[4].textContent === "--" ? -1 : tr.children[4].textContent));
+  const ownedNums = nonClearRows.map(parseAllocatedStock);
   if (!ownedNums.every((v, idx) => idx === 0 || v <= ownedNums[idx - 1])) throw new Error("strong non-clear rows should sort by completion desc");
   for (let idx = 1; idx < nonClearRows.length; idx += 1) {
-    const aOwn = Number(nonClearRows[idx - 1].children[4].textContent === "--" ? -1 : nonClearRows[idx - 1].children[4].textContent);
-    const bOwn = Number(nonClearRows[idx].children[4].textContent === "--" ? -1 : nonClearRows[idx].children[4].textContent);
+    const aOwn = parseAllocatedStock(nonClearRows[idx - 1]);
+    const bOwn = parseAllocatedStock(nonClearRows[idx]);
     if (aOwn === bOwn) {
-      const aQty = Number(nonClearRows[idx - 1].children[2].textContent)
-      const bQty = Number(nonClearRows[idx].children[2].textContent)
+      const aQty = parseTargetQty(nonClearRows[idx - 1])
+      const bQty = parseTargetQty(nonClearRows[idx])
       if (aQty < bQty) throw new Error("strong tie should sort by target desc")
       if (aQty === bQty && parseStockLevel(nonClearRows[idx - 1]) < parseStockLevel(nonClearRows[idx])) {
         throw new Error("strong tie should sort by stock level desc");
       }
     }
+  }
+  clickNav("改修列表");
+  await sleep(250);
+  const parseListTarget = (name) => {
+    const row = Array.from(window.document.querySelectorAll(".kr2-row")).find((item) => {
+      const nameEl = item.querySelector(".kr2-name")
+      return nameEl && nameEl.textContent === name
+    })
+    const completion = row && row.querySelector(".kr2-name-completion")
+    const match = completion && completion.textContent.match(/\/(\d+)/)
+    return match ? Number(match[1]) : -1
+  }
+  if (parseListTarget(nameById[multiId]) !== 1 || parseListTarget(targetName) !== 1) {
+    throw new Error("list summary should keep each source row's own target count")
   }
   clickNav("素材计算");
   await sleep(300);
@@ -403,9 +515,47 @@ function clickFavorite(namePart) {
   if (!activeTarget || activeTarget.textContent !== "max") {
     throw new Error("selecting max should activate max only");
   }
+  const qtyPlus = Array.from(rowMaxAfter.querySelectorAll(".kr2-plan-qty-btn")).find((btn) => btn.textContent === "+");
+  if (!qtyPlus) throw new Error("plan quantity plus button missing");
+  qtyPlus.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await sleep(200);
+  clickNav("我变强了！");
+  await sleep(300);
+  const mergedStockRow = Array.from(window.document.querySelectorAll(".kr2-strong-table tbody tr")).find((tr) => {
+    const cell = tr.querySelector(".kr2-strong-equip");
+    return cell && cell.textContent.startsWith(nameById[multiId] + " ") && cell.textContent.endsWith(" max");
+  });
+  const mergedStockLines = mergedStockRow ? mergedStockRow.querySelectorAll(".kr2-strong-stock-line") : [];
+  const mergedCompletionCells = mergedStockRow ? mergedStockRow.querySelectorAll(".kr2-strong-owned") : [];
+  const mergedTargetCell = mergedStockRow && mergedStockRow.querySelector(".kr2-strong-target");
+  if (!mergedStockRow || mergedStockLines.length < 2 || mergedCompletionCells.length !== 1 || !mergedTargetCell || Number(mergedTargetCell.textContent.trim()) !== 2) {
+    throw new Error("same equipment stock levels should merge into one row");
+  }
 
   clickNav("改修列表");
   await sleep(300);
+  const targetNameRow = Array.from(window.document.querySelectorAll(".kr2-row")).find((tr) => {
+    const nameEl = tr.querySelector(".kr2-name");
+    return nameEl && nameEl.textContent === targetName;
+  });
+  const targetNameCompletion = targetNameRow && targetNameRow.querySelector(".kr2-name-completion");
+  const targetNameCompletionText = targetNameCompletion && targetNameCompletion.textContent.trim();
+  const listClear = /^（\d+\/\d+）clear!$/.test(targetNameCompletionText || "");
+  const listIncomplete = /^完成数（\d+\/\d+）$/.test(targetNameCompletionText || "");
+  if (!targetNameCompletion || (!listClear && !listIncomplete)) {
+    throw new Error("list equipment completion summary missing");
+  }
+  const expectedListClass = listClear ? "kr2-name-completion-clear" : "kr2-name-completion-incomplete";
+  if (!targetNameCompletion.classList.contains(expectedListClass)) {
+    throw new Error("list equipment completion color class missing");
+  }
+  const expectedListColor = listClear ? "rgb(79, 195, 247)" : "rgb(255, 107, 107)";
+  if (window.getComputedStyle(targetNameCompletion).color !== expectedListColor) {
+    throw new Error("list equipment completion color mismatch: " + window.getComputedStyle(targetNameCompletion).color);
+  }
+  if (window.getComputedStyle(targetNameCompletion).fontWeight !== "400") {
+    throw new Error("list equipment completion text should not be bold");
+  }
   const firstNonImpRow = window.document.querySelector(".kr2-row-not-improveable");
   if (!firstNonImpRow) throw new Error("non-improveable row not found for favorite test");
   const nonImpName = firstNonImpRow.querySelector(".kr2-name").textContent;
@@ -425,9 +575,79 @@ function clickFavorite(namePart) {
   }
   clickNav("我变强了！");
   await sleep(300);
-  const nonImpStrongCell = Array.from(window.document.querySelectorAll(".kr2-strong-equip")).find((cell) => cell.textContent.startsWith(nonImpName + " "));
-  if (!nonImpStrongCell || !nonImpStrongCell.textContent.endsWith(" +0")) {
-    throw new Error("non-improveable equipment should default to +0 in strong page");
+  const nonImpStrongCell = Array.from(window.document.querySelectorAll(".kr2-strong-equip")).find((cell) => cell.textContent.trim() === nonImpName);
+  if (!nonImpStrongCell || nonImpStrongCell.querySelector(".kr2-strong-level")) {
+    throw new Error("non-improveable equipment should not append a level in strong page");
+  }
+  clickNav("改修列表");
+  await sleep(250);
+  const clearListRow = Array.from(window.document.querySelectorAll(".kr2-row")).find((row) => {
+    const nameEl = row.querySelector(".kr2-name");
+    return nameEl && nameEl.textContent === nonImpName;
+  });
+  if (!clearListRow || !clearListRow.classList.contains("kr2-row-clear")) {
+    throw new Error("clear equipment row should be highlighted in list");
+  }
+  if (window.getComputedStyle(clearListRow).backgroundColor !== "rgba(79, 195, 247, 0.14)") {
+    throw new Error("clear equipment row background mismatch");
+  }
+  const clearListName = clearListRow.querySelector(".kr2-name");
+  if (window.getComputedStyle(clearListName).color !== "rgb(171, 179, 191)") {
+    throw new Error("clear equipment row should preserve original name color");
+  }
+  const clearCompletion = clearListRow.querySelector(".kr2-name-completion-clear");
+  if (!clearCompletion || !/^（\d+\/\d+）clear!$/.test(clearCompletion.textContent.trim()) || window.getComputedStyle(clearCompletion).color !== "rgb(79, 195, 247)") {
+    throw new Error("clear completion text should remain sky blue");
+  }
+  if (window.getComputedStyle(clearCompletion).fontWeight !== "400") {
+    throw new Error("clear completion text should not be bold");
+  }
+  clickNav("素材计算");
+  await sleep(250);
+  const partialPlanRow = Array.from(window.document.querySelector(".kr2-plan-table").querySelectorAll("tbody tr")).find((row) => row.textContent.includes(nonImpName));
+  const partialQtyInput = partialPlanRow && partialPlanRow.querySelector(".kr2-plan-qty-input");
+  if (!partialQtyInput) throw new Error("partial completion qty input missing");
+  const inputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
+  inputValueSetter.call(partialQtyInput, "99");
+  partialQtyInput.dispatchEvent(new window.Event("input", { bubbles: true }));
+  partialQtyInput.dispatchEvent(new window.Event("change", { bubbles: true }));
+  await sleep(250);
+  clickNav("改修列表");
+  await sleep(250);
+  const partialListRow = Array.from(window.document.querySelectorAll(".kr2-row")).find((row) => {
+    const nameEl = row.querySelector(".kr2-name");
+    return nameEl && nameEl.textContent === nonImpName;
+  });
+  const partialCompletion = partialListRow && partialListRow.querySelector(".kr2-name-completion-incomplete");
+  const partialDone = partialCompletion && partialCompletion.querySelector(".kr2-name-completion-done");
+  if (!partialCompletion || !partialDone || !/^完成数（\d+\/99）$/.test(partialCompletion.textContent.trim()) || Number(partialDone.textContent) <= 0 || window.getComputedStyle(partialDone).color !== "rgb(79, 195, 247)" || window.getComputedStyle(partialCompletion).color !== "rgb(255, 107, 107)") {
+    throw new Error("positive completed count should be sky blue while remaining completion text stays red");
+  }
+  clickNav("我变强了！");
+  await sleep(250);
+  const partialStrongRow = Array.from(window.document.querySelectorAll(".kr2-strong-table tbody tr")).find((row) => {
+    const cell = row.querySelector(".kr2-strong-equip");
+    return cell && cell.textContent.trim() === nonImpName;
+  });
+  const partialStrongOwned = partialStrongRow && partialStrongRow.querySelector(".kr2-strong-owned");
+  const partialStrongTarget = partialStrongRow && partialStrongRow.querySelector(".kr2-strong-target");
+  const partialStrongLines = partialStrongOwned ? Array.from(partialStrongOwned.querySelectorAll(".kr2-strong-owned-line")) : [];
+  const partialStrongDone = partialStrongLines.map((line) => line.querySelector(".kr2-strong-completion-done")).find(Boolean);
+  const partialStrongZeroLine = partialStrongLines.find((line) => Number(line.textContent.trim()) === 0);
+  const partialCompletedSum = partialStrongLines.reduce((sum, line) => sum + (line.textContent.trim() === "--" ? 0 : Number(line.textContent.trim())), 0)
+  if (!partialStrongOwned || !partialStrongTarget || !partialStrongDone || !partialStrongZeroLine || Number(partialStrongTarget.textContent.trim()) !== 99 || partialCompletedSum !== Number(partialStrongOwned.getAttribute("data-completed")) || window.getComputedStyle(partialStrongDone).color !== "rgb(79, 195, 247)" || window.getComputedStyle(partialStrongZeroLine).color !== "rgb(255, 107, 107)") {
+    throw new Error("strong page should split completion and target into separate columns");
+  }
+  const updateRoot = window.document.createElement("div");
+  updateRoot.id = "root";
+  window.document.getElementById("root").replaceWith(updateRoot);
+  window.localStorage.setItem("poi-plugin-koushu-rate:ui-state", JSON.stringify({ pluginVersion: "2.0.16", helpVersion: "2.0.16.1" }));
+  window.eval(bundleSource);
+  await sleep(1500);
+  const updateHelp = window.document.querySelector(".kr2-help-modal");
+  const firstHelpSection = updateHelp && updateHelp.querySelector(".kr2-help-section-title");
+  if (!updateHelp || !firstHelpSection || firstHelpSection.textContent.trim() !== pluginVersion + "更新" || !updateHelp.textContent.includes("优化了装备进化在我变强了页中的显示逻辑")) {
+    throw new Error("plugin update help should show update notes first");
   }
 
   console.log(JSON.stringify({ ok: true, noUpgradeId, multiId, multiBranches: byEquip[multiId].length, upgradeRows }));

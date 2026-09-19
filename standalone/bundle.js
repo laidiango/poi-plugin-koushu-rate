@@ -23668,6 +23668,51 @@
     }
   });
 
+  // package.json
+  var require_package = __commonJS({
+    "package.json"(exports, module) {
+      module.exports = {
+        name: "poi-plugin-koushu-rate",
+        version: "2.0.18",
+        description: "\u5168\u88C5\u5907\u6539\u4FEE\u8D44\u6750\u8BA1\u7B97\u4E0E\u63A8\u8350",
+        main: "index.js",
+        files: [
+          "index.js",
+          "data/**",
+          "README.md",
+          "LICENSE"
+        ],
+        author: "xh255",
+        license: "MIT",
+        poiPlugin: {
+          title: "\u87BA\u4E1D\u8BA1\u7B97\u5668",
+          description: "\u5217\u51FA\u6240\u6709\u53EF\u6539\u4FEE\u88C5\u5907\uFF0C\u652F\u6301\u6536\u85CF\uFF0C\u81EA\u52A8\u8BA1\u7B97\u4E0D\u786E\u4FDD\u671F\u671B\u4E0E\u786E\u4FDD\u6D88\u8017\u5BF9\u6BD4",
+          icon: "fa/calculator",
+          priority: 50,
+          windowMode: true,
+          windowOptions: {
+            width: 960,
+            height: 720,
+            minWidth: 640,
+            minHeight: 420
+          }
+        },
+        devDependencies: {
+          esbuild: "^0.28.2",
+          jsdom: "^30.0.1",
+          react: "^18.3.1",
+          "react-dom": "^18.3.1"
+        },
+        scripts: {
+          standalone: "node standalone/build.js",
+          "build:standalone": "node standalone/build.js",
+          "standalone:serve": "node standalone/build.js && node standalone/serve.js",
+          "test:standalone": "node standalone/smoke.js"
+        }
+      };
+    }
+  });
+
   // standalone/stubs/electron.js
   var require_electron = __commonJS({
     "standalone/stubs/electron.js"(exports, module) {
@@ -63908,12 +63953,17 @@
           "12.7cm\u9023\u88C5\u9AD8\u89D2\u7832(\u5F8C\u671F\u578B)",
           "12.7cm\u9023\u88C5\u7832C\u578B\u6539\u4E8C",
           "12.7cm\u9023\u88C5\u7832D\u578B\u6539\u4E8C",
+          "120mm/50 \u9023\u88C5\u7832",
           "12cm30\u9023\u88C5\u5674\u9032\u7832",
           "12cm\u5358\u88C5\u9AD8\u89D2\u7832",
           "12cm\u5358\u88C5\u9AD8\u89D2\u7832E\u578B",
+          "13.8cm\u9023\u88C5\u7832",
           "130mm B-13\u9023\u88C5\u7832",
+          "13\u53F7\u5BFE\u7A7A\u96FB\u63A2",
           "13\u53F7\u5BFE\u7A7A\u96FB\u63A2\u6539",
+          "13\u53F7\u5BFE\u7A7A\u96FB\u63A2\u6539(\u5F8C\u671F\u578B)",
           "14cm\u9023\u88C5\u7832\u6539",
+          "15.2cm\u9023\u88C5\u7832\u6539",
           "15.2cm\u4E09\u9023\u88C5\u7832",
           "15cm\u9023\u88C5\u526F\u7832",
           "16inch Mk.I\u9023\u88C5\u7832",
@@ -63944,6 +63994,7 @@
           "38cm\u56DB\u9023\u88C5\u7832\u6539",
           "42\u53F7\u5BFE\u7A7A\u96FB\u63A2",
           "46cm\u4E09\u9023\u88C5\u7832",
+          "46cm\u4E09\u9023\u88C5\u7832\u6539",
           "533mm \u4E09\u9023\u88C5\u9B5A\u96F7",
           "533mm\u4E94\u9023\u88C5\u9B5A\u96F7(\u521D\u671F\u578B)",
           "53cm\u9023\u88C5\u9B5A\u96F7",
@@ -63959,11 +64010,15 @@
           "90mm\u5358\u88C5\u9AD8\u89D2\u7832",
           "94\u5F0F\u9AD8\u5C04\u88C5\u7F6E",
           "\u5F69\u96F2",
+          "\u5927\u767A\u52D5\u8247(\u516B\u4E5D\u5F0F\u4E2D\u6226\u8ECA&\u9678\u6226\u968A)",
           "\u4E8C\u5F0F12cm\u8FEB\u6483\u7832\u6539",
+          "\u4E8C\u5F0F\u7206\u96F7",
           "\u4E8C\u5F0F\u5927\u8247",
+          "\u4E8C\u5F0F\u8907\u6226 \u5C60\u9F8D",
+          "\u4E8C\u5F0F\u8907\u6226 \u5C60\u9F8D \u4E19\u578B",
           "\u4E8C\u5F0F\u8266\u4E0A\u5075\u5BDF\u6A5F",
-          "\u5F57\u661F(\u516D0\u4E00\u7A7A)",
-          "\u5F57\u661F\u4E00\u4E8C\u578B\u7532",
+          "\u767A\u7159\u88C5\u7F6E(\u7159\u5E55)",
+          "\u5F57\u661F(\u516D\u3007\u4E00\u7A7A)",
           "\u8266\u8247\u4FEE\u7406\u65BD\u8A2D",
           "\u8266\u8F09\u578B \u56DB\u5F0F20cm\u5BFE\u5730\u5674\u9032\u7832",
           "\u4E5D\u516B\u5F0F\u6C34\u4E0A\u5075\u5BDF\u6A5F(\u591C\u5075)",
@@ -63975,46 +64030,64 @@
           "\u4E5D\u4E03\u5F0F\u8266\u653B(\u4E5D\u4E09\u4E00\u7A7A)",
           "\u4E5D\u4E03\u5F0F\u8266\u653B(\u719F\u7DF4)",
           "\u4E5D\u4E03\u5F0F\u8266\u653B(\u53CB\u6C38\u968A)",
+          "\u4E5D\u4E03\u5F0F\u8266\u653B\u6539 \u8A66\u88FD\u4E09\u53F7\u620A\u578B(\u7A7A\u516D\u53F7\u96FB\u63A2\u6539\u88C5\u5099\u6A5F)",
           "\u4E5D\u4E00\u5F0F\u5FB9\u7532\u5F3E",
+          "\u70C8\u98A8 \u4E00\u4E00\u578B",
           "\u96F6\u5F0F\u8266\u622621\u578B(\u719F\u7DF4)",
           "\u96F6\u5F0F\u8266\u622632\u578B(\u719F\u7DF4)",
           "\u96F6\u5F0F\u8266\u622662\u578B(\u7206\u6226)",
+          "\u96F6\u5F0F\u8266\u622663\u578B(\u7206\u6226)",
           "\u96F6\u5F0F\u6C34\u4E0A\u5075\u5BDF\u6A5F11\u578B\u4E59",
-          "\u96F6\u622652\u578B\u4E19(\u516D0\u4E00\u7A7A)",
-          "\u6D41\u661F",
-          "\u6D41\u661F(\u516D0\u4E00\u7A7A)",
+          "\u96F6\u5F0F\u5C0F\u578B\u6C34\u4E0A\u6A5F",
+          "\u96F6\u622652\u578B\u4E19(\u516D\u3007\u4E00\u7A7A)",
+          "\u6D41\u661F(\u516D\u3007\u4E00\u7A7A)",
           "\u6D41\u661F\u6539",
+          "\u6D41\u661F\u6539(\u719F\u7DF4)",
           "\u6BD8\u5F0F40mm\u9023\u88C5\u6A5F\u9283",
           "\u79CB\u5200\u9B5A\u306E\u7F36\u8A70",
           "\u745E\u96F212\u578B",
+          "\u745E\u96F212\u578B(\u516D\u4E09\u56DB\u7A7A)",
+          "\u4E09\u5F0F\u7206\u96F7\u6295\u5C04\u6A5F \u96C6\u4E2D\u914D\u5099",
           "\u4E09\u5F0F\u5F3E",
           "\u8A66\u88FD35.6cm\u4E09\u9023\u88C5\u7832",
           "\u8A66\u88FD41cm\u4E09\u9023\u88C5\u7832",
+          "\u8A66\u88FD46cm\u9023\u88C5\u7832",
           "\u8A66\u88FD51cm\u9023\u88C5\u7832",
+          "\u8A66\u88FD\u70C8\u98A8 \u5F8C\u671F\u578B",
           "\u8A66\u88FD\u6674\u5D50",
           "\u8A66\u88FDFaT\u4ED5\u69D8\u4E5D\u4E94\u5F0F\u9178\u7D20\u9B5A\u96F7\u6539",
+          "\u719F\u7DF4\u7532\u677F\u8981\u54E1",
           "\u719F\u7DF4\u898B\u5F35\u54E1",
-          "\u5929\u5C71",
-          "\u5929\u5C71(\u516D0\u4E00\u7A7A)",
+          "\u56DB\u5F0F\u6C34\u4E2D\u8074\u97F3\u6A5F",
+          "\u5929\u5C71(\u516D\u3007\u4E00\u7A7A)",
+          "\u5929\u5C71\u4E00\u4E8C\u578B\u7532",
+          "\u901A\u4FE1\u88C5\u7F6E&\u8981\u54E1",
           "\u65B0\u578B\u9AD8\u6E29\u9AD8\u5727\u7F36",
           "\u6D0B\u4E0A\u88DC\u7D66",
           "\u4E00\u5F0F\u9678\u653B",
           "\u4E00\u5F0F\u9678\u653B \u4E8C\u4E8C\u578B\u7532",
           "\u4E00\u5F0F\u6226 \u96BCII\u578B",
+          "\u5897\u8A2D\u30D0\u30EB\u30B8(\u5927\u578B\u8266)",
+          "\u5897\u8A2D\u30D0\u30EB\u30B8(\u4E2D\u578B\u8266)",
           "\u6226\u95D8\u7CE7\u98DF",
           "\u6226\u95D8\u7CE7\u98DF(\u7279\u5225\u306A\u304A\u306B\u304E\u308A)",
           "\u7167\u660E\u5F3E",
+          "\u7D2B\u96FB\u4E8C\u4E00\u578B \u7D2B\u96FB\u6539",
+          "\u7D2B\u96FB\u6539\u4E8C",
           "\u7D2B\u96FB\u4E00\u4E00\u578B",
           "Ar196\u6539",
           "Bf109T\u6539",
           "Bofors 40mm\u56DB\u9023\u88C5\u6A5F\u95A2\u7832",
           "Bofors15.2cm\u9023\u88C5\u7832 Model1930",
+          "F4F-3",
           "F4F-4",
           "F4U-1D",
           "F6F-3",
           "FM-2",
+          "Fulmar",
           "FuMO25 \u30EC\u30FC\u30C0\u30FC",
           "Fw190T\u6539",
+          "GFCS Mk.37",
           "Ju87C\u6539",
           "OS2U",
           "OTO 152mm\u4E09\u9023\u88C5\u901F\u5C04\u7832",
@@ -64024,15 +64097,24 @@
           "Re.2001 OR\u6539",
           "Ro.44\u6C34\u4E0A\u6226\u95D8\u6A5F",
           "S9 Osprey",
+          "SB2C-3",
           "SBD",
           "SG \u30EC\u30FC\u30C0\u30FC(\u521D\u671F\u578B)",
           "SKC34 20.3cm\u9023\u88C5\u7832",
           "Skua",
+          "SK\u30EC\u30FC\u30C0\u30FC",
+          "SM.79",
           "SOC Seagull",
+          "Spitfire Mk.I",
+          "Spitfire Mk.V",
+          "Swordfish",
+          "Swordfish Mk.II(\u719F\u7DF4)",
+          "Swordfish Mk.II\u6539(\u6C34\u5075\u578B)",
           "TBD",
           "TBF",
           "Type124 ASDIC",
           "Type144/147 ASDIC",
+          "\u30AA\u53F7\u89B3\u6E2C\u6A5F\u6539",
           "\u30D7\u30EA\u30A8\u30FC\u30BC\u5F0F\u6C34\u4E2D\u9632\u5FA1\u9694\u58C1"
         ],
         secondary: []
@@ -64069,6 +64151,32 @@
       var path = require_path();
       var { WindowEnv: WindowEnv2 } = require_window_env();
       var { SlotitemIcon, MaterialIcon } = require_icon();
+      function readPluginVersion() {
+        try {
+          const info = require_package();
+          return String(info && info.version || "0.0.0");
+        } catch (_) {
+          return "0.0.0";
+        }
+      }
+      var PLUGIN_VERSION = readPluginVersion();
+      var HELP_PAGE_REVISION = "1";
+      var HELP_VERSION = PLUGIN_VERSION + "." + HELP_PAGE_REVISION;
+      var HELP_UPDATE_NOTES = {
+        "2.0.17": [
+          "\u65B0\u589E\u4F7F\u7528\u8BF4\u660E\u9875\u4E0E\u66F4\u65B0\u63D0\u793A\u3002",
+          "\u65B0\u589E\u7A00\u6709\u7D20\u6750\u6D88\u8017\u63D0\u793A\u3002",
+          "\u7D20\u6750\u8BA1\u7B97\u65B0\u589E\u6392\u5E8F\u4E0E\u5F00\u53D1\u8D44\u6750\u671F\u671B\u7EDF\u8BA1\u3002",
+          "\u201C\u6211\u53D8\u5F3A\u4E86\uFF01\u201D\u65B0\u589E\u5B8C\u6210\u5EA6\u3001\u5E93\u5B58\u5408\u5E76\u4E0E\u8FDB\u5316\u76EE\u6807\u6807\u8BB0\u3002"
+        ],
+        "2.0.18": [
+          "\u65B0\u589E\u7A00\u6709\u7D20\u6750\u6D88\u8017\u63D0\u793A\uFF1B",
+          "\u4F18\u5316\u4E86\u88C5\u5907\u8FDB\u5316\u5728\u6211\u53D8\u5F3A\u4E86\u9875\u4E2D\u7684\u663E\u793A\u903B\u8F91\uFF0C\u73B0\u5728\u4F1A\u548C\u8FDB\u5316\u540E\u7684\u6539\u4FEE\u8BA1\u5212\u5206\u5F00\u7EDF\u8BA1\uFF0C\u4EE5\u65B9\u4FBF\u68C0\u67E5\u9636\u6BB5\u6027\u76EE\u6807\u7684\u5B8C\u6210\u60C5\u51B5\uFF1B",
+          "\u4F18\u5316\u4E86\u6211\u53D8\u5F3A\u4E86\u9875\u4E2D\u7684\u76EE\u6807/\u5DF2\u6709\u88C5\u5907\u7684\u663E\u793A\uFF0C\u73B0\u5728\u4E0D\u4F1A\u81EA\u52A8\u62C6\u5206\u5DF2\u5B8C\u6210\u7684\u88C5\u5907\u5355\u72EC\u7F6E\u9876\u663E\u793A\u4E86\uFF1B",
+          "\u5728\u6539\u4FEE\u5217\u8868\u9875\u65B0\u589E\u4E86\u6539\u4FEE\u8BA1\u5212\u7684\u663E\u793A\uFF08\u88C5\u5907\u540D\u79F0\u7684\u4E0B\u65B9\uFF09\u3002"
+        ]
+      };
+      var CURRENT_HELP_UPDATE_NOTES = HELP_UPDATE_NOTES[PLUGIN_VERSION] || ["\u672C\u6B21\u66F4\u65B0\u6682\u65E0\u8BE6\u7EC6\u8BF4\u660E\u3002"];
       var LEVEL_ONE_ROWS = [
         { range: "\u26050\u21921", p: 1 },
         { range: "\u26051\u21922", p: 1 },
@@ -64276,9 +64384,28 @@
   justify-content: flex-start;
   gap: 12px;
 }
+.kr2-title-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 .kr2-title {
   font-size: 18px;
   font-weight: 800;
+}
+.kr2-help-btn {
+  padding: 4px 10px;
+  border: 1px solid #5f6b7c;
+  border-radius: 4px;
+  background: #2f343c;
+  color: #8abbff;
+  font-size: 12px;
+  cursor: pointer;
+}
+.kr2-help-btn:hover {
+  background: #383e47;
+  color: #a8c8ff;
 }
 .kr2-title-note {
   margin-top: 2px;
@@ -64688,9 +64815,33 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
-.kr2-strong-table {
+.kr2-table.kr2-strong-table {
   border-collapse: separate;
   border-spacing: 0;
+  table-layout: fixed;
+  width: 100%;
+}
+.kr2-strong-table th:nth-child(1),
+.kr2-strong-table td:nth-child(1) {
+  width: 100px;
+}
+.kr2-strong-table th:nth-child(2),
+.kr2-strong-table td:nth-child(2) {
+  width: 32%;
+}
+.kr2-strong-table th:nth-child(4),
+.kr2-strong-table td:nth-child(4) {
+  width: 48px;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+  white-space: nowrap;
+}
+.kr2-strong-table th:nth-child(5),
+.kr2-strong-table td:nth-child(5) {
+  width: 64px;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+  white-space: nowrap;
 }
 .kr2-strong-cat-th {
   position: relative;
@@ -64743,8 +64894,9 @@
   border-bottom: 0;
 }
 .kr2-strong-equip {
-  text-align: left !important;
+  text-align: center !important;
   white-space: normal;
+  font-weight: 700;
 }
 .kr2-strong-level {
   display: inline-flex;
@@ -64762,6 +64914,16 @@
 }
 .kr2-strong-stock {
   white-space: normal;
+  text-align: center !important;
+}
+.kr2-strong-stock-th {
+  text-align: center !important;
+}
+.kr2-strong-stock-line {
+  display: block;
+}
+.kr2-strong-stock-line + .kr2-strong-stock-line {
+  margin-top: 2px;
 }
 .kr2-strong-stock-name {
   color: #ffffff;
@@ -64799,6 +64961,24 @@
   color: #ff6b6b;
 }
 .kr2-strong-owned.kr2-strong-stock-clear {
+  color: #4fc3f7;
+}
+.kr2-strong-owned-line {
+  display: block;
+}
+.kr2-strong-owned-line + .kr2-strong-owned-line {
+  margin-top: 2px;
+}
+.kr2-strong-owned-line-clear {
+  color: #4fc3f7;
+}
+.kr2-strong-owned-line-short {
+  color: #ff6b6b;
+}
+.kr2-strong-owned-line-missing {
+  color: #abb3bf;
+}
+.kr2-strong-completion-done {
   color: #4fc3f7;
 }
 .kr2-strong-clear-row td {
@@ -64982,6 +65162,12 @@
 .kr2-row-not-improveable .kr2-meta {
   color: #abb3bf;
 }
+.kr2-row-clear {
+  background: rgba(79, 195, 247, 0.14);
+}
+.kr2-row-clear:hover {
+  background: rgba(79, 195, 247, 0.2);
+}
 .kr2-reco-empty {
   min-height: 34px;
 }
@@ -65072,13 +65258,34 @@
   font-size: 9px;
   line-height: 1.2;
 }
-.kr2-name {
+.kr2-name-cell {
   flex: 1 1 0;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+}
+.kr2-name {
   font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.kr2-name-completion {
+  font-size: 11px;
+  line-height: 1.2;
+  white-space: nowrap;
+  font-weight: 400;
+}
+.kr2-name-completion-incomplete {
+  color: #ff6b6b;
+}
+.kr2-name-completion-done-active {
+  color: #4fc3f7;
+}
+.kr2-name-completion-clear {
+  color: #4fc3f7;
 }
 .kr2-secretary {
   flex: 1 1 0;
@@ -65359,6 +65566,59 @@
 .kr2-modal-actions {
   display: flex;
   gap: 8px;
+}
+.kr2-modal-close {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #5f6b7c;
+  border-radius: 4px;
+  background: #2f343c;
+  color: #f6f7f9;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+.kr2-modal-close:hover {
+  background: #383e47;
+  color: #fff;
+}
+.kr2-help-modal {
+  width: 720px;
+}
+.kr2-help-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 14px 16px 18px;
+}
+.kr2-help-lead {
+  margin-bottom: 10px;
+  color: #8abbff;
+  font-size: 14px;
+  font-weight: 800;
+}
+.kr2-help-section + .kr2-help-section {
+  margin-top: 14px;
+}
+.kr2-help-section-title {
+  margin-bottom: 6px;
+  color: #8abbff;
+  font-size: 14px;
+  font-weight: 800;
+}
+.kr2-help-list {
+  margin: 0;
+  padding-left: 20px;
+  color: #d6d9de;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.kr2-help-list li + li {
+  margin-top: 2px;
 }
 .kr2-dev-scroll {
   flex: 1;
@@ -66790,7 +67050,7 @@
         const toggleMatSort = (key) => setMatSort((prev) => prev.key !== key ? { key, dir: "asc" } : prev.dir === "asc" ? { key, dir: "desc" } : { key: "", dir: "asc" });
         const planSortValue = (p, key) => key === "screws" ? p.costs.screws : planDevTotal(p);
         const displayPlanRows = mainSort.key ? planRows.slice().sort((a, b) => numCompare(planSortValue(a, mainSort.key), planSortValue(b, mainSort.key), mainSort.dir) || String(a.row.name).localeCompare(String(b.row.name), "zh-Hans-CN")) : planRows;
-        const renderSortButton = (label, key, sortState, onToggle2) => React2.createElement("th", null, React2.createElement("span", null, label), React2.createElement("button", { className: "kr2-sort-btn" + (sortState.key === key ? " kr2-sort-active" : ""), onClick: () => onToggle2(key) }, React2.createElement("span", { className: "kr2-sort-arrow" }, sortState.key !== key ? "\u2195" : sortState.dir === "asc" ? "\u25B2" : "\u25BC")));
+        const renderSortButton = (label, key, sortState, onToggle2) => React2.createElement("th", null, React2.createElement("button", { className: "kr2-sort-btn" + (sortState.key === key ? " kr2-sort-active" : ""), onClick: () => onToggle2(key) }, React2.createElement("span", null, label), React2.createElement("span", { className: "kr2-sort-arrow" }, sortState.key !== key ? "\u2195" : sortState.dir === "asc" ? "\u2191" : "\u2193")));
         for (const p of selected) {
           totals.screws += p.costs.screws;
           totals.dev += p.costs.dev + (includeDev ? p.matDev : 0);
@@ -66947,6 +67207,137 @@
           )
         );
       }
+      function formatStrongLevel(level) {
+        const n = Number(level);
+        if (n >= 10) return "max";
+        return "+" + String(n);
+      }
+      function buildStrongEntries(rows, inventoryByEquip, selection) {
+        const inventoryLoaded = inventoryByEquip && Object.keys(inventoryByEquip).length > 0;
+        const entries = [];
+        const demandMap = {};
+        for (const row of rows || []) {
+          const sel = (selection || {})[row.id] || { selected: true, target: "max", qty: 1 };
+          const qty = Math.max(1, Math.min(99, Math.round(Number(sel.qty) || 1)));
+          const evoUpgradeId = sel.evoUpgradeId || null;
+          const evoUpgrade = evoUpgradeId ? (row.upgrades || []).find((u) => String(u.upgrade_id) === String(evoUpgradeId)) : null;
+          const displayRow = evoUpgrade ? Object.assign({}, row, { id: row.id + ":evo:" + evoUpgrade.upgrade_id, name: evoUpgrade.targetName, category: evoUpgrade.targetCategory || row.category }) : row;
+          const targetEquipId = evoUpgrade ? String(evoUpgrade.upgrade_id) : row.id;
+          const targetLevelValue = evoUpgrade ? 0 : row.improveable === false ? 0 : sel.target === "max" ? 10 : 6;
+          const bucket = demandMap[targetEquipId] || (demandMap[targetEquipId] = { equipId: targetEquipId, displayRow, sourceRowIds: [], sourceRowIdsByLevel: {}, demands: {}, evolvedLevels: {} });
+          if (bucket.sourceRowIds.indexOf(row.id) < 0) bucket.sourceRowIds.push(row.id);
+          const levelKey = String(targetLevelValue);
+          const levelSources = bucket.sourceRowIdsByLevel[levelKey] || (bucket.sourceRowIdsByLevel[levelKey] = []);
+          if (levelSources.indexOf(row.id) < 0) levelSources.push(row.id);
+          if (evoUpgrade) bucket.evolvedLevels[String(targetLevelValue)] = true;
+          bucket.demands[String(targetLevelValue)] = (bucket.demands[String(targetLevelValue)] || 0) + qty;
+        }
+        for (const bucket of Object.values(demandMap)) {
+          const inv = (inventoryByEquip || {})[bucket.equipId];
+          const inventoryLevels = [];
+          if (inv && inv.levels) {
+            for (const level of Object.keys(inv.levels)) {
+              const count = Math.max(0, Math.round(Number(inv.levels[level]) || 0));
+              if (count > 0) inventoryLevels.push({ level: Number(level), count });
+            }
+            inventoryLevels.sort((a, b) => b.level - a.level);
+          }
+          const remaining = {};
+          for (const lv of inventoryLevels) remaining[String(lv.level)] = lv.count;
+          const targetLevels = Object.keys(bucket.demands).map(Number).sort((a, b) => b - a);
+          const allocation = {};
+          const shortfall = {};
+          for (const tl of targetLevels) {
+            let need = bucket.demands[String(tl)] || 0;
+            for (const lv of inventoryLevels) {
+              if (need <= 0) break;
+              const avail = remaining[String(lv.level)] || 0;
+              if (avail <= 0) continue;
+              const take = Math.min(need, avail);
+              const key = String(tl) + "|" + String(lv.level);
+              const alloc = allocation[key] || (allocation[key] = { targetLevelValue: tl, inventoryLevel: lv.level, qty: 0, stock: 0 });
+              alloc.qty += take;
+              alloc.stock += take;
+              remaining[String(lv.level)] = avail - take;
+              need -= take;
+            }
+            if (need > 0) shortfall[String(tl)] = need;
+          }
+          for (const key of Object.keys(allocation)) {
+            const alloc = allocation[key];
+            entries.push({ key: bucket.equipId + ":" + key, row: bucket.displayRow, sourceRowIds: bucket.sourceRowIdsByLevel[String(alloc.targetLevelValue)] || bucket.sourceRowIds, evolved: !!bucket.evolvedLevels[String(alloc.targetLevelValue)], targetLevel: formatStrongLevel(alloc.targetLevelValue), targetLevelValue: alloc.targetLevelValue, qty: alloc.qty, inventoryLevel: alloc.inventoryLevel, stock: alloc.stock });
+          }
+          for (const tl of Object.keys(shortfall)) {
+            const value = Number(tl);
+            entries.push({ key: bucket.equipId + ":short:" + tl, row: bucket.displayRow, sourceRowIds: bucket.sourceRowIdsByLevel[String(value)] || bucket.sourceRowIds, evolved: !!bucket.evolvedLevels[String(value)], targetLevel: formatStrongLevel(value), targetLevelValue: value, qty: shortfall[tl], inventoryLevel: null, stock: inventoryLoaded ? 0 : null, notFound: true });
+          }
+        }
+        for (const item of entries) {
+          item.clear = item.qty > 0 && item.stock != null && item.inventoryLevel >= item.targetLevelValue && item.stock >= item.qty;
+          item.completed = item.clear ? item.qty : 0;
+          item.levelShort = item.inventoryLevel != null && item.inventoryLevel < item.targetLevelValue;
+          item.countShort = item.stock != null && item.qty > 0 && item.stock < item.qty;
+          item.countEnough = item.stock != null && item.stock >= item.qty;
+        }
+        const levelRank = (item) => item.inventoryLevel == null ? -1 : item.inventoryLevel;
+        entries.sort((a, b) => {
+          const ac = a.clear ? 1 : 0;
+          const bc = b.clear ? 1 : 0;
+          if (ac !== bc) return bc - ac;
+          if (a.clear) return b.qty - a.qty || levelRank(b) - levelRank(a);
+          const sa = a.stock == null ? -1 : a.stock;
+          const sb = b.stock == null ? -1 : b.stock;
+          return sb - sa || b.qty - a.qty || levelRank(b) - levelRank(a);
+        });
+        return { entries, inventoryLoaded };
+      }
+      function buildStrongGroups(entries) {
+        const groupsByKey = {};
+        for (const item of entries || []) {
+          const key = item.row.id + "|" + String(item.targetLevelValue);
+          const group = groupsByKey[key] || (groupsByKey[key] = {
+            key,
+            row: item.row,
+            targetLevel: item.targetLevel,
+            targetLevelValue: item.targetLevelValue,
+            items: [],
+            sourceRowIds: [],
+            qty: 0,
+            completed: 0,
+            stock: 0,
+            stockLoaded: false,
+            maxInventoryLevel: -1,
+            evolved: false
+          });
+          group.items.push(item);
+          group.qty += item.qty;
+          group.completed += item.completed || 0;
+          if (item.stock != null) {
+            group.stock += item.stock;
+            group.stockLoaded = true;
+          }
+          if (item.inventoryLevel != null) group.maxInventoryLevel = Math.max(group.maxInventoryLevel, item.inventoryLevel);
+          if (item.evolved) group.evolved = true;
+          for (const rowId of item.sourceRowIds || []) {
+            if (group.sourceRowIds.indexOf(rowId) < 0) group.sourceRowIds.push(rowId);
+          }
+        }
+        const groups = Object.keys(groupsByKey).map((key) => groupsByKey[key]);
+        for (const group of groups) {
+          group.items.sort((a, b) => (b.inventoryLevel == null ? -1 : b.inventoryLevel) - (a.inventoryLevel == null ? -1 : a.inventoryLevel));
+          group.clear = group.qty > 0 && group.completed >= group.qty;
+        }
+        groups.sort((a, b) => {
+          const ac = a.clear ? 1 : 0;
+          const bc = b.clear ? 1 : 0;
+          if (ac !== bc) return bc - ac;
+          if (a.clear) return b.qty - a.qty || b.maxInventoryLevel - a.maxInventoryLevel;
+          const sa = a.stockLoaded ? a.stock : -1;
+          const sb = b.stockLoaded ? b.stock : -1;
+          return sb - sa || b.qty - a.qty || b.maxInventoryLevel - a.maxInventoryLevel;
+        });
+        return groups;
+      }
       var StrongPage = class extends React2.Component {
         catRef = React2.createRef();
         state = {
@@ -66985,92 +67376,26 @@
         };
         render() {
           const { rows, inventoryByEquip, selection } = this.props;
-          const inventoryLoaded = inventoryByEquip && Object.keys(inventoryByEquip).length > 0;
-          const entries = [];
-          const levelText = (level) => {
-            const n = Number(level);
-            if (n >= 10) return "max";
-            return "+" + String(n);
-          };
-          const demandMap = {};
-          for (const row of rows || []) {
-            const sel = (selection || {})[row.id] || { selected: true, target: "max", qty: 1 };
-            const qty = Math.max(1, Math.min(99, Math.round(Number(sel.qty) || 1)));
-            const evoUpgradeId = sel.evoUpgradeId || null;
-            const evoUpgrade = evoUpgradeId ? (row.upgrades || []).find((u) => String(u.upgrade_id) === String(evoUpgradeId)) : null;
-            const displayRow = evoUpgrade ? Object.assign({}, row, { id: row.id + ":evo:" + evoUpgrade.upgrade_id, name: evoUpgrade.targetName, category: evoUpgrade.targetCategory || row.category }) : row;
-            const targetEquipId = evoUpgrade ? String(evoUpgrade.upgrade_id) : row.id;
-            const targetLevelValue = evoUpgrade ? 0 : row.improveable === false ? 0 : sel.target === "max" ? 10 : 6;
-            const bucket = demandMap[targetEquipId] || (demandMap[targetEquipId] = { equipId: targetEquipId, displayRow, demands: {} });
-            bucket.demands[String(targetLevelValue)] = (bucket.demands[String(targetLevelValue)] || 0) + qty;
-          }
-          for (const bucket of Object.values(demandMap)) {
-            const inv = (inventoryByEquip || {})[bucket.equipId];
-            const inventoryLevels = [];
-            if (inv && inv.levels) {
-              for (const level of Object.keys(inv.levels)) {
-                const count = Math.max(0, Math.round(Number(inv.levels[level]) || 0));
-                if (count > 0) inventoryLevels.push({ level: Number(level), count });
-              }
-              inventoryLevels.sort((a, b) => b.level - a.level);
-            }
-            const remaining = {};
-            for (const lv of inventoryLevels) remaining[String(lv.level)] = lv.count;
-            const targetLevels = Object.keys(bucket.demands).map(Number).sort((a, b) => b - a);
-            const allocation = {};
-            const shortfall = {};
-            for (const tl of targetLevels) {
-              let need = bucket.demands[String(tl)] || 0;
-              for (const lv of inventoryLevels) {
-                if (need <= 0) break;
-                const avail = remaining[String(lv.level)] || 0;
-                if (avail <= 0) continue;
-                const take = Math.min(need, avail);
-                const key = String(tl) + "|" + String(lv.level);
-                const alloc = allocation[key] || (allocation[key] = { targetLevelValue: tl, inventoryLevel: lv.level, qty: 0, stock: 0 });
-                alloc.qty += take;
-                alloc.stock += take;
-                remaining[String(lv.level)] = avail - take;
-                need -= take;
-              }
-              if (need > 0) shortfall[String(tl)] = need;
-            }
-            for (const key of Object.keys(allocation)) {
-              const alloc = allocation[key];
-              entries.push({ key: bucket.equipId + ":" + key, row: bucket.displayRow, targetLevel: levelText(alloc.targetLevelValue), targetLevelValue: alloc.targetLevelValue, qty: alloc.qty, inventoryLevel: alloc.inventoryLevel, stock: alloc.stock });
-            }
-            for (const tl of Object.keys(shortfall)) {
-              const value = Number(tl);
-              entries.push({ key: bucket.equipId + ":short:" + tl, row: bucket.displayRow, targetLevel: levelText(value), targetLevelValue: value, qty: shortfall[tl], inventoryLevel: null, stock: inventoryLoaded ? 0 : null, notFound: true });
-            }
-          }
-          for (const item of entries) {
-            item.clear = item.qty > 0 && item.stock != null && item.inventoryLevel === item.targetLevelValue && item.stock >= item.qty;
-            item.levelShort = item.inventoryLevel != null && item.inventoryLevel < item.targetLevelValue;
-            item.countShort = item.stock != null && item.qty > 0 && item.stock < item.qty;
-            item.countEnough = item.stock != null && item.stock >= item.qty;
-          }
-          const levelRank = (item) => item.inventoryLevel == null ? -1 : item.inventoryLevel;
-          entries.sort((a, b) => {
-            const ac = a.clear ? 1 : 0;
-            const bc = b.clear ? 1 : 0;
-            if (ac !== bc) return bc - ac;
-            if (a.clear) return b.qty - a.qty || levelRank(b) - levelRank(a);
-            const sa = a.stock == null ? -1 : a.stock;
-            const sb = b.stock == null ? -1 : b.stock;
-            return sb - sa || b.qty - a.qty || levelRank(b) - levelRank(a);
-          });
-          const categories = Array.from(new Set(entries.map((item) => item.row.category).filter(Boolean))).sort((a, b) => a.localeCompare(b, "zh-Hans-CN"));
+          const { entries } = buildStrongEntries(rows, inventoryByEquip, selection);
+          const groups = buildStrongGroups(entries);
+          const categories = Array.from(new Set(groups.map((group) => group.row.category).filter(Boolean))).sort((a, b) => a.localeCompare(b, "zh-Hans-CN"));
           const selectedCategories = this.state.selectedCategories;
-          const visibleEntries = selectedCategories == null ? entries : entries.filter((item) => selectedCategories.indexOf(item.row.category) >= 0);
+          const visibleGroups = selectedCategories == null ? groups : groups.filter((group) => selectedCategories.indexOf(group.row.category) >= 0);
           const stockText = (item) => {
             const nameNode = React2.createElement("span", { className: "kr2-strong-stock-name" }, item.row.name);
             if (item.notFound || item.stock == null) return nameNode;
-            const levelPart = levelText(item.inventoryLevel);
+            const levelPart = formatStrongLevel(item.inventoryLevel);
             return React2.createElement("span", null, nameNode, " ", levelPart);
           };
           const stockClass = (item) => item.notFound || item.stock == null ? "kr2-strong-stock-notfound" : item.clear ? "kr2-strong-stock-clear" : item.levelShort ? "kr2-strong-stock-short" : "kr2-strong-stock-ok";
-          const ownedClass = (item) => item.stock == null ? "kr2-strong-stock-missing" : item.clear || item.countEnough ? "kr2-strong-stock-clear" : item.countShort ? "kr2-strong-stock-short" : "kr2-strong-stock-ok";
+          const groupOwnedClass = (group) => !group.stockLoaded ? "kr2-strong-stock-missing" : group.clear ? "kr2-strong-stock-clear" : "kr2-strong-stock-short";
+          const completionLineClass = (item, group) => "kr2-strong-owned-line " + (item.stock == null ? "kr2-strong-owned-line-missing" : group.qty > 0 && (item.completed || 0) >= group.qty ? "kr2-strong-owned-line-clear" : "kr2-strong-owned-line-short");
+          const completionLineText = (item, group) => {
+            if (item.stock == null) return "--";
+            const completed = item.completed || 0;
+            if (group.qty > 0 && completed >= group.qty) return String(completed);
+            return completed > 0 ? React2.createElement("span", { className: "kr2-strong-completion-done" }, String(completed)) : String(completed);
+          };
           const catStyle = this.state.catPos ? { position: "fixed", top: this.state.catPos.top, left: this.state.catPos.left, minWidth: Math.max(180, this.state.catPos.width) } : null;
           const categoryHead = React2.createElement(
             "th",
@@ -67099,20 +67424,26 @@
               React2.createElement(
                 "thead",
                 null,
-                React2.createElement("tr", null, categoryHead, React2.createElement("th", null, "\u76EE\u6807\u88C5\u5907"), React2.createElement("th", null, "\u76EE\u6807\u6570"), React2.createElement("th", null, "\u5E93\u5B58"), React2.createElement("th", null, "\u5B8C\u6210\u6570"))
+                React2.createElement("tr", null, categoryHead, React2.createElement("th", null, "\u76EE\u6807\u88C5\u5907"), React2.createElement("th", { className: "kr2-strong-stock-th" }, "\u5E93\u5B58\u88C5\u5907"), React2.createElement("th", null, "\u5B8C\u6210\u6570"), React2.createElement("th", null, "\u76EE\u6807\u6570"))
               ),
               React2.createElement(
                 "tbody",
                 null,
-                visibleEntries.length === 0 ? React2.createElement("tr", null, React2.createElement("td", { colSpan: 5 }, "\u65E0\u5339\u914D\u5206\u7C7B")) : visibleEntries.map(
-                  (item) => React2.createElement(
+                visibleGroups.length === 0 ? React2.createElement("tr", null, React2.createElement("td", { colSpan: 5 }, "\u65E0\u5339\u914D\u5206\u7C7B")) : visibleGroups.map(
+                  (group) => React2.createElement(
                     "tr",
-                    { key: item.key, className: item.clear ? "kr2-strong-clear-row" : null },
-                    React2.createElement("td", { className: "kr2-strong-cat" }, item.row.category || "-"),
-                    React2.createElement("td", { className: "kr2-strong-equip" }, item.row.name, " ", React2.createElement("span", { className: "kr2-strong-level" }, item.targetLevel)),
-                    React2.createElement("td", { className: "kr2-strong-target" }, String(item.qty)),
-                    React2.createElement("td", { className: "kr2-strong-stock " + stockClass(item) }, stockText(item)),
-                    React2.createElement("td", { className: "kr2-strong-owned " + ownedClass(item) }, item.stock == null ? "--" : item.clear ? "clear!" : String(item.stock))
+                    { key: group.key, className: group.clear ? "kr2-strong-clear-row" : null },
+                    React2.createElement("td", { className: "kr2-strong-cat" }, group.row.category || "-"),
+                    React2.createElement(
+                      "td",
+                      { className: "kr2-strong-equip" },
+                      group.row.name + (group.evolved ? "\uFF08\u8FDB\u5316\uFF09" : ""),
+                      !group.evolved && group.row.improveable !== false ? " " : null,
+                      !group.evolved && group.row.improveable !== false ? React2.createElement("span", { className: "kr2-strong-level" }, group.targetLevel) : null
+                    ),
+                    React2.createElement("td", { className: "kr2-strong-stock" }, group.items.map((item) => React2.createElement("div", { key: item.key, className: "kr2-strong-stock-line " + stockClass(item), "data-level": item.inventoryLevel == null ? "" : String(item.inventoryLevel) }, stockText(item)))),
+                    React2.createElement("td", { className: "kr2-strong-owned " + groupOwnedClass(group), "data-completed": String(group.completed || 0), "data-stock": group.stockLoaded ? String(group.stock) : "", "data-level": String(group.maxInventoryLevel) }, group.items.map((item) => React2.createElement("div", { key: item.key, className: completionLineClass(item, group), "data-level": item.inventoryLevel == null ? "" : String(item.inventoryLevel) }, completionLineText(item, group)))),
+                    React2.createElement("td", { className: "kr2-strong-target", "data-target": String(group.qty) }, String(group.qty))
                   )
                 )
               )
@@ -67310,13 +67641,14 @@
           );
         }
       };
-      function EquipmentRow({ row, expanded, onToggle, onMaterialClick, inventoryByEquip, useItemCounts, onInventoryClick, isFavorite, onFavoriteClick, secretaryText: secretaryText2, kcDevData }) {
+      function EquipmentRow({ row, expanded, onToggle, onMaterialClick, inventoryByEquip, useItemCounts, onInventoryClick, isFavorite, onFavoriteClick, secretaryText: secretaryText2, kcDevData, completion }) {
+        const clear = !!(completion && completion.target > 0 && completion.completed >= completion.target);
         return React2.createElement(
           "div",
           null,
           React2.createElement(
             "div",
-            { className: "kr2-row" + (row.improveable === false ? " kr2-row-not-improveable" : ""), onClick: row.improveable === false ? null : onToggle },
+            { className: "kr2-row" + (row.improveable === false ? " kr2-row-not-improveable" : "") + (clear ? " kr2-row-clear" : ""), onClick: row.improveable === false ? null : onToggle },
             React2.createElement(
               "button",
               { className: "kr2-fav-btn" + (isFavorite ? " kr2-fav-active" : ""), onClick: (e) => {
@@ -67331,7 +67663,20 @@
               React2.createElement(SlotitemIcon, { slotitemId: row.icon, className: "kr2-icon" }),
               React2.createElement("span", { className: "kr2-arrow" }, row.improveable === false ? "" : expanded ? "\u25BC" : "\u25B6")
             ),
-            React2.createElement("span", { className: "kr2-name" }, row.name),
+            React2.createElement(
+              "span",
+              { className: "kr2-name-cell" },
+              React2.createElement("span", { className: "kr2-name" }, row.name),
+              completion ? clear ? React2.createElement("span", { className: "kr2-name-completion kr2-name-completion-clear" }, "\uFF08", String(completion.completed), "/", String(completion.target), "\uFF09clear!") : React2.createElement(
+                "span",
+                { className: "kr2-name-completion kr2-name-completion-incomplete" },
+                "\u5B8C\u6210\u6570\uFF08",
+                React2.createElement("span", { className: "kr2-name-completion-done" + (completion.completed > 0 ? " kr2-name-completion-done-active" : "") }, String(completion.completed)),
+                "/",
+                String(completion.target),
+                "\uFF09"
+              ) : null
+            ),
             React2.createElement("span", { className: "kr2-secretary" }, row.improveable === false ? "" : secretaryText2 || "-"),
             React2.createElement(
               "span",
@@ -67593,6 +67938,86 @@
         } catch (_) {
         }
       }
+      function HelpModal({ onClose, updateNotes }) {
+        const sections = [];
+        if (updateNotes && updateNotes.length) sections.push({ title: PLUGIN_VERSION + "\u66F4\u65B0", items: updateNotes });
+        sections.push(
+          {
+            title: "1.\u6539\u4FEE\u5217\u8868",
+            items: [
+              "\u663E\u793A\u6BCF\u65E5\u6539\u4FEE\u88C5\u5907\uFF0C\u6253\u5F00\u63D2\u4EF6\u65F6\u9ED8\u8BA4\u81EA\u52A8\u8DF3\u8F6C\u5230\u5F53\u524D\u661F\u671F\u6570\uFF1B",
+              "\u88C5\u5907\u884C\u4E0A\u6700\u53F3\u4FA7\u4E3A\u6539\u4FEE\u63A8\u8350\u661F\u7EA7\uFF0C\u6570\u636E\u53C2\u8003nga\u68A6\u7F8E\u6539\u4FEE2.0\u8D34\uFF08\u63D2\u4EF6\u7248\u5934\u6709\u7F51\u7AD9\u94FE\u63A5\uFF09\uFF0C\u70B9\u51FB\u8868\u5934\u53EF\u4EE5\u6309\u7167\u661F\u7EA7\u6392\u5E8F\uFF1B",
+              "\u70B9\u51FB\u5BF9\u5E94\u88C5\u5907\u884C\u53EF\u5C55\u5F00\u8BE6\u7EC6\u6539\u4FEE\u6570\u636E\uFF0C\u9ED8\u8BA4\u53EA\u5C55\u5F006-10\u7EA7\u7684\u6539\u4FEE\uFF08\u4E5F\u53EF\u624B\u52A8\u70B9\u5F00\u67E5\u770B\uFF09\uFF0C\u6700\u53F3\u4FA7\u786E\u4FDD\u63A8\u8350\u662F\u6309\u7167\u87BA\u4E1D\u671F\u671B\u81EA\u52A8\u8BA1\u7B97\u7684\uFF0C\u672A\u8003\u8651\u7A00\u6709\u7D20\u6750\u548C\u7D2B\u83DC\u7684\u6D88\u8017\u60C5\u51B5\uFF08\u8BF7\u6CE8\u610F\u7504\u522B\uFF09\uFF1B",
+              "\u70B9\u51FB\u88C5\u5907\u884C\u6700\u5DE6\u4FA7\u7684\u661F\u661F\u53EF\u4EE5\u6536\u85CF\u8BE5\u88C5\u5907\uFF0C\u70B9\u4EAE\u63D2\u4EF6\u53F3\u4E0A\u89D2\u7684\u6536\u85CF\u6309\u94AE\u4F1A\u9690\u85CF\u5176\u4ED6\u672A\u6536\u85CF\u7684\u88C5\u5907\uFF1B",
+              "\u70B9\u51FB\u786E\u4FDD\u63A8\u8350\u5217\u4E2D\u7684\u201C\u63A8\u8350\u786E\u4FDD\u201D/\u201C\u4E0D\u786E\u4FDD\u201D\u6309\u94AE\u4F1A\u663E\u793A\u6D88\u8017\u7D20\u6750\u60C5\u51B5\u4EE5\u53CA\u5E93\u5B58\u7D20\u6750\u6570\u91CF\uFF08\u9ED8\u8BA4\u4E0D\u7EDF\u8BA1\u5E26\u6709\u661F\u7EA7\u7684\u7D20\u6750\uFF09\uFF0C\u70B9\u51FB\u7D20\u6750\u4F1A\u5F39\u51FA\u88C5\u5907\u5F00\u53D1\u914D\u65B9\u5217\u8868\uFF0C\u70B9\u51FB\u5E93\u5B58\u53EF\u67E5\u770B\u5DF2\u62E5\u6709\u7684\u7D20\u6750\u8BE6\u60C5\uFF08\u4E3B\u8981\u662F\u67E5\u770B\u661F\u7EA7\uFF09\uFF1B"
+            ]
+          },
+          {
+            title: "2.\u7D20\u6750\u8BA1\u7B97",
+            items: [
+              "\u53EA\u6709\u5728\u6539\u4FEE\u5217\u8868\u4E2D\u70B9\u51FB\u6536\u85CF\u7684\u88C5\u5907\u624D\u4F1A\u663E\u793A\u5728\u8BE5\u9875\u4E2D\uFF1B",
+              "\u4E3A\u4E86\u8BA9\u63D2\u4EF6\u770B\u8D77\u6765\u66F4\u52A0\u7B80\u6D01\uFF0C\u6539\u4FEE\u76EE\u6807\u53EA\u8BBE\u7F6E\u4E86+6\u3001max\u548C\u8FDB\u5316\u4E09\u4E2A\u9009\u9879\uFF0C\u8F93\u5165\u76EE\u6807\u6570\u91CF\u540E\uFF0C\u63D2\u4EF6\u4F1A\u81EA\u52A8\u8BA1\u7B97\u6240\u9700\u7684\u7D20\u6750\u6C47\u603B\u60C5\u51B5\uFF1B",
+              "\u52FE\u9009\u201C\u7EDF\u8BA1\u7D20\u6750\u5F00\u53D1\u7684\u7D2B\u83DC\u6D88\u8017\u671F\u671B\u201D\u4F1A\u8BA1\u7B97\u5F53\u6240\u6709\u6539\u4FEE\u7D20\u6750\u5747\u6765\u81EA\u5F00\u53D1\u65F6\u6240\u9884\u8BA1\u6D88\u8017\u7684\u7D2B\u83DC\u6570\u91CF\uFF08\u56FE\u4E00\u4E50\u529F\u80FD\uFF09\uFF1B",
+              "\u53EF\u5BF9\u5F00\u53D1\u8D44\u6750\u3001\u87BA\u4E1D\u4EE5\u53CA\u7D20\u6750\u6C47\u603B\u4E2D\u7684\u9700\u6C42\u3001\u5E93\u5B58\u548C\u7D2B\u83DC\u5F00\u53D1\u671F\u671B\u8FDB\u884C\u6392\u5E8F\uFF1B"
+            ]
+          },
+          {
+            title: "3.\u6211\u53D8\u5F3A\u4E86\uFF01",
+            items: [
+              "\u6240\u6709\u6536\u85CF\u7684\u88C5\u5907\u5747\u4F1A\u5728\u8BE5\u9875\u4E2D\u663E\u793A\uFF08\u65E0\u8BBA\u5728\u7D20\u6750\u8BA1\u7B97\u9875\u4E2D\u662F\u5426\u52FE\u9009\uFF09\uFF0C\u63D2\u4EF6\u4F1A\u81EA\u52A8\u8BA1\u7B97\u76EE\u6807\u88C5\u5907\u4E0E\u5E93\u5B58\u88C5\u5907\u7684\u661F\u7EA7\u3001\u6570\u91CF\u5DEE\u5F02\uFF0C\u5E76\u9ED8\u8BA4\u5012\u5E8F\u6392\u5217\uFF1B",
+              "\u5DF2\u5B8C\u6210\u7684\u88C5\u5907\u4F1A\u81EA\u52A8\u7F6E\u9876\u5E76\u663E\u793Aclear\uFF01\uFF1B",
+              "\u8BA1\u5212\u7684\u5B8C\u6210\u60C5\u51B5\u4F1A\u540C\u6B65\u663E\u793A\u5728\u6539\u4FEE\u5217\u8868\u9875\u7684\u88C5\u5907\u884C\u4E0A\uFF1B",
+              "\u6CE8\u610F\u5728\u7D20\u6750\u8BA1\u7B97\u9875\u9009\u62E9\u201C\u8FDB\u5316\u201D\u7684\u88C5\u5907\u4F1A\u548C\u8FDB\u5316\u540E\u7684\u540C\u540D\u88C5\u5907\u5206\u5F00\u8BA1\u7B97\uFF0C\u7528\u6765\u951A\u5B9A\u9636\u6BB5\u6027\u76EE\u6807\u3002"
+            ]
+          },
+          {
+            title: "\u5176\u4ED6\u5E38\u89C4\u529F\u80FD",
+            items: [
+              "\u6A21\u7CCA\u641C\u7D22\uFF0C\u641C\u7D22\u680F\u652F\u6301\u8F93\u5165\u7B80\u4F53\u4E2D\u6587\uFF1B",
+              "\u53EF\u5728\u63D2\u4EF6\u7248\u5934\u6309\u7167\u88C5\u5907\u5927\u7C7B\u8FDB\u884C\u7B5B\u9009\uFF1B",
+              "\u63D2\u4EF6\u4E5F\u52A0\u5165\u4E86\u4E0D\u53EF\u6539\u4FEE\u88C5\u5907\uFF0C\u540C\u6837\u53EF\u4EE5\u6536\u85CF\uFF0C\u5E76\u6B63\u5E38\u663E\u793A\u5728\u6211\u53D8\u5F3A\u4E86\u9875\u4E2D\u3002"
+            ]
+          }
+        );
+        const updateSection = sections[0] && sections[0].title === PLUGIN_VERSION + "\u66F4\u65B0" ? sections[0] : null;
+        const guideSections = updateSection ? sections.slice(1) : sections;
+        const renderSection = (section, key) => React2.createElement(
+          "section",
+          { key, className: "kr2-help-section" },
+          React2.createElement("div", { className: "kr2-help-section-title" }, section.title),
+          React2.createElement(
+            "ul",
+            { className: "kr2-help-list" },
+            section.items.map((text, itemIndex) => React2.createElement("li", { key: itemIndex }, text))
+          )
+        );
+        return React2.createElement(
+          "div",
+          { className: "kr2-modal-backdrop", onClick: onClose },
+          React2.createElement(
+            "div",
+            { className: "kr2-modal kr2-help-modal", role: "dialog", "aria-modal": "true", "aria-label": "\u4F7F\u7528\u8BF4\u660E", onClick: (e) => e.stopPropagation() },
+            React2.createElement(
+              "div",
+              { className: "kr2-modal-head" },
+              React2.createElement(
+                "div",
+                null,
+                React2.createElement("div", { className: "kr2-modal-title" }, "\u4F7F\u7528\u8BF4\u660E"),
+                React2.createElement("div", { className: "kr2-modal-sub" }, "\u87BA\u4E1D\u8BA1\u7B97\u5668 v" + PLUGIN_VERSION)
+              ),
+              React2.createElement("button", { type: "button", className: "kr2-modal-close", onClick: onClose, title: "\u5173\u95ED", "aria-label": "\u5173\u95ED\u4F7F\u7528\u8BF4\u660E" }, "\xD7")
+            ),
+            React2.createElement(
+              "div",
+              { className: "kr2-help-body" },
+              updateSection ? renderSection(updateSection, "update") : null,
+              React2.createElement("div", { className: "kr2-help-lead" }, "\u529F\u80FD\u4E3B\u9875"),
+              guideSections.map((section, index) => renderSection(section, index))
+            )
+          )
+        );
+      }
       var KoushuRateApp = class extends React2.Component {
         state = {
           query: "",
@@ -67619,9 +68044,18 @@
           improveableOpen: true,
           nonImproveableOpen: false,
           planSelection: readPlanSelection(),
-          includeDevExpected: readPlanIncludeDev()
+          includeDevExpected: readPlanIncludeDev(),
+          helpOpen: false
         };
         componentDidMount() {
+          const uiState = readUiState();
+          const legacyVersion = uiState.helpVersion ? String(uiState.helpVersion).split(".").slice(0, 3).join(".") : "";
+          const seenVersion = String(uiState.pluginVersion || legacyVersion || "").trim();
+          const firstInstall = !seenVersion;
+          const isUpdate = !!seenVersion && seenVersion !== PLUGIN_VERSION;
+          if (firstInstall || isUpdate) {
+            this.setState({ helpOpen: true });
+          }
           this.refresh();
           this.checkAkashiUpdate(false);
           refreshKcDevData().catch(() => {
@@ -67633,6 +68067,13 @@
         componentWillUnmount() {
           if (this.inventoryTimer) clearInterval(this.inventoryTimer);
         }
+        openHelp = () => {
+          this.setState({ helpOpen: true });
+        };
+        closeHelp = () => {
+          saveUiState({ helpVersion: HELP_VERSION, pluginVersion: PLUGIN_VERSION });
+          this.setState({ helpOpen: false });
+        };
         loadKcDevExpectations = () => {
           loadKcDevData(false).then((data) => this.setState({ kcDevData: data })).catch(() => {
           });
@@ -67849,6 +68290,7 @@
           });
           const kcDevPopup = this.state.kcDevPopup;
           const inventoryPopup = this.state.inventoryPopup;
+          const helpOpen = this.state.helpOpen;
           const kcDevSort = kcDevPopup && kcDevPopup.sort || { key: "rate", dir: "desc" };
           const kcDevFormulas = kcDevPopup && Array.isArray(kcDevPopup.formulas) ? kcDevPopup.formulas.slice() : [];
           if (kcDevSort.key === "rate" || kcDevSort.key === "failRate") {
@@ -67860,6 +68302,17 @@
           const inventoryByEquip = this.state.inventoryByEquip || {};
           const useItemCounts = this.state.useItemCounts || {};
           const favoritesOnly = !!this.state.favoritesOnly;
+          const planSelection = this.state.planSelection || {};
+          const favoriteRows = this.state.rows.filter((row) => !!this.state.favorites[row.id]);
+          const strongSummary = {};
+          for (const item of buildStrongEntries(favoriteRows, inventoryByEquip, planSelection).entries) {
+            const rowIds = item.sourceRowIds && item.sourceRowIds.length ? item.sourceRowIds : [item.row.id];
+            for (const rowId of rowIds) {
+              const summary = strongSummary[rowId] || (strongSummary[rowId] = { completed: 0, target: 0 });
+              summary.completed += item.completed || 0;
+              summary.target += item.qty;
+            }
+          }
           let rows = this.state.rows.filter((row) => {
             if (favoritesOnly && !this.state.favorites[row.id]) return false;
             if (row.improveable !== false && day !== ALL_DAYS_KEY && (row.days || []).indexOf(day) < 0) return false;
@@ -67892,7 +68345,8 @@
             isFavorite: !!this.state.favorites[row.id],
             onFavoriteClick: this.toggleFavorite,
             secretaryText: secretaryText(row.secretaries, day),
-            kcDevData: this.state.kcDevData
+            kcDevData: this.state.kcDevData,
+            completion: strongSummary[row.id]
           });
           return React2.createElement(
             "div",
@@ -67907,7 +68361,12 @@
                 React2.createElement(
                   "div",
                   null,
-                  React2.createElement("div", { className: "kr2-title" }, "\u87BA\u4E1D\u8BA1\u7B97\u5668"),
+                  React2.createElement(
+                    "div",
+                    { className: "kr2-title-line" },
+                    React2.createElement("div", { className: "kr2-title" }, "\u87BA\u4E1D\u8BA1\u7B97\u5668"),
+                    React2.createElement("button", { type: "button", className: "kr2-help-btn", onClick: this.openHelp }, "\u4F7F\u7528\u8BF4\u660E")
+                  ),
                   React2.createElement(
                     "div",
                     { className: "kr2-title-note" },
@@ -68029,7 +68488,7 @@
                   "button",
                   { className: "kr2-sort-btn" + (this.state.starSort ? " kr2-sort-active" : ""), onClick: this.toggleStarSort, title: "\u6309\u63A8\u8350\u661F\u7EA7\u6392\u5E8F\uFF08\u63A8\u8350\u661F\u7EA7\u4F18\u5148\uFF0C\u6D3B\u52A8\u5F3A\u5EA6\u6B21\u4E4B\uFF09" },
                   "\u63A8\u8350\u661F\u7EA7/\u7D20\u6750\u6D88\u8017",
-                  React2.createElement("span", { className: "kr2-sort-arrow" }, this.state.starSort === "desc" ? "\u25BC" : this.state.starSort === "asc" ? "\u25B2" : "\u2195")
+                  React2.createElement("span", { className: "kr2-sort-arrow" }, this.state.starSort === "desc" ? "\u2193" : this.state.starSort === "asc" ? "\u2191" : "\u2195")
                 )
               )
             ),
@@ -68069,7 +68528,7 @@
               rows: this.state.rows.filter((row) => !!this.state.favorites[row.id]),
               inventoryByEquip,
               useItemCounts,
-              selection: this.state.planSelection || {},
+              selection: planSelection,
               onToggle: this.togglePlanRow,
               onTarget: this.setPlanTarget,
               onEvo: this.setPlanEvo,
@@ -68083,8 +68542,9 @@
             this.state.activeTab === "strong" ? React2.createElement(StrongPage, {
               rows: this.state.rows.filter((row) => !!this.state.favorites[row.id]),
               inventoryByEquip,
-              selection: this.state.planSelection || {}
+              selection: planSelection
             }) : null,
+            helpOpen ? React2.createElement(HelpModal, { onClose: this.closeHelp, updateNotes: CURRENT_HELP_UPDATE_NOTES }) : null,
             kcDevPopup ? React2.createElement(
               "div",
               { className: "kr2-modal-backdrop", onClick: this.closeKcDevPopup },
@@ -68137,7 +68597,7 @@
                             "button",
                             { className: "kr2-sort-btn" + (kcDevSort.key === "rate" ? " kr2-sort-active" : ""), onClick: () => this.setKcDevSort("rate") },
                             "\u51FA\u8D27\u7387",
-                            React2.createElement("span", { className: "kr2-sort-arrow" }, kcDevSort.key === "rate" ? kcDevSort.dir === "desc" ? "\u25BC" : "\u25B2" : "\u2195")
+                            React2.createElement("span", { className: "kr2-sort-arrow" }, kcDevSort.key === "rate" ? kcDevSort.dir === "desc" ? "\u2193" : "\u2191" : "\u2195")
                           )
                         ),
                         React2.createElement(
@@ -68147,7 +68607,7 @@
                             "button",
                             { className: "kr2-sort-btn" + (kcDevSort.key === "failRate" ? " kr2-sort-active" : ""), onClick: () => this.setKcDevSort("failRate") },
                             "\u5931\u8D25\u7387",
-                            React2.createElement("span", { className: "kr2-sort-arrow" }, kcDevSort.key === "failRate" ? kcDevSort.dir === "desc" ? "\u25BC" : "\u25B2" : "\u2195")
+                            React2.createElement("span", { className: "kr2-sort-arrow" }, kcDevSort.key === "failRate" ? kcDevSort.dir === "desc" ? "\u2193" : "\u2191" : "\u2195")
                           )
                         )
                       )

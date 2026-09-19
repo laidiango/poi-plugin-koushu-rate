@@ -4,6 +4,34 @@ const path = require("path");
 const { WindowEnv } = require("views/components/etc/window-env");
 const { SlotitemIcon, MaterialIcon } = require("views/components/etc/icon");
 
+function readPluginVersion() {
+  try {
+    const info = require("./package.json")
+    return String((info && info.version) || "0.0.0")
+  } catch (_) {
+    return "0.0.0"
+  }
+}
+
+const PLUGIN_VERSION = readPluginVersion()
+const HELP_PAGE_REVISION = "1"
+const HELP_VERSION = PLUGIN_VERSION + "." + HELP_PAGE_REVISION
+const HELP_UPDATE_NOTES = {
+  "2.0.17": [
+    "新增使用说明页与更新提示。",
+    "新增稀有素材消耗提示。",
+    "素材计算新增排序与开发资材期望统计。",
+    "“我变强了！”新增完成度、库存合并与进化目标标记。",
+  ],
+  "2.0.18": [
+    "新增稀有素材消耗提示；",
+    "优化了装备进化在我变强了页中的显示逻辑，现在会和进化后的改修计划分开统计，以方便检查阶段性目标的完成情况；",
+    "优化了我变强了页中的目标/已有装备的显示，现在不会自动拆分已完成的装备单独置顶显示了；",
+    "在改修列表页新增了改修计划的显示（装备名称的下方）。",
+  ],
+}
+const CURRENT_HELP_UPDATE_NOTES = HELP_UPDATE_NOTES[PLUGIN_VERSION] || ["本次更新暂无详细说明。"]
+
 const LEVEL_ONE_ROWS = [
   { range: "★0→1", p: 1.0 },
   { range: "★1→2", p: 1.0 },
@@ -188,9 +216,28 @@ const CSS = `
   justify-content: flex-start;
   gap: 12px;
 }
+.kr2-title-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
 .kr2-title {
   font-size: 18px;
   font-weight: 800;
+}
+.kr2-help-btn {
+  padding: 4px 10px;
+  border: 1px solid #5f6b7c;
+  border-radius: 4px;
+  background: #2f343c;
+  color: #8abbff;
+  font-size: 12px;
+  cursor: pointer;
+}
+.kr2-help-btn:hover {
+  background: #383e47;
+  color: #a8c8ff;
 }
 .kr2-title-note {
   margin-top: 2px;
@@ -600,9 +647,33 @@ const CSS = `
   overflow-x: hidden;
   overflow-y: auto;
 }
-.kr2-strong-table {
+.kr2-table.kr2-strong-table {
   border-collapse: separate;
   border-spacing: 0;
+  table-layout: fixed;
+  width: 100%;
+}
+.kr2-strong-table th:nth-child(1),
+.kr2-strong-table td:nth-child(1) {
+  width: 100px;
+}
+.kr2-strong-table th:nth-child(2),
+.kr2-strong-table td:nth-child(2) {
+  width: 32%;
+}
+.kr2-strong-table th:nth-child(4),
+.kr2-strong-table td:nth-child(4) {
+  width: 48px;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+  white-space: nowrap;
+}
+.kr2-strong-table th:nth-child(5),
+.kr2-strong-table td:nth-child(5) {
+  width: 64px;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+  white-space: nowrap;
 }
 .kr2-strong-cat-th {
   position: relative;
@@ -655,8 +726,9 @@ const CSS = `
   border-bottom: 0;
 }
 .kr2-strong-equip {
-  text-align: left !important;
+  text-align: center !important;
   white-space: normal;
+  font-weight: 700;
 }
 .kr2-strong-level {
   display: inline-flex;
@@ -674,6 +746,16 @@ const CSS = `
 }
 .kr2-strong-stock {
   white-space: normal;
+  text-align: center !important;
+}
+.kr2-strong-stock-th {
+  text-align: center !important;
+}
+.kr2-strong-stock-line {
+  display: block;
+}
+.kr2-strong-stock-line + .kr2-strong-stock-line {
+  margin-top: 2px;
 }
 .kr2-strong-stock-name {
   color: #ffffff;
@@ -711,6 +793,24 @@ const CSS = `
   color: #ff6b6b;
 }
 .kr2-strong-owned.kr2-strong-stock-clear {
+  color: #4fc3f7;
+}
+.kr2-strong-owned-line {
+  display: block;
+}
+.kr2-strong-owned-line + .kr2-strong-owned-line {
+  margin-top: 2px;
+}
+.kr2-strong-owned-line-clear {
+  color: #4fc3f7;
+}
+.kr2-strong-owned-line-short {
+  color: #ff6b6b;
+}
+.kr2-strong-owned-line-missing {
+  color: #abb3bf;
+}
+.kr2-strong-completion-done {
   color: #4fc3f7;
 }
 .kr2-strong-clear-row td {
@@ -894,6 +994,12 @@ const CSS = `
 .kr2-row-not-improveable .kr2-meta {
   color: #abb3bf;
 }
+.kr2-row-clear {
+  background: rgba(79, 195, 247, 0.14);
+}
+.kr2-row-clear:hover {
+  background: rgba(79, 195, 247, 0.2);
+}
 .kr2-reco-empty {
   min-height: 34px;
 }
@@ -984,13 +1090,34 @@ const CSS = `
   font-size: 9px;
   line-height: 1.2;
 }
-.kr2-name {
+.kr2-name-cell {
   flex: 1 1 0;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+}
+.kr2-name {
   font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.kr2-name-completion {
+  font-size: 11px;
+  line-height: 1.2;
+  white-space: nowrap;
+  font-weight: 400;
+}
+.kr2-name-completion-incomplete {
+  color: #ff6b6b;
+}
+.kr2-name-completion-done-active {
+  color: #4fc3f7;
+}
+.kr2-name-completion-clear {
+  color: #4fc3f7;
 }
 .kr2-secretary {
   flex: 1 1 0;
@@ -1271,6 +1398,59 @@ const CSS = `
 .kr2-modal-actions {
   display: flex;
   gap: 8px;
+}
+.kr2-modal-close {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #5f6b7c;
+  border-radius: 4px;
+  background: #2f343c;
+  color: #f6f7f9;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+.kr2-modal-close:hover {
+  background: #383e47;
+  color: #fff;
+}
+.kr2-help-modal {
+  width: 720px;
+}
+.kr2-help-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 14px 16px 18px;
+}
+.kr2-help-lead {
+  margin-bottom: 10px;
+  color: #8abbff;
+  font-size: 14px;
+  font-weight: 800;
+}
+.kr2-help-section + .kr2-help-section {
+  margin-top: 14px;
+}
+.kr2-help-section-title {
+  margin-bottom: 6px;
+  color: #8abbff;
+  font-size: 14px;
+  font-weight: 800;
+}
+.kr2-help-list {
+  margin: 0;
+  padding-left: 20px;
+  color: #d6d9de;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.kr2-help-list li + li {
+  margin-top: 2px;
 }
 .kr2-dev-scroll {
   flex: 1;
@@ -2763,7 +2943,7 @@ function PlanningPage({ rows, inventoryByEquip, useItemCounts, selection, onTogg
   const toggleMatSort = (key) => setMatSort((prev) => prev.key !== key ? { key, dir: "asc" } : prev.dir === "asc" ? { key, dir: "desc" } : { key: "", dir: "asc" })
   const planSortValue = (p, key) => key === "screws" ? p.costs.screws : planDevTotal(p)
   const displayPlanRows = mainSort.key ? planRows.slice().sort((a, b) => numCompare(planSortValue(a, mainSort.key), planSortValue(b, mainSort.key), mainSort.dir) || String(a.row.name).localeCompare(String(b.row.name), "zh-Hans-CN")) : planRows
-  const renderSortButton = (label, key, sortState, onToggle) => React.createElement("th", null, React.createElement("span", null, label), React.createElement("button", { className: "kr2-sort-btn" + (sortState.key === key ? " kr2-sort-active" : ""), onClick: () => onToggle(key) }, React.createElement("span", { className: "kr2-sort-arrow" }, sortState.key !== key ? "↕" : sortState.dir === "asc" ? "▲" : "▼")))
+  const renderSortButton = (label, key, sortState, onToggle) => React.createElement("th", null, React.createElement("button", { className: "kr2-sort-btn" + (sortState.key === key ? " kr2-sort-active" : ""), onClick: () => onToggle(key) }, React.createElement("span", null, label), React.createElement("span", { className: "kr2-sort-arrow" }, sortState.key !== key ? "↕" : sortState.dir === "asc" ? "↑" : "↓")))
   for (const p of selected) {
     totals.screws += p.costs.screws
     totals.dev += p.costs.dev + (includeDev ? p.matDev : 0)
@@ -2923,6 +3103,142 @@ function PlanningPage({ rows, inventoryByEquip, useItemCounts, selection, onTogg
   )
 }
 
+function formatStrongLevel(level) {
+  const n = Number(level)
+  if (n >= 10) return "max"
+  return "+" + String(n)
+}
+
+function buildStrongEntries(rows, inventoryByEquip, selection) {
+  const inventoryLoaded = inventoryByEquip && Object.keys(inventoryByEquip).length > 0
+  const entries = []
+  const demandMap = {}
+  for (const row of rows || []) {
+    const sel = (selection || {})[row.id] || { selected: true, target: "max", qty: 1 }
+    const qty = Math.max(1, Math.min(99, Math.round(Number(sel.qty) || 1)))
+    const evoUpgradeId = sel.evoUpgradeId || null
+    const evoUpgrade = evoUpgradeId ? (row.upgrades || []).find((u) => String(u.upgrade_id) === String(evoUpgradeId)) : null
+    const displayRow = evoUpgrade
+      ? Object.assign({}, row, { id: row.id + ":evo:" + evoUpgrade.upgrade_id, name: evoUpgrade.targetName, category: evoUpgrade.targetCategory || row.category })
+      : row
+    const targetEquipId = evoUpgrade ? String(evoUpgrade.upgrade_id) : row.id
+    const targetLevelValue = evoUpgrade ? 0 : (row.improveable === false ? 0 : (sel.target === "max" ? 10 : 6))
+    const bucket = demandMap[targetEquipId] || (demandMap[targetEquipId] = { equipId: targetEquipId, displayRow, sourceRowIds: [], sourceRowIdsByLevel: {}, demands: {}, evolvedLevels: {} })
+    if (bucket.sourceRowIds.indexOf(row.id) < 0) bucket.sourceRowIds.push(row.id)
+    const levelKey = String(targetLevelValue)
+    const levelSources = bucket.sourceRowIdsByLevel[levelKey] || (bucket.sourceRowIdsByLevel[levelKey] = [])
+    if (levelSources.indexOf(row.id) < 0) levelSources.push(row.id)
+    if (evoUpgrade) bucket.evolvedLevels[String(targetLevelValue)] = true
+    bucket.demands[String(targetLevelValue)] = (bucket.demands[String(targetLevelValue)] || 0) + qty
+  }
+  for (const bucket of Object.values(demandMap)) {
+    const inv = (inventoryByEquip || {})[bucket.equipId]
+    const inventoryLevels = []
+    if (inv && inv.levels) {
+      for (const level of Object.keys(inv.levels)) {
+        const count = Math.max(0, Math.round(Number(inv.levels[level]) || 0))
+        if (count > 0) inventoryLevels.push({ level: Number(level), count })
+      }
+      inventoryLevels.sort((a, b) => b.level - a.level)
+    }
+    const remaining = {}
+    for (const lv of inventoryLevels) remaining[String(lv.level)] = lv.count
+    const targetLevels = Object.keys(bucket.demands).map(Number).sort((a, b) => b - a)
+    const allocation = {}
+    const shortfall = {}
+    for (const tl of targetLevels) {
+      let need = bucket.demands[String(tl)] || 0
+      for (const lv of inventoryLevels) {
+        if (need <= 0) break
+        const avail = remaining[String(lv.level)] || 0
+        if (avail <= 0) continue
+        const take = Math.min(need, avail)
+        const key = String(tl) + "|" + String(lv.level)
+        const alloc = allocation[key] || (allocation[key] = { targetLevelValue: tl, inventoryLevel: lv.level, qty: 0, stock: 0 })
+        alloc.qty += take
+        alloc.stock += take
+        remaining[String(lv.level)] = avail - take
+        need -= take
+      }
+      if (need > 0) shortfall[String(tl)] = need
+    }
+    for (const key of Object.keys(allocation)) {
+      const alloc = allocation[key]
+      entries.push({ key: bucket.equipId + ":" + key, row: bucket.displayRow, sourceRowIds: bucket.sourceRowIdsByLevel[String(alloc.targetLevelValue)] || bucket.sourceRowIds, evolved: !!bucket.evolvedLevels[String(alloc.targetLevelValue)], targetLevel: formatStrongLevel(alloc.targetLevelValue), targetLevelValue: alloc.targetLevelValue, qty: alloc.qty, inventoryLevel: alloc.inventoryLevel, stock: alloc.stock })
+    }
+    for (const tl of Object.keys(shortfall)) {
+      const value = Number(tl)
+      entries.push({ key: bucket.equipId + ":short:" + tl, row: bucket.displayRow, sourceRowIds: bucket.sourceRowIdsByLevel[String(value)] || bucket.sourceRowIds, evolved: !!bucket.evolvedLevels[String(value)], targetLevel: formatStrongLevel(value), targetLevelValue: value, qty: shortfall[tl], inventoryLevel: null, stock: inventoryLoaded ? 0 : null, notFound: true })
+    }
+  }
+  for (const item of entries) {
+    item.clear = item.qty > 0 && item.stock != null && item.inventoryLevel >= item.targetLevelValue && item.stock >= item.qty
+    item.completed = item.clear ? item.qty : 0
+    item.levelShort = item.inventoryLevel != null && item.inventoryLevel < item.targetLevelValue
+    item.countShort = item.stock != null && item.qty > 0 && item.stock < item.qty
+    item.countEnough = item.stock != null && item.stock >= item.qty
+  }
+  const levelRank = (item) => item.inventoryLevel == null ? -1 : item.inventoryLevel
+  entries.sort((a, b) => {
+    const ac = a.clear ? 1 : 0
+    const bc = b.clear ? 1 : 0
+    if (ac !== bc) return bc - ac
+    if (a.clear) return b.qty - a.qty || levelRank(b) - levelRank(a)
+    const sa = a.stock == null ? -1 : a.stock
+    const sb = b.stock == null ? -1 : b.stock
+    return sb - sa || b.qty - a.qty || levelRank(b) - levelRank(a)
+  })
+  return { entries, inventoryLoaded }
+}
+
+function buildStrongGroups(entries) {
+  const groupsByKey = {}
+  for (const item of entries || []) {
+    const key = item.row.id + "|" + String(item.targetLevelValue)
+    const group = groupsByKey[key] || (groupsByKey[key] = {
+      key,
+      row: item.row,
+      targetLevel: item.targetLevel,
+      targetLevelValue: item.targetLevelValue,
+      items: [],
+      sourceRowIds: [],
+      qty: 0,
+      completed: 0,
+      stock: 0,
+      stockLoaded: false,
+      maxInventoryLevel: -1,
+      evolved: false,
+    })
+    group.items.push(item)
+    group.qty += item.qty
+    group.completed += item.completed || 0
+    if (item.stock != null) {
+      group.stock += item.stock
+      group.stockLoaded = true
+    }
+    if (item.inventoryLevel != null) group.maxInventoryLevel = Math.max(group.maxInventoryLevel, item.inventoryLevel)
+    if (item.evolved) group.evolved = true
+    for (const rowId of item.sourceRowIds || []) {
+      if (group.sourceRowIds.indexOf(rowId) < 0) group.sourceRowIds.push(rowId)
+    }
+  }
+  const groups = Object.keys(groupsByKey).map((key) => groupsByKey[key])
+  for (const group of groups) {
+    group.items.sort((a, b) => (b.inventoryLevel == null ? -1 : b.inventoryLevel) - (a.inventoryLevel == null ? -1 : a.inventoryLevel))
+    group.clear = group.qty > 0 && group.completed >= group.qty
+  }
+  groups.sort((a, b) => {
+    const ac = a.clear ? 1 : 0
+    const bc = b.clear ? 1 : 0
+    if (ac !== bc) return bc - ac
+    if (a.clear) return b.qty - a.qty || b.maxInventoryLevel - a.maxInventoryLevel
+    const sa = a.stockLoaded ? a.stock : -1
+    const sb = b.stockLoaded ? b.stock : -1
+    return sb - sa || b.qty - a.qty || b.maxInventoryLevel - a.maxInventoryLevel
+  })
+  return groups
+}
+
 class StrongPage extends React.Component {
   catRef = React.createRef()
   state = {
@@ -2964,94 +3280,26 @@ class StrongPage extends React.Component {
 
   render() {
     const { rows, inventoryByEquip, selection } = this.props
-    const inventoryLoaded = inventoryByEquip && Object.keys(inventoryByEquip).length > 0
-    const entries = []
-    const levelText = (level) => {
-      const n = Number(level)
-      if (n >= 10) return "max"
-      return "+" + String(n)
-    }
-    const demandMap = {}
-    for (const row of rows || []) {
-      const sel = (selection || {})[row.id] || { selected: true, target: "max", qty: 1 }
-      const qty = Math.max(1, Math.min(99, Math.round(Number(sel.qty) || 1)))
-      const evoUpgradeId = sel.evoUpgradeId || null
-      const evoUpgrade = evoUpgradeId ? (row.upgrades || []).find((u) => String(u.upgrade_id) === String(evoUpgradeId)) : null
-      const displayRow = evoUpgrade
-        ? Object.assign({}, row, { id: row.id + ":evo:" + evoUpgrade.upgrade_id, name: evoUpgrade.targetName, category: evoUpgrade.targetCategory || row.category })
-        : row
-      const targetEquipId = evoUpgrade ? String(evoUpgrade.upgrade_id) : row.id
-      const targetLevelValue = evoUpgrade ? 0 : (row.improveable === false ? 0 : (sel.target === "max" ? 10 : 6))
-      const bucket = demandMap[targetEquipId] || (demandMap[targetEquipId] = { equipId: targetEquipId, displayRow, demands: {} })
-      bucket.demands[String(targetLevelValue)] = (bucket.demands[String(targetLevelValue)] || 0) + qty
-    }
-    for (const bucket of Object.values(demandMap)) {
-      const inv = (inventoryByEquip || {})[bucket.equipId]
-      const inventoryLevels = []
-      if (inv && inv.levels) {
-        for (const level of Object.keys(inv.levels)) {
-          const count = Math.max(0, Math.round(Number(inv.levels[level]) || 0))
-          if (count > 0) inventoryLevels.push({ level: Number(level), count })
-        }
-        inventoryLevels.sort((a, b) => b.level - a.level)
-      }
-      const remaining = {}
-      for (const lv of inventoryLevels) remaining[String(lv.level)] = lv.count
-      const targetLevels = Object.keys(bucket.demands).map(Number).sort((a, b) => b - a)
-      const allocation = {}
-      const shortfall = {}
-      for (const tl of targetLevels) {
-        let need = bucket.demands[String(tl)] || 0
-        for (const lv of inventoryLevels) {
-          if (need <= 0) break
-          const avail = remaining[String(lv.level)] || 0
-          if (avail <= 0) continue
-          const take = Math.min(need, avail)
-          const key = String(tl) + "|" + String(lv.level)
-          const alloc = allocation[key] || (allocation[key] = { targetLevelValue: tl, inventoryLevel: lv.level, qty: 0, stock: 0 })
-          alloc.qty += take
-          alloc.stock += take
-          remaining[String(lv.level)] = avail - take
-          need -= take
-        }
-        if (need > 0) shortfall[String(tl)] = need
-      }
-      for (const key of Object.keys(allocation)) {
-        const alloc = allocation[key]
-        entries.push({ key: bucket.equipId + ":" + key, row: bucket.displayRow, targetLevel: levelText(alloc.targetLevelValue), targetLevelValue: alloc.targetLevelValue, qty: alloc.qty, inventoryLevel: alloc.inventoryLevel, stock: alloc.stock })
-      }
-      for (const tl of Object.keys(shortfall)) {
-        const value = Number(tl)
-        entries.push({ key: bucket.equipId + ":short:" + tl, row: bucket.displayRow, targetLevel: levelText(value), targetLevelValue: value, qty: shortfall[tl], inventoryLevel: null, stock: inventoryLoaded ? 0 : null, notFound: true })
-      }
-    }
-    for (const item of entries) {
-      item.clear = item.qty > 0 && item.stock != null && item.inventoryLevel === item.targetLevelValue && item.stock >= item.qty
-      item.levelShort = item.inventoryLevel != null && item.inventoryLevel < item.targetLevelValue
-      item.countShort = item.stock != null && item.qty > 0 && item.stock < item.qty
-      item.countEnough = item.stock != null && item.stock >= item.qty
-    }
-    const levelRank = (item) => item.inventoryLevel == null ? -1 : item.inventoryLevel
-    entries.sort((a, b) => {
-      const ac = a.clear ? 1 : 0
-      const bc = b.clear ? 1 : 0
-      if (ac !== bc) return bc - ac
-      if (a.clear) return b.qty - a.qty || levelRank(b) - levelRank(a)
-      const sa = a.stock == null ? -1 : a.stock
-      const sb = b.stock == null ? -1 : b.stock
-      return sb - sa || b.qty - a.qty || levelRank(b) - levelRank(a)
-    })
-    const categories = Array.from(new Set(entries.map((item) => item.row.category).filter(Boolean))).sort((a, b) => a.localeCompare(b, "zh-Hans-CN"))
+    const { entries } = buildStrongEntries(rows, inventoryByEquip, selection)
+    const groups = buildStrongGroups(entries)
+    const categories = Array.from(new Set(groups.map((group) => group.row.category).filter(Boolean))).sort((a, b) => a.localeCompare(b, "zh-Hans-CN"))
     const selectedCategories = this.state.selectedCategories
-    const visibleEntries = selectedCategories == null ? entries : entries.filter((item) => selectedCategories.indexOf(item.row.category) >= 0)
+    const visibleGroups = selectedCategories == null ? groups : groups.filter((group) => selectedCategories.indexOf(group.row.category) >= 0)
     const stockText = (item) => {
       const nameNode = React.createElement("span", { className: "kr2-strong-stock-name" }, item.row.name)
       if (item.notFound || item.stock == null) return nameNode
-      const levelPart = levelText(item.inventoryLevel)
+      const levelPart = formatStrongLevel(item.inventoryLevel)
       return React.createElement("span", null, nameNode, " ", levelPart)
     }
     const stockClass = (item) => item.notFound || item.stock == null ? "kr2-strong-stock-notfound" : item.clear ? "kr2-strong-stock-clear" : item.levelShort ? "kr2-strong-stock-short" : "kr2-strong-stock-ok"
-    const ownedClass = (item) => item.stock == null ? "kr2-strong-stock-missing" : item.clear || item.countEnough ? "kr2-strong-stock-clear" : item.countShort ? "kr2-strong-stock-short" : "kr2-strong-stock-ok"
+    const groupOwnedClass = (group) => !group.stockLoaded ? "kr2-strong-stock-missing" : group.clear ? "kr2-strong-stock-clear" : "kr2-strong-stock-short"
+    const completionLineClass = (item, group) => "kr2-strong-owned-line " + (item.stock == null ? "kr2-strong-owned-line-missing" : group.qty > 0 && (item.completed || 0) >= group.qty ? "kr2-strong-owned-line-clear" : "kr2-strong-owned-line-short")
+    const completionLineText = (item, group) => {
+      if (item.stock == null) return "--"
+      const completed = item.completed || 0
+      if (group.qty > 0 && completed >= group.qty) return String(completed)
+      return completed > 0 ? React.createElement("span", { className: "kr2-strong-completion-done" }, String(completed)) : String(completed)
+    }
     const catStyle = this.state.catPos ? { position: "fixed", top: this.state.catPos.top, left: this.state.catPos.left, minWidth: Math.max(180, this.state.catPos.width) } : null
     const categoryHead = React.createElement(
       "th",
@@ -3082,22 +3330,28 @@ class StrongPage extends React.Component {
         React.createElement(
           "thead",
           null,
-          React.createElement("tr", null, categoryHead, React.createElement("th", null, "目标装备"), React.createElement("th", null, "目标数"), React.createElement("th", null, "库存"), React.createElement("th", null, "完成数"))
+          React.createElement("tr", null, categoryHead, React.createElement("th", null, "目标装备"), React.createElement("th", { className: "kr2-strong-stock-th" }, "库存装备"), React.createElement("th", null, "完成数"), React.createElement("th", null, "目标数"))
         ),
         React.createElement(
           "tbody",
           null,
-          visibleEntries.length === 0
+          visibleGroups.length === 0
             ? React.createElement("tr", null, React.createElement("td", { colSpan: 5 }, "无匹配分类"))
-            : visibleEntries.map((item) =>
+            : visibleGroups.map((group) =>
                 React.createElement(
                   "tr",
-                  { key: item.key, className: item.clear ? "kr2-strong-clear-row" : null },
-                  React.createElement("td", { className: "kr2-strong-cat" }, item.row.category || "-"),
-                  React.createElement("td", { className: "kr2-strong-equip" }, item.row.name, " ", React.createElement("span", { className: "kr2-strong-level" }, item.targetLevel)),
-                  React.createElement("td", { className: "kr2-strong-target" }, String(item.qty)),
-                  React.createElement("td", { className: "kr2-strong-stock " + stockClass(item) }, stockText(item)),
-                  React.createElement("td", { className: "kr2-strong-owned " + ownedClass(item) }, item.stock == null ? "--" : item.clear ? "clear!" : String(item.stock))
+                  { key: group.key, className: group.clear ? "kr2-strong-clear-row" : null },
+                  React.createElement("td", { className: "kr2-strong-cat" }, group.row.category || "-"),
+                  React.createElement(
+                    "td",
+                    { className: "kr2-strong-equip" },
+                    group.row.name + (group.evolved ? "（进化）" : ""),
+                    !group.evolved && group.row.improveable !== false ? " " : null,
+                    !group.evolved && group.row.improveable !== false ? React.createElement("span", { className: "kr2-strong-level" }, group.targetLevel) : null
+                  ),
+                  React.createElement("td", { className: "kr2-strong-stock" }, group.items.map((item) => React.createElement("div", { key: item.key, className: "kr2-strong-stock-line " + stockClass(item), "data-level": item.inventoryLevel == null ? "" : String(item.inventoryLevel) }, stockText(item)))),
+                  React.createElement("td", { className: "kr2-strong-owned " + groupOwnedClass(group), "data-completed": String(group.completed || 0), "data-stock": group.stockLoaded ? String(group.stock) : "", "data-level": String(group.maxInventoryLevel) }, group.items.map((item) => React.createElement("div", { key: item.key, className: completionLineClass(item, group), "data-level": item.inventoryLevel == null ? "" : String(item.inventoryLevel) }, completionLineText(item, group)))),
+                  React.createElement("td", { className: "kr2-strong-target", "data-target": String(group.qty) }, String(group.qty))
                 )
               )
         )
@@ -3321,13 +3575,14 @@ class LevelSection extends React.Component {
   }
 }
 
-function EquipmentRow({ row, expanded, onToggle, onMaterialClick, inventoryByEquip, useItemCounts, onInventoryClick, isFavorite, onFavoriteClick, secretaryText, kcDevData }) {
+function EquipmentRow({ row, expanded, onToggle, onMaterialClick, inventoryByEquip, useItemCounts, onInventoryClick, isFavorite, onFavoriteClick, secretaryText, kcDevData, completion }) {
+  const clear = !!(completion && completion.target > 0 && completion.completed >= completion.target)
   return React.createElement(
     "div",
     null,
     React.createElement(
       "div",
-      { className: "kr2-row" + (row.improveable === false ? " kr2-row-not-improveable" : ""), onClick: row.improveable === false ? null : onToggle },
+      { className: "kr2-row" + (row.improveable === false ? " kr2-row-not-improveable" : "") + (clear ? " kr2-row-clear" : ""), onClick: row.improveable === false ? null : onToggle },
       React.createElement(
         "button",
         { className: "kr2-fav-btn" + (isFavorite ? " kr2-fav-active" : ""), onClick: (e) => { e.stopPropagation(); onFavoriteClick && onFavoriteClick(row.id) }, title: isFavorite ? "取消收藏" : "收藏" },
@@ -3339,7 +3594,24 @@ function EquipmentRow({ row, expanded, onToggle, onMaterialClick, inventoryByEqu
         React.createElement(SlotitemIcon, { slotitemId: row.icon, className: "kr2-icon" }),
         React.createElement("span", { className: "kr2-arrow" }, row.improveable === false ? "" : expanded ? "▼" : "▶")
       ),
-      React.createElement("span", { className: "kr2-name" }, row.name),
+      React.createElement(
+        "span",
+        { className: "kr2-name-cell" },
+        React.createElement("span", { className: "kr2-name" }, row.name),
+        completion
+          ? clear
+            ? React.createElement("span", { className: "kr2-name-completion kr2-name-completion-clear" }, "（", String(completion.completed), "/", String(completion.target), "）clear!")
+            : React.createElement(
+                "span",
+                { className: "kr2-name-completion kr2-name-completion-incomplete" },
+                "完成数（",
+                React.createElement("span", { className: "kr2-name-completion-done" + (completion.completed > 0 ? " kr2-name-completion-done-active" : "") }, String(completion.completed)),
+                "/",
+                String(completion.target),
+                "）"
+              )
+          : null
+      ),
       React.createElement("span", { className: "kr2-secretary" }, row.improveable === false ? "" : (secretaryText || "-")),
       React.createElement(
         "span",
@@ -3610,6 +3882,88 @@ function savePlanIncludeDev(value) {
   } catch (_) {}
 }
 
+function HelpModal({ onClose, updateNotes }) {
+  const sections = []
+  if (updateNotes && updateNotes.length) sections.push({ title: PLUGIN_VERSION + "更新", items: updateNotes })
+  sections.push(
+    {
+      title: "1.改修列表",
+      items: [
+        "显示每日改修装备，打开插件时默认自动跳转到当前星期数；",
+        "装备行上最右侧为改修推荐星级，数据参考nga梦美改修2.0贴（插件版头有网站链接），点击表头可以按照星级排序；",
+        "点击对应装备行可展开详细改修数据，默认只展开6-10级的改修（也可手动点开查看），最右侧确保推荐是按照螺丝期望自动计算的，未考虑稀有素材和紫菜的消耗情况（请注意甄别）；",
+        "点击装备行最左侧的星星可以收藏该装备，点亮插件右上角的收藏按钮会隐藏其他未收藏的装备；",
+        "点击确保推荐列中的“推荐确保”/“不确保”按钮会显示消耗素材情况以及库存素材数量（默认不统计带有星级的素材），点击素材会弹出装备开发配方列表，点击库存可查看已拥有的素材详情（主要是查看星级）；",
+      ],
+    },
+    {
+      title: "2.素材计算",
+      items: [
+        "只有在改修列表中点击收藏的装备才会显示在该页中；",
+        "为了让插件看起来更加简洁，改修目标只设置了+6、max和进化三个选项，输入目标数量后，插件会自动计算所需的素材汇总情况；",
+        "勾选“统计素材开发的紫菜消耗期望”会计算当所有改修素材均来自开发时所预计消耗的紫菜数量（图一乐功能）；",
+        "可对开发资材、螺丝以及素材汇总中的需求、库存和紫菜开发期望进行排序；",
+      ],
+    },
+    {
+      title: "3.我变强了！",
+      items: [
+        "所有收藏的装备均会在该页中显示（无论在素材计算页中是否勾选），插件会自动计算目标装备与库存装备的星级、数量差异，并默认倒序排列；",
+        "已完成的装备会自动置顶并显示clear！；",
+        "计划的完成情况会同步显示在改修列表页的装备行上；",
+        "注意在素材计算页选择“进化”的装备会和进化后的同名装备分开计算，用来锚定阶段性目标。",
+      ],
+    },
+    {
+      title: "其他常规功能",
+      items: [
+        "模糊搜索，搜索栏支持输入简体中文；",
+        "可在插件版头按照装备大类进行筛选；",
+        "插件也加入了不可改修装备，同样可以收藏，并正常显示在我变强了页中。",
+      ],
+    },
+  )
+  const updateSection = sections[0] && sections[0].title === PLUGIN_VERSION + "更新" ? sections[0] : null
+  const guideSections = updateSection ? sections.slice(1) : sections
+  const renderSection = (section, key) =>
+    React.createElement(
+      "section",
+      { key, className: "kr2-help-section" },
+      React.createElement("div", { className: "kr2-help-section-title" }, section.title),
+      React.createElement(
+        "ul",
+        { className: "kr2-help-list" },
+        section.items.map((text, itemIndex) => React.createElement("li", { key: itemIndex }, text))
+      )
+    )
+  return React.createElement(
+    "div",
+    { className: "kr2-modal-backdrop", onClick: onClose },
+    React.createElement(
+      "div",
+      { className: "kr2-modal kr2-help-modal", role: "dialog", "aria-modal": "true", "aria-label": "使用说明", onClick: (e) => e.stopPropagation() },
+      React.createElement(
+        "div",
+        { className: "kr2-modal-head" },
+        React.createElement(
+          "div",
+          null,
+          React.createElement("div", { className: "kr2-modal-title" }, "使用说明"),
+          React.createElement("div", { className: "kr2-modal-sub" }, "螺丝计算器 v" + PLUGIN_VERSION)
+        ),
+        React.createElement("button", { type: "button", className: "kr2-modal-close", onClick: onClose, title: "关闭", "aria-label": "关闭使用说明" }, "×")
+      ),
+      React.createElement(
+        "div",
+        { className: "kr2-help-body" },
+        updateSection ? renderSection(updateSection, "update") : null,
+        React.createElement("div", { className: "kr2-help-lead" }, "功能主页"),
+        guideSections.map((section, index) => renderSection(section, index))
+      )
+    )
+  )
+}
+
 class KoushuRateApp extends React.Component {
   state = {
     query: "",
@@ -3637,9 +3991,18 @@ class KoushuRateApp extends React.Component {
     nonImproveableOpen: false,
     planSelection: readPlanSelection(),
     includeDevExpected: readPlanIncludeDev(),
+    helpOpen: false,
   }
 
   componentDidMount() {
+    const uiState = readUiState()
+    const legacyVersion = uiState.helpVersion ? String(uiState.helpVersion).split(".").slice(0, 3).join(".") : ""
+    const seenVersion = String(uiState.pluginVersion || legacyVersion || "").trim()
+    const firstInstall = !seenVersion
+    const isUpdate = !!seenVersion && seenVersion !== PLUGIN_VERSION
+    if (firstInstall || isUpdate) {
+      this.setState({ helpOpen: true })
+    }
     this.refresh()
     this.checkAkashiUpdate(false)
     refreshKcDevData().catch(() => {})
@@ -3650,6 +4013,15 @@ class KoushuRateApp extends React.Component {
 
   componentWillUnmount() {
     if (this.inventoryTimer) clearInterval(this.inventoryTimer)
+  }
+
+  openHelp = () => {
+    this.setState({ helpOpen: true })
+  }
+
+  closeHelp = () => {
+    saveUiState({ helpVersion: HELP_VERSION, pluginVersion: PLUGIN_VERSION })
+    this.setState({ helpOpen: false })
   }
 
   loadKcDevExpectations = () => {
@@ -3900,6 +4272,7 @@ class KoushuRateApp extends React.Component {
     })
     const kcDevPopup = this.state.kcDevPopup
     const inventoryPopup = this.state.inventoryPopup
+    const helpOpen = this.state.helpOpen
     const kcDevSort = (kcDevPopup && kcDevPopup.sort) || { key: "rate", dir: "desc" }
     const kcDevFormulas = kcDevPopup && Array.isArray(kcDevPopup.formulas) ? kcDevPopup.formulas.slice() : []
     if (kcDevSort.key === "rate" || kcDevSort.key === "failRate") {
@@ -3911,6 +4284,17 @@ class KoushuRateApp extends React.Component {
     const inventoryByEquip = this.state.inventoryByEquip || {}
     const useItemCounts = this.state.useItemCounts || {}
     const favoritesOnly = !!this.state.favoritesOnly
+    const planSelection = this.state.planSelection || {}
+    const favoriteRows = this.state.rows.filter((row) => !!this.state.favorites[row.id])
+    const strongSummary = {}
+    for (const item of buildStrongEntries(favoriteRows, inventoryByEquip, planSelection).entries) {
+      const rowIds = item.sourceRowIds && item.sourceRowIds.length ? item.sourceRowIds : [item.row.id]
+      for (const rowId of rowIds) {
+        const summary = strongSummary[rowId] || (strongSummary[rowId] = { completed: 0, target: 0 })
+        summary.completed += item.completed || 0
+        summary.target += item.qty
+      }
+    }
     let rows = this.state.rows.filter((row) => {
       if (favoritesOnly && !this.state.favorites[row.id]) return false
       if (row.improveable !== false && day !== ALL_DAYS_KEY && (row.days || []).indexOf(day) < 0) return false
@@ -3952,6 +4336,7 @@ class KoushuRateApp extends React.Component {
         onFavoriteClick: this.toggleFavorite,
         secretaryText: secretaryText(row.secretaries, day),
         kcDevData: this.state.kcDevData,
+        completion: strongSummary[row.id],
       })
 
     return React.createElement(
@@ -3968,7 +4353,12 @@ class KoushuRateApp extends React.Component {
           React.createElement(
             "div",
             null,
-            React.createElement("div", { className: "kr2-title" }, "螺丝计算器"),
+            React.createElement(
+              "div",
+              { className: "kr2-title-line" },
+              React.createElement("div", { className: "kr2-title" }, "螺丝计算器"),
+              React.createElement("button", { type: "button", className: "kr2-help-btn", onClick: this.openHelp }, "使用说明")
+            ),
             React.createElement(
               "div",
               { className: "kr2-title-note" },
@@ -4093,7 +4483,7 @@ class KoushuRateApp extends React.Component {
             "button",
       { className: "kr2-sort-btn" + (this.state.starSort ? " kr2-sort-active" : ""), onClick: this.toggleStarSort, title: "按推荐星级排序（推荐星级优先，活动强度次之）" },
             "推荐星级/素材消耗",
-            React.createElement("span", { className: "kr2-sort-arrow" }, this.state.starSort === "desc" ? "▼" : this.state.starSort === "asc" ? "▲" : "↕")
+            React.createElement("span", { className: "kr2-sort-arrow" }, this.state.starSort === "desc" ? "↓" : this.state.starSort === "asc" ? "↑" : "↕")
           )
         )
       ),
@@ -4138,7 +4528,7 @@ class KoushuRateApp extends React.Component {
             rows: this.state.rows.filter((row) => !!this.state.favorites[row.id]),
             inventoryByEquip,
             useItemCounts,
-            selection: this.state.planSelection || {},
+            selection: planSelection,
             onToggle: this.togglePlanRow,
             onTarget: this.setPlanTarget,
             onEvo: this.setPlanEvo,
@@ -4154,8 +4544,11 @@ class KoushuRateApp extends React.Component {
         ? React.createElement(StrongPage, {
             rows: this.state.rows.filter((row) => !!this.state.favorites[row.id]),
             inventoryByEquip,
-            selection: this.state.planSelection || {},
+            selection: planSelection,
           })
+        : null,
+      helpOpen
+        ? React.createElement(HelpModal, { onClose: this.closeHelp, updateNotes: CURRENT_HELP_UPDATE_NOTES })
         : null,
       kcDevPopup
         ? React.createElement(
@@ -4216,7 +4609,7 @@ class KoushuRateApp extends React.Component {
                                   "button",
                                   { className: "kr2-sort-btn" + (kcDevSort.key === "rate" ? " kr2-sort-active" : ""), onClick: () => this.setKcDevSort("rate") },
                                   "出货率",
-                                  React.createElement("span", { className: "kr2-sort-arrow" }, kcDevSort.key === "rate" ? (kcDevSort.dir === "desc" ? "▼" : "▲") : "↕")
+                                  React.createElement("span", { className: "kr2-sort-arrow" }, kcDevSort.key === "rate" ? (kcDevSort.dir === "desc" ? "↓" : "↑") : "↕")
                                 )
                               ),
                               React.createElement(
@@ -4226,7 +4619,7 @@ class KoushuRateApp extends React.Component {
                                   "button",
                                   { className: "kr2-sort-btn" + (kcDevSort.key === "failRate" ? " kr2-sort-active" : ""), onClick: () => this.setKcDevSort("failRate") },
                                   "失败率",
-                                  React.createElement("span", { className: "kr2-sort-arrow" }, kcDevSort.key === "failRate" ? (kcDevSort.dir === "desc" ? "▼" : "▲") : "↕")
+                                  React.createElement("span", { className: "kr2-sort-arrow" }, kcDevSort.key === "failRate" ? (kcDevSort.dir === "desc" ? "↓" : "↑") : "↕")
                                 )
                               )
                             )
