@@ -32,6 +32,9 @@ const HELP_UPDATE_NOTES = {
   "2.0.19": [
     "“我变强了”页中，完成数与目标数相等并置顶时，完成数列改为显示 clear!。",
   ],
+  "2.0.20": [
+    "“我变强了”页中，低于目标星级的库存行会在完成数列显示对应库存数量，并以红色提示。",
+  ],
 }
 const CURRENT_HELP_UPDATE_NOTES = HELP_UPDATE_NOTES[PLUGIN_VERSION] || ["本次更新暂无详细说明。"]
 
@@ -3299,6 +3302,9 @@ class StrongPage extends React.Component {
     const completionLineClass = (item, group) => "kr2-strong-owned-line " + (item.stock == null ? "kr2-strong-owned-line-missing" : group.qty > 0 && (item.completed || 0) >= group.qty ? "kr2-strong-owned-line-clear" : "kr2-strong-owned-line-short")
     const completionLineText = (item, group) => {
       if (item.stock == null) return "--"
+      if (item.levelShort) {
+        return React.createElement("span", { className: "kr2-strong-completion-stock" }, String(item.stock))
+      }
       const completed = item.completed || 0
       if (group.qty > 0 && completed >= group.qty) return String(completed)
       return completed > 0 ? React.createElement("span", { className: "kr2-strong-completion-done" }, String(completed)) : String(completed)
@@ -3353,7 +3359,7 @@ class StrongPage extends React.Component {
                     !group.evolved && group.row.improveable !== false ? React.createElement("span", { className: "kr2-strong-level" }, group.targetLevel) : null
                   ),
                   React.createElement("td", { className: "kr2-strong-stock" }, group.items.map((item) => React.createElement("div", { key: item.key, className: "kr2-strong-stock-line " + stockClass(item), "data-level": item.inventoryLevel == null ? "" : String(item.inventoryLevel) }, stockText(item)))),
-                  React.createElement("td", { className: "kr2-strong-owned " + groupOwnedClass(group), "data-completed": String(group.completed || 0), "data-stock": group.stockLoaded ? String(group.stock) : "", "data-level": String(group.maxInventoryLevel) }, group.clear ? "clear!" : group.items.map((item) => React.createElement("div", { key: item.key, className: completionLineClass(item, group), "data-level": item.inventoryLevel == null ? "" : String(item.inventoryLevel) }, completionLineText(item, group)))),
+                  React.createElement("td", { className: "kr2-strong-owned " + groupOwnedClass(group), "data-completed": String(group.completed || 0), "data-stock": group.stockLoaded ? String(group.stock) : "", "data-level": String(group.maxInventoryLevel) }, group.clear ? "clear!" : group.items.map((item) => React.createElement("div", { key: item.key, className: completionLineClass(item, group), "data-level": item.inventoryLevel == null ? "" : String(item.inventoryLevel), "data-count-type": item.levelShort ? "stock" : "completed" }, completionLineText(item, group)))),
                   React.createElement("td", { className: "kr2-strong-target", "data-target": String(group.qty) }, String(group.qty))
                 )
               )

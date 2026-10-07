@@ -240,6 +240,10 @@ function clickFavorite(namePart) {
   if (completionCells.length === 0 || !completionLines.every((line) => /^(--|\d+)$/.test(line.textContent.trim()))) {
     throw new Error("strong completion column should show stacked completion counts");
   }
+  const shortStockLines = completionLines.filter((line) => line.getAttribute("data-count-type") === "stock");
+  if (shortStockLines.length === 0 || shortStockLines.some((line) => !/^\d+$/.test(line.textContent.trim()) || window.getComputedStyle(line).color !== "rgb(255, 107, 107)")) {
+    throw new Error("below-target stock lines should show a red stock quantity in the completion column");
+  }
   for (const cell of completionCells) {
     if (cell.classList.contains("kr2-strong-stock-clear")) {
       if (cell.textContent.trim() !== "clear!") throw new Error("clear completion cell should show clear!")
@@ -251,11 +255,17 @@ function clickFavorite(namePart) {
     const lines = Array.from(cell.querySelectorAll(".kr2-strong-owned-line"))
     if (lines.length === 0) throw new Error("non-clear completion cell should show stacked counts")
     const completedSum = lines.reduce((sum, line) => {
+      if (line.getAttribute("data-count-type") === "stock") return sum
       const text = line.textContent.trim()
       return sum + (text === "--" ? 0 : Number(text))
     }, 0)
-    if (!targetCell || completedSum !== Number(cell.getAttribute("data-completed")) || completedSum > target) {
-      throw new Error("completion counts should sum to the completed total and stay within the target")
+    const displayedStockSum = lines.reduce((sum, line) => {
+      const text = line.textContent.trim()
+      return sum + (text === "--" ? 0 : Number(text))
+    }, 0)
+    const stockTotal = cell.getAttribute("data-stock")
+    if (!targetCell || completedSum !== Number(cell.getAttribute("data-completed")) || completedSum > target || (stockTotal !== "" && displayedStockSum !== Number(stockTotal))) {
+      throw new Error("completion counts should keep completion totals separate from red below-target stock quantities")
     }
     const levels = lines.map((line) => line.getAttribute("data-level")).filter(Boolean).map(Number)
     if (!levels.every((value, index) => index === 0 || value <= levels[index - 1])) {
@@ -643,7 +653,10 @@ function clickFavorite(namePart) {
   const partialStrongLines = partialStrongOwned ? Array.from(partialStrongOwned.querySelectorAll(".kr2-strong-owned-line")) : [];
   const partialStrongDone = partialStrongLines.map((line) => line.querySelector(".kr2-strong-completion-done")).find(Boolean);
   const partialStrongZeroLine = partialStrongLines.find((line) => Number(line.textContent.trim()) === 0);
-  const partialCompletedSum = partialStrongLines.reduce((sum, line) => sum + (line.textContent.trim() === "--" ? 0 : Number(line.textContent.trim())), 0)
+  const partialCompletedSum = partialStrongLines.reduce((sum, line) => {
+    if (line.getAttribute("data-count-type") === "stock") return sum
+    return sum + (line.textContent.trim() === "--" ? 0 : Number(line.textContent.trim()))
+  }, 0)
   if (!partialStrongOwned || !partialStrongTarget || !partialStrongDone || !partialStrongZeroLine || Number(partialStrongTarget.textContent.trim()) !== 99 || partialCompletedSum !== Number(partialStrongOwned.getAttribute("data-completed")) || window.getComputedStyle(partialStrongDone).color !== "rgb(79, 195, 247)" || window.getComputedStyle(partialStrongZeroLine).color !== "rgb(255, 107, 107)") {
     throw new Error("strong page should split completion and target into separate columns");
   }
@@ -655,7 +668,7 @@ function clickFavorite(namePart) {
   await sleep(1500);
   const updateHelp = window.document.querySelector(".kr2-help-modal");
   const firstHelpSection = updateHelp && updateHelp.querySelector(".kr2-help-section-title");
-  if (!updateHelp || !firstHelpSection || firstHelpSection.textContent.trim() !== pluginVersion + "更新" || !updateHelp.textContent.includes("完成数与目标数相等并置顶时")) {
+  if (!updateHelp || !firstHelpSection || firstHelpSection.textContent.trim() !== pluginVersion + "更新" || !updateHelp.textContent.includes("低于目标星级的库存行")) {
     throw new Error("plugin update help should show update notes first");
   }
 
