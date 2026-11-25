@@ -140,6 +140,59 @@ function clickFavorite(namePart) {
   if (!expandedHtml.includes("改修未开放")) {
     throw new Error("non-improveable date column missing");
   }
+  clickRow("12.7cm連装砲B型改二");
+  await sleep(300);
+  const evolTargets = Array.from(window.document.querySelectorAll(".kr2-evol-target")).map((el) => el.textContent.trim());
+  if (!evolTargets.some((t) => t === "12.7cm連装砲C型改二")) {
+    throw new Error("evolution branch missing: 12.7cm連装砲C型改二");
+  }
+  if (!evolTargets.some((t) => t.indexOf("B型改四") >= 0)) {
+    throw new Error("evolution branch missing: 12.7cm連装砲B型改四");
+  }
+  const evolRows = Array.from(window.document.querySelectorAll(".kr2-rate-row")).filter((tr) => tr.querySelector(".kr2-evol-target"));
+  if (evolRows.length < 2) {
+    throw new Error("expected two evolution branches for 12.7cm連装砲B型改二");
+  }
+  const evolMaterialTexts = [];
+  for (const tr of evolRows) {
+    const btn = tr.querySelector(".kr2-rate-btn");
+    if (btn) {
+      btn.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+      await sleep(150);
+    }
+    const cell = tr.querySelector(".kr2-material-col");
+    evolMaterialTexts.push(cell ? cell.textContent.replace(/\s+/g, " ").trim() : "");
+  }
+  if (new Set(evolMaterialTexts).size < 2) {
+    throw new Error("evolution branches should render different material rows");
+  }
+  const improvableNames = Array.from(window.document.querySelectorAll(".kr2-improveable-group .kr2-name")).map((el) =>
+    el.textContent.trim()
+  );
+  const notImprovableNames = Array.from(window.document.querySelectorAll(".kr2-row-not-improveable .kr2-name")).map((el) =>
+    el.textContent.trim()
+  );
+  const expectedImprovable = [
+    "流星改(熟練)",
+    "13.8cm単装砲 Modèle 1927",
+    "PL101(偵察)",
+    "PL101(爆装)",
+    "Ju87C改二(KMX搭載機)",
+    "12.7cm連装砲D型改三",
+    "水雷戦隊 熟練見張員",
+    "零式水上偵察機11型乙改(夜偵)",
+    "55cm三連装魚雷 Modèle 1924",
+    "Bofors 12cm単装両用砲",
+    "天山一二型甲改(空六号電探改装備機)",
+  ];
+  for (const name of expectedImprovable) {
+    if (!improvableNames.includes(name)) {
+      throw new Error("improvable equipment missing from list: " + name);
+    }
+    if (notImprovableNames.includes(name)) {
+      throw new Error("equipment wrongly listed as non-improveable: " + name);
+    }
+  }
   clickRow("46cm三連装砲");
   await sleep(300);
   if (!window.document.querySelector(".kr2-rare-warning")) {
@@ -660,6 +713,51 @@ function clickFavorite(namePart) {
   if (!partialStrongOwned || !partialStrongTarget || !partialStrongDone || !partialStrongZeroLine || Number(partialStrongTarget.textContent.trim()) !== 99 || partialCompletedSum !== Number(partialStrongOwned.getAttribute("data-completed")) || window.getComputedStyle(partialStrongDone).color !== "rgb(79, 195, 247)" || window.getComputedStyle(partialStrongZeroLine).color !== "rgb(255, 107, 107)") {
     throw new Error("strong page should split completion and target into separate columns");
   }
+  const refreshBeforeCompleted = Number(partialStrongOwned.getAttribute("data-completed"));
+  const fakeStore = window.__KR2_FAKE_STORE__;
+  const targetEquipId = fakeStore
+    ? Object.keys(fakeStore.const.$equips).find((key) => fakeStore.const.$equips[key].api_name === nonImpName)
+    : null;
+  if (targetEquipId) {
+    for (let i = 0; i < 3; i += 1) {
+      fakeStore.info.equips.push({ api_id: 9000000 + i, api_slotitem_id: Number(targetEquipId), api_level: 10 });
+    }
+  }
+  const refreshBtn = Array.from(window.document.querySelectorAll(".kr2-button")).find((btn) => btn.textContent.trim() === "刷新");
+  if (!refreshBtn) throw new Error("refresh button missing");
+  refreshBtn.dispatchEvent(new window.MouseEvent("click", { bubbles: true }));
+  await sleep(400);
+  if (!window.document.body.textContent.includes("已刷新")) {
+    throw new Error("refresh button should report its result");
+  }
+  const refreshedRow = Array.from(window.document.querySelectorAll(".kr2-strong-table tbody tr")).find((row) => {
+    const cell = row.querySelector(".kr2-strong-equip");
+    return cell && cell.textContent.trim() === nonImpName;
+  });
+  const refreshedOwned = refreshedRow && refreshedRow.querySelector(".kr2-strong-owned");
+  if (!targetEquipId || !refreshedOwned || Number(refreshedOwned.getAttribute("data-completed")) <= refreshBeforeCompleted) {
+    throw new Error("refresh button should pick up new inventory data");
+  }
+  clickNav("改修列表");
+  await sleep(250);
+  clickRow("Ju87C改二(KMX搭載機)");
+  await sleep(300);
+  if (!window.document.body.textContent.includes("未开放6★以上改修") || !window.document.body.textContent.includes("该装备没有6★以上的改修数据")) {
+    throw new Error("equipment without 6+ data should show a notice instead of an empty table");
+  }
+  clickFavorite("Ju87C改二(KMX搭載機)");
+  await sleep(200);
+  clickNav("我变强了！");
+  await sleep(300);
+  const noStage1Row = Array.from(window.document.querySelectorAll(".kr2-strong-table tbody tr")).find((row) => {
+    const cell = row.querySelector(".kr2-strong-equip");
+    return cell && cell.textContent.trim().indexOf("Ju87C改二") >= 0;
+  });
+  const noStage1EquipText = noStage1Row ? noStage1Row.querySelector(".kr2-strong-equip").textContent.replace(/\s+/g, " ") : "";
+  if (!/\+\s*5/.test(noStage1EquipText) || /\+10|max/.test(noStage1EquipText)) {
+    throw new Error("equipment without 6+ data should target +5 in strong page");
+  }
+
   const updateRoot = window.document.createElement("div");
   updateRoot.id = "root";
   window.document.getElementById("root").replaceWith(updateRoot);

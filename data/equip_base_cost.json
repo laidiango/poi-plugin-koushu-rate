@@ -1638,6 +1638,13 @@
     "consume_bauxite": 220
   },
   {
+    "id": 305,
+    "consume_fuel": 220,
+    "consume_ammo": 300,
+    "consume_steel": 0,
+    "consume_bauxite": 370
+  },
+  {
     "id": 309,
     "consume_fuel": 40,
     "consume_ammo": 60,
@@ -1820,6 +1827,13 @@
     "consume_bauxite": 40
   },
   {
+    "id": 366,
+    "consume_fuel": 30,
+    "consume_ammo": 80,
+    "consume_steel": 100,
+    "consume_bauxite": 50
+  },
+  {
     "id": 367,
     "consume_fuel": 90,
     "consume_ammo": 280,
@@ -1851,6 +1865,13 @@
     "id": 372,
     "consume_fuel": 320,
     "consume_ammo": 400,
+    "consume_steel": 0,
+    "consume_bauxite": 490
+  },
+  {
+    "id": 373,
+    "consume_fuel": 340,
+    "consume_ammo": 440,
     "consume_steel": 0,
     "consume_bauxite": 490
   },
@@ -2014,6 +2035,13 @@
     "consume_ammo": 0,
     "consume_steel": 180,
     "consume_bauxite": 140
+  },
+  {
+    "id": 412,
+    "consume_fuel": 80,
+    "consume_ammo": 80,
+    "consume_steel": 80,
+    "consume_bauxite": 80
   },
   {
     "id": 414,
@@ -2205,11 +2233,25 @@
     "consume_bauxite": 270
   },
   {
+    "id": 466,
+    "consume_fuel": 420,
+    "consume_ammo": 460,
+    "consume_steel": 0,
+    "consume_bauxite": 500
+  },
+  {
     "id": 468,
     "consume_fuel": 200,
     "consume_ammo": 550,
     "consume_steel": 880,
     "consume_bauxite": 200
+  },
+  {
+    "id": 469,
+    "consume_fuel": 220,
+    "consume_ammo": 160,
+    "consume_steel": 0,
+    "consume_bauxite": 390
   },
   {
     "id": 470,
@@ -2601,6 +2643,41 @@
     "consume_fuel": 10,
     "consume_ammo": 40,
     "consume_steel": 30,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 579,
+    "consume_fuel": 10,
+    "consume_ammo": 40,
+    "consume_steel": 70,
+    "consume_bauxite": 10
+  },
+  {
+    "id": 580,
+    "consume_fuel": 60,
+    "consume_ammo": 60,
+    "consume_steel": 80,
+    "consume_bauxite": 30
+  },
+  {
+    "id": 584,
+    "consume_fuel": 20,
+    "consume_ammo": 60,
+    "consume_steel": 120,
+    "consume_bauxite": 60
+  },
+  {
+    "id": 585,
+    "consume_fuel": 30,
+    "consume_ammo": 10,
+    "consume_steel": 0,
+    "consume_bauxite": 20
+  },
+  {
+    "id": 586,
+    "consume_fuel": 30,
+    "consume_ammo": 30,
+    "consume_steel": 0,
     "consume_bauxite": 20
   }
 ]

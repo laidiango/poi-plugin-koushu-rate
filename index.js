@@ -35,6 +35,12 @@ const HELP_UPDATE_NOTES = {
   "2.0.20": [
     "“我变强了”页中，低于目标星级的库存行会在完成数列显示对应库存数量，并以红色提示。",
   ],
+  "2.0.21": [
+    "更新改修数据至最新：新增 11 件可改修装备（如 12.7cm連装砲D型改三、流星改(熟練)、PL101 等），并补上新增的进化分支。",
+    "修复了部分装备素材统计数量偏少、进化分支素材互相混用的问题。",
+    "刷新按钮现在会重新读取库存与开发数据，并提示“已刷新”。",
+    "仅开放 ★0–5 改修的装备（如 Ju87C改二(KMX搭載機)、流星改(熟練) 等）不再显示 6★ 以上的改修数据。",
+  ],
 }
 const CURRENT_HELP_UPDATE_NOTES = HELP_UPDATE_NOTES[PLUGIN_VERSION] || ["本次更新暂无详细说明。"]
 
@@ -2278,7 +2284,10 @@ function loadStaticData() {
       consume_improvement_max: toInt(r.consume_improvement_max),
       route_kind: r.route_kind == null ? null : String(r.route_kind),
       is_deleted: !!r.is_deleted,
-      materials: materialsByStep[String(toInt(r.equipment_id)) + "_max"] || [],
+      materials:
+        materialsByStep[String(toInt(r.equipment_id)) + "_max_" + String(toInt(r.upgrade_id))] ||
+        materialsByStep[String(toInt(r.equipment_id)) + "_max"] ||
+        [],
     })),
     improvementConsumeStep: improvementConsumeStep.map((r) => ({
       equipment_id: toInt(r.equipment_id),
@@ -2725,7 +2734,7 @@ function planInventoryLevels(row, inventoryByEquip) {
 }
 
 function planCopyCosts(row, target, current, upgradeId) {
-  const levels = target === "max" ? PLAN_LEVELS_MAX : PLAN_LEVELS_6
+  const levels = target === "max" || !row.phase1 ? PLAN_LEVELS_MAX : PLAN_LEVELS_6
   const out = { screws: 0, dev: 0, fuel: 0, ammo: 0, steel: 0, bauxite: 0, materials: [] }
   for (const lv of levels) {
     if (lv.from < current) continue
@@ -3052,7 +3061,17 @@ function PlanningPage({ rows, inventoryByEquip, useItemCounts, selection, onTogg
               React.createElement(
                 "div",
                 { className: "kr2-plan-target-group" },
-                React.createElement("button", { type: "button", disabled: p.row.improveable === false, className: "kr2-plan-target-btn" + (!p.evoUpgradeId && p.target !== "max" ? " kr2-plan-target-active" : ""), onClick: () => onTarget(p.row.id, "6") }, "+6"),
+                React.createElement(
+                  "button",
+                  {
+                    type: "button",
+                    disabled: p.row.improveable === false || !p.row.phase1,
+                    title: p.row.phase1 ? null : "该装备没有6★以上的改修数据",
+                    className: "kr2-plan-target-btn" + (!p.evoUpgradeId && p.target !== "max" ? " kr2-plan-target-active" : ""),
+                    onClick: () => onTarget(p.row.id, "6"),
+                  },
+                  "+6"
+                ),
               React.createElement("button", { type: "button", disabled: p.row.improveable === false, className: "kr2-plan-target-btn" + (!p.evoUpgradeId && p.target === "max" ? " kr2-plan-target-active" : ""), onClick: () => onTarget(p.row.id, "max") }, "max"),
                 React.createElement(EvolutionButton, { rowId: p.row.id, branches: p.row.upgrades || [], value: p.evoUpgradeId, onSelect: onEvo })
               )
@@ -3115,6 +3134,10 @@ function formatStrongLevel(level) {
   return "+" + String(n)
 }
 
+function planMaxLevel(row) {
+  return row && row.phase1 ? 10 : 5
+}
+
 function buildStrongEntries(rows, inventoryByEquip, selection) {
   const inventoryLoaded = inventoryByEquip && Object.keys(inventoryByEquip).length > 0
   const entries = []
@@ -3128,7 +3151,7 @@ function buildStrongEntries(rows, inventoryByEquip, selection) {
       ? Object.assign({}, row, { id: row.id + ":evo:" + evoUpgrade.upgrade_id, name: evoUpgrade.targetName, category: evoUpgrade.targetCategory || row.category })
       : row
     const targetEquipId = evoUpgrade ? String(evoUpgrade.upgrade_id) : row.id
-    const targetLevelValue = evoUpgrade ? 0 : (row.improveable === false ? 0 : (sel.target === "max" ? 10 : 6))
+    const targetLevelValue = evoUpgrade ? 0 : (row.improveable === false ? 0 : (sel.target === "max" ? planMaxLevel(row) : (row.phase1 ? 6 : 5)))
     const bucket = demandMap[targetEquipId] || (demandMap[targetEquipId] = { equipId: targetEquipId, displayRow, sourceRowIds: [], sourceRowIdsByLevel: {}, demands: {}, evolvedLevels: {} })
     if (bucket.sourceRowIds.indexOf(row.id) < 0) bucket.sourceRowIds.push(row.id)
     const levelKey = String(targetLevelValue)
@@ -3664,8 +3687,17 @@ function EquipmentRow({ row, expanded, onToggle, onMaterialClick, inventoryByEqu
             { className: "kr2-level" },
             React.createElement(
               LevelSection,
-              { title: "6→max", defaultOpen: true, resourceText: "成功率 95 / 90 / 82 / 77 / 67 / 62 %" },
-              React.createElement(LevelTwoTable, { phase0: row.phase0, phase1: row.phase1, upgrades: row.upgrades, onMaterialClick, inventoryByEquip, useItemCounts, onInventoryClick, kcDevData })
+              {
+                title: "6→max",
+                defaultOpen: true,
+                resourceText:
+                  row.phase1 || (row.upgrades && row.upgrades.length)
+                    ? "成功率 95 / 90 / 82 / 77 / 67 / 62 %"
+                    : "未开放6★以上改修",
+              },
+              row.phase1 || (row.upgrades && row.upgrades.length)
+                ? React.createElement(LevelTwoTable, { phase0: row.phase0, phase1: row.phase1, upgrades: row.upgrades, onMaterialClick, inventoryByEquip, useItemCounts, onInventoryClick, kcDevData })
+                : React.createElement("div", { className: "kr2-empty", style: { padding: 12 } }, "该装备没有6★以上的改修数据")
             )
           )
         )
@@ -4070,6 +4102,13 @@ class KoushuRateApp extends React.Component {
     this.refresh()
   }
 
+  handleRefresh = () => {
+    this.refresh()
+    this.loadKcDevExpectations()
+    this.refreshInventory()
+    this.setState({ akashiStatus: "已刷新" })
+  }
+
   refresh = () => {
     try {
       const staticData = loadStaticData()
@@ -4447,7 +4486,7 @@ class KoushuRateApp extends React.Component {
                 : null
             ),
             React.createElement("button", { className: "kr2-button", onClick: () => this.checkAkashiUpdate(true) }, "更新数据"),
-            React.createElement("button", { className: "kr2-button", onClick: this.refresh }, "刷新"),
+            React.createElement("button", { className: "kr2-button", onClick: this.handleRefresh }, "刷新"),
             this.state.akashiStatus
               ? React.createElement("span", { className: "kr2-status" }, this.state.akashiStatus)
               : null
